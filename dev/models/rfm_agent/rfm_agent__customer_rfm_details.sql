@@ -174,37 +174,8 @@ customer_rfm_details AS (
   
   FROM rfm_segment_with_scores
 
-),
-
-customer_count_by_flag_segment_region AS (
-
-  SELECT 
-    REGION,
-    RFM_SEGMENT,
-    CUSTOMER_FLAG,
-    COUNT(DISTINCT CUSTOMER_ID) AS COUNT_DISTINCT_CUSTOMER_ID
-  
-  FROM customer_rfm_details
-  
-  GROUP BY 
-    REGION, RFM_SEGMENT, CUSTOMER_FLAG
-
-),
-
-customer_percentage_by_flag_segment_region AS (
-
-  SELECT 
-    CUSTOMER_FLAG,
-    RFM_SEGMENT,
-    REGION,
-    COUNT_DISTINCT_CUSTOMER_ID
-    * 100.0
-    / (SUM(COUNT_DISTINCT_CUSTOMER_ID) OVER (PARTITION BY REGION RANGE BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING)) AS PERCENTAGE_OF_CUSTOMERS
-  
-  FROM customer_count_by_flag_segment_region
-
 )
 
 SELECT *
 
-FROM customer_percentage_by_flag_segment_region
+FROM customer_rfm_details
