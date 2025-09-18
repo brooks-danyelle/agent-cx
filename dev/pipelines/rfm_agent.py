@@ -12,3 +12,9 @@ with DAG(Schedule = Schedule, SensorSchedule = SensorSchedule):
         component = "Dataset", 
         table = {"name" : "instore_sales", "sourceType" : "Source", "sourceName" : "itai.retail_analyst", "alias" : ""}
     )
+    crm_customers = Task(
+        task_id = "crm_customers", 
+        component = "Dataset", 
+        writeOptions = {"writeMode" : "overwrite"}, 
+        table = {"name" : "crm_customers", "sourceType" : "Table", "sourceName" : "itai.retail_analyst", "alias" : ""}
+    )

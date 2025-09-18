@@ -43,6 +43,7 @@ sqlMacros:
     author: brooks.danyelle@prophecy.io
     files:
     - macros/prophecy_tmp_source.sql
+    - .prophecy/ide/macros/prophecy_tmp_source.json
     createdAt: '2025-09-18 13:55:36'
   .prophecy/metadata/sqlmacros/segment_flag:
     name: segment_flag
@@ -107,6 +108,32 @@ sqlSources:
       author: brooks.danyelle@prophecy.io
       createdAt: '2025-09-18 14:59:55'
       tableType: table
+    - name: crm_customers
+      schema:
+        entityType: ''
+        providerType: databricks
+        fields:
+        - name: customer_id
+          dataType:
+            type: String
+        - name: signup_date
+          dataType:
+            type: Date
+        - name: email
+          dataType:
+            type: String
+        - name: zip_code
+          dataType:
+            type: Bigint
+        - name: region
+          dataType:
+            type: String
+        - name: preferred_channel
+          dataType:
+            type: String
+      description: null
+      author: brooks.danyelle@prophecy.io
+      createdAt: '2025-09-18 15:13:11'
 sqlUnreferencedSources: {}
 sqlPipeline:
   name: sqlPipeline

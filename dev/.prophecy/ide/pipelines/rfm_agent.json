@@ -86,7 +86,7 @@
       "component" : "Dataset",
       "metadata" : {
         "label" : "instore_sales",
-        "x" : -460,
+        "x" : -480,
         "y" : -120,
         "phase" : 0
       },
@@ -127,6 +127,73 @@
               "name" : "transaction_amount",
               "dataType" : {
                 "type" : "Double"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "onEQ50UBUume6k8fDab-S" : {
+      "id" : "onEQ50UBUume6k8fDab-S",
+      "component" : "Dataset",
+      "metadata" : {
+        "label" : "crm_customers",
+        "x" : -480,
+        "y" : 40,
+        "phase" : 0
+      },
+      "properties" : {
+        "writeOptions" : {
+          "writeMode" : "overwrite"
+        },
+        "table" : {
+          "name" : "crm_customers",
+          "sourceType" : "Table",
+          "sourceName" : "itai.retail_analyst",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "RXl89yzGrh6Y8iNQLajft",
+          "slug" : "in"
+        } ],
+        "outputs" : [ {
+          "id" : "uZl-olrHD4zoUTqjVgBOG",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "signup_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "email",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "zip_code",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "region",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "preferred_channel",
+              "dataType" : {
+                "type" : "String"
               }
             } ]
           },
