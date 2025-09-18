@@ -1,6 +1,6 @@
 ---
 version: 2
 models:
-- name: "rfm_agent__percentage_of_customers_per_flag"
+- name: "rfm_agent__customer_percentage_by_flag_segment_region"
   tags:
   - "prophecy_temp"

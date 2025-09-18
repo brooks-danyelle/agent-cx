@@ -6,11 +6,11 @@
   })
 }}
 
-WITH instore_sales AS (
+WITH crm_customers AS (
 
   SELECT * 
   
-  FROM {{ source('itai.retail_analyst', 'instore_sales') }}
+  FROM {{ source('itai.retail_analyst', 'crm_customers') }}
 
 ),
 
@@ -22,11 +22,11 @@ ecom_orders AS (
 
 ),
 
-crm_customers AS (
+instore_sales AS (
 
   SELECT * 
   
-  FROM {{ source('itai.retail_analyst', 'crm_customers') }}
+  FROM {{ source('itai.retail_analyst', 'instore_sales') }}
 
 ),
 
@@ -176,28 +176,35 @@ customer_rfm_details AS (
 
 ),
 
-customer_flag_count AS (
+customer_count_by_flag_segment_region AS (
 
   SELECT 
+    REGION,
+    RFM_SEGMENT,
     CUSTOMER_FLAG,
-    COUNT(*) AS COUNT
+    COUNT(DISTINCT CUSTOMER_ID) AS COUNT_DISTINCT_CUSTOMER_ID
   
   FROM customer_rfm_details
   
-  GROUP BY CUSTOMER_FLAG
+  GROUP BY 
+    REGION, RFM_SEGMENT, CUSTOMER_FLAG
 
 ),
 
-percentage_of_customers_per_flag AS (
+customer_percentage_by_flag_segment_region AS (
 
   SELECT 
     CUSTOMER_FLAG,
-    COUNT * 100.0 / (SUM(COUNT) OVER (RANGE BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING)) AS PERCENTAGE_OF_CUSTOMERS
+    RFM_SEGMENT,
+    REGION,
+    COUNT_DISTINCT_CUSTOMER_ID
+    * 100.0
+    / (SUM(COUNT_DISTINCT_CUSTOMER_ID) OVER (PARTITION BY REGION RANGE BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING)) AS PERCENTAGE_OF_CUSTOMERS
   
-  FROM customer_flag_count
+  FROM customer_count_by_flag_segment_region
 
 )
 
 SELECT *
 
-FROM percentage_of_customers_per_flag
+FROM customer_percentage_by_flag_segment_region

@@ -170,8 +170,17 @@ sqlOrchestratorPipelines:
     author: brooks.danyelle@prophecy.io
     files:
     - models/rfm_agent/schema.yml
-    - models/rfm_agent/rfm_agent__percentage_of_customers_per_flag.sql
+    - models/rfm_agent/rfm_agent__customer_percentage_by_flag_segment_region.sql
     - .prophecy/ide/pipelines/rfm_agent.json
     - pipelines/rfm_agent.py
     createdAt: '2025-09-18 13:55:36'
+  .prophecy/metadata/sqlorchestratorpipeline/rfm_demo:
+    name: rfm_demo
+    schema: null
+    description: null
+    author: brooks.danyelle@prophecy.io
+    files:
+    - .prophecy/ide/pipelines/rfm_demo.json
+    - pipelines/rfm_demo.py
+    createdAt: '2025-09-18 16:16:45'
 sqlBusinessApps: {}
