@@ -6,19 +6,19 @@
   })
 }}
 
-WITH crm_customers AS (
-
-  SELECT * 
-  
-  FROM {{ source('itai.retail_analyst', 'crm_customers') }}
-
-),
-
-ecom_orders AS (
+WITH ecom_orders AS (
 
   SELECT * 
   
   FROM {{ source('itai.retail_analyst', 'ecom_orders') }}
+
+),
+
+crm_customers AS (
+
+  SELECT * 
+  
+  FROM {{ source('itai.retail_analyst', 'crm_customers') }}
 
 ),
 
@@ -141,70 +141,12 @@ rfm_segment_with_scores AS (
     RECENCY_SCORE,
     FREQUENCY_SCORE,
     MONETARY_SCORE,
-    CONCAT(CAST(RECENCY_SCORE AS STRING), '-', CAST(FREQUENCY_SCORE AS STRING), '-', CAST(MONETARY_SCORE AS STRING)) AS RFM_SEGMENT
+    CONCAT(RECENCY_SCORE, FREQUENCY_SCORE, MONETARY_SCORE) AS RFM_SEGMENT
   
   FROM rfm_scores_assignment
-
-),
-
-customer_rfm_details AS (
-
-  SELECT 
-    ORDER_ID AS ORDER_ID,
-    CUSTOMER_ID AS CUSTOMER_ID,
-    ORDER_DATE AS ORDER_DATE,
-    ORDER_AMOUNT AS ORDER_AMOUNT,
-    TRANSACTION_ID AS TRANSACTION_ID,
-    TRANSACTION_DATE AS TRANSACTION_DATE,
-    TRANSACTION_AMOUNT AS TRANSACTION_AMOUNT,
-    SIGNUP_DATE AS SIGNUP_DATE,
-    EMAIL AS EMAIL,
-    ZIP_CODE AS ZIP_CODE,
-    REGION AS REGION,
-    PREFERRED_CHANNEL AS PREFERRED_CHANNEL,
-    LAST_PURCHASE AS LAST_PURCHASE,
-    RECENCY AS RECENCY,
-    FREQUENCY AS FREQUENCY,
-    MONETARY AS MONETARY,
-    RECENCY_SCORE AS RECENCY_SCORE,
-    FREQUENCY_SCORE AS FREQUENCY_SCORE,
-    MONETARY_SCORE AS MONETARY_SCORE,
-    RFM_SEGMENT AS RFM_SEGMENT,
-    {{ segment_flag() }} AS CUSTOMER_FLAG
-  
-  FROM rfm_segment_with_scores
-
-),
-
-customer_count_by_flag_segment_region AS (
-
-  SELECT 
-    REGION,
-    RFM_SEGMENT,
-    CUSTOMER_FLAG,
-    COUNT(DISTINCT CUSTOMER_ID) AS COUNT_DISTINCT_CUSTOMER_ID
-  
-  FROM customer_rfm_details
-  
-  GROUP BY 
-    REGION, RFM_SEGMENT, CUSTOMER_FLAG
-
-),
-
-customer_percentage_by_flag_segment_region AS (
-
-  SELECT 
-    CUSTOMER_FLAG,
-    RFM_SEGMENT,
-    REGION,
-    COUNT_DISTINCT_CUSTOMER_ID
-    * 100.0
-    / (SUM(COUNT_DISTINCT_CUSTOMER_ID) OVER (PARTITION BY REGION RANGE BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING)) AS PERCENTAGE_OF_CUSTOMERS
-  
-  FROM customer_count_by_flag_segment_region
 
 )
 
 SELECT *
 
-FROM customer_percentage_by_flag_segment_region
+FROM rfm_segment_with_scores
