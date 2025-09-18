@@ -180,8 +180,6 @@ sqlOrchestratorPipelines:
     description: null
     author: brooks.danyelle@prophecy.io
     files:
-    - models/rfm_demo/rfm_demo__customer_order_join.sql
-    - models/rfm_demo/schema.yml
     - .prophecy/ide/pipelines/rfm_demo.json
     - pipelines/rfm_demo.py
     createdAt: '2025-09-18 16:16:45'
