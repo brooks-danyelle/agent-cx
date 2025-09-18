@@ -14,19 +14,19 @@ WITH instore_sales AS (
 
 ),
 
-crm_customers AS (
-
-  SELECT * 
-  
-  FROM {{ source('itai.retail_analyst', 'crm_customers') }}
-
-),
-
 ecom_orders AS (
 
   SELECT * 
   
   FROM {{ source('itai.retail_analyst', 'ecom_orders') }}
+
+),
+
+crm_customers AS (
+
+  SELECT * 
+  
+  FROM {{ source('itai.retail_analyst', 'crm_customers') }}
 
 ),
 
@@ -90,8 +90,35 @@ Reformat_1 AS (
     REGION, 
     PREFERRED_CHANNEL
 
+),
+
+rfm_scores_assignment AS (
+
+  SELECT 
+    ORDER_ID,
+    CUSTOMER_ID,
+    ORDER_DATE,
+    ORDER_AMOUNT,
+    TRANSACTION_ID,
+    TRANSACTION_DATE,
+    TRANSACTION_AMOUNT,
+    SIGNUP_DATE,
+    EMAIL,
+    ZIP_CODE,
+    REGION,
+    PREFERRED_CHANNEL,
+    LAST_PURCHASE,
+    RECENCY,
+    FREQUENCY,
+    MONETARY,
+    NTILE(5) OVER (ORDER BY RECENCY NULLS LAST ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS RECENCY_SCORE,
+    NTILE(5) OVER (ORDER BY FREQUENCY DESC NULLS FIRST ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS FREQUENCY_SCORE,
+    NTILE(5) OVER (ORDER BY MONETARY DESC NULLS FIRST ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS MONETARY_SCORE
+  
+  FROM Reformat_1
+
 )
 
 SELECT *
 
-FROM Reformat_1
+FROM rfm_scores_assignment

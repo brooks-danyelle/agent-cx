@@ -1,6 +1,6 @@
 ---
 version: 2
 models:
-- name: "rfm_agent__Reformat_1"
+- name: "rfm_agent__rfm_scores_assignment"
   tags:
   - "prophecy_temp"

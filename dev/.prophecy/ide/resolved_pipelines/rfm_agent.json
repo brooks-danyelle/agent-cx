@@ -13,34 +13,34 @@
     "isTranspiledPipeline" : false
   },
   "processes" : {
-    "jXY1I2T_e5IaXFboNjMlc$$BrHITTObXnjDT4yRhhaKe" : {
-      "id" : "jXY1I2T_e5IaXFboNjMlc$$BrHITTObXnjDT4yRhhaKe",
+    "rfm_scores_assig##HwiQU8h5" : {
+      "id" : "rfm_scores_assig##HwiQU8h5",
       "component" : "Model",
       "metadata" : {
-        "label" : "rfm_agent__Reformat_1",
+        "label" : "rfm_agent__rfm_scores_assignment",
         "phase" : 0
       },
       "properties" : {
-        "modelName" : "rfm_agent__Reformat_1"
+        "modelName" : "rfm_agent__rfm_scores_assignment"
       },
       "visualMetaInfo" : {
-        "visualProcessIds" : [ "Reformat_1_rYxcs2g-mqlUtzO2TIEfA$$_0usVhJoNgIqNymOek1dz", "jXY1I2T_e5IaXFboNjMlc$$BrHITTObXnjDT4yRhhaKe", "customer_id_join##A2YBKRop", "EmfuuIlm15Qo5CnVtwUJ4$$tIKu-SbUzPTo2mgawmRDv", "instore_sales##I2FonBmn", "crm_customers##bxs9vmMq" ],
+        "visualProcessIds" : [ "rfm_scores_assignment_s0VGB85z", "rfm_scores_assig##HwiQU8h5", "jXY1I2T_e5IaXFboNjMlc$$BrHITTObXnjDT4yRhhaKe", "customer_id_join##Nlqom3tN", "ecom_orders##kGknIVWr", "instore_sales##tQ3lQen7", "crm_customers##n0INJMko" ],
         "type" : "ephemeral",
         "isTemporaryTable" : true
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "rfm_agent__Reformat_1_in_0",
+          "id" : "rfm_agent__rfm_scores_assignment_in_0",
           "slug" : "in_0"
         }, {
-          "id" : "rfm_agent__Reformat_1_in_1",
+          "id" : "rfm_agent__rfm_scores_assignment_in_1",
           "slug" : "in_1"
         }, {
-          "id" : "rfm_agent__Reformat_1_in_2",
+          "id" : "rfm_agent__rfm_scores_assignment_in_2",
           "slug" : "in_2"
         } ],
         "outputs" : [ {
-          "id" : "rfm_agent__Reformat_1_out_0",
+          "id" : "rfm_agent__rfm_scores_assignment_out_0",
           "slug" : "out_0"
         } ],
         "isCustomOutputSchema" : false

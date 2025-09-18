@@ -170,7 +170,7 @@ sqlOrchestratorPipelines:
     author: brooks.danyelle@prophecy.io
     files:
     - models/rfm_agent/schema.yml
-    - models/rfm_agent/rfm_agent__Reformat_1.sql
+    - models/rfm_agent/rfm_agent__rfm_scores_assignment.sql
     - .prophecy/ide/pipelines/rfm_agent.json
     - pipelines/rfm_agent.py
     createdAt: '2025-09-18 13:55:36'
