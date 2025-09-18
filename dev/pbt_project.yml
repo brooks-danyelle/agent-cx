@@ -1,0 +1,148 @@
+name: CustomerSegmentationDemo
+description: ''
+version: 0.0.1
+author: brooks.danyelle@prophecy.io
+language: sql
+buildSystem: ''
+buildSystemDetails: null
+pipelines: {}
+datasets: {}
+templates: {}
+jobs: {}
+gemContainer:
+  languageVersion: ''
+  gemLibsVersion: ''
+  gems: {}
+  dependencies: null
+functions:
+  author: null
+  createdAt: '2025-09-18 13:54:23'
+  udfs: {}
+  udafs: {}
+  expressions: {}
+  airflowFunctions: {}
+  businessRules: {}
+subgraphs: {}
+sqlModels: {}
+sqlSnapshots: {}
+sqlTests: {}
+sqlMacros:
+  .prophecy/metadata/sqlmacros/generate_schema_name:
+    name: generate_schema_name
+    macroType: expression
+    description: null
+    author: brooks.danyelle@prophecy.io
+    files:
+    - macros/generate_schema_name.sql
+    - .prophecy/ide/macros/generate_schema_name.json
+    createdAt: '2025-09-18 13:54:26'
+  .prophecy/metadata/sqlmacros/prophecy_tmp_source:
+    name: prophecy_tmp_source
+    macroType: expression
+    description: null
+    author: brooks.danyelle@prophecy.io
+    files:
+    - macros/prophecy_tmp_source.sql
+    createdAt: '2025-09-18 13:55:36'
+  .prophecy/metadata/sqlmacros/segment_flag:
+    name: segment_flag
+    macroType: expression
+    description: this is a macro to use when assigning description to customers based
+      on spending
+    author: brooks.danyelle@prophecy.io
+    files:
+    - macros/segment_flag.sql
+    - .prophecy/ide/macros/segment_flag.json
+    - macros/macros.yml
+    createdAt: '2025-09-18 13:58:03'
+sqlSeeds: {}
+sqlSources:
+  .prophecy/metadata/sqlsources/itai_retail_analyst:
+    name: itai.retail_analyst
+    description: null
+    author: brooks.danyelle@prophecy.io
+    files:
+    - prophecy-sources/sources.yml
+    createdAt: '2025-09-18 14:59:36'
+    tables:
+    - name: ecom_orders
+      schema:
+        entityType: ''
+        providerType: databricks
+        fields:
+        - name: order_id
+          dataType:
+            type: String
+        - name: customer_id
+          dataType:
+            type: String
+        - name: order_date
+          dataType:
+            type: Date
+        - name: order_amount
+          dataType:
+            type: Double
+      description: null
+      author: brooks.danyelle@prophecy.io
+      createdAt: '2025-09-18 14:59:36'
+      tableType: table
+    - name: instore_sales
+      schema:
+        entityType: ''
+        providerType: databricks
+        fields:
+        - name: transaction_id
+          dataType:
+            type: String
+        - name: customer_id
+          dataType:
+            type: String
+        - name: transaction_date
+          dataType:
+            type: Date
+        - name: transaction_amount
+          dataType:
+            type: Double
+      description: null
+      author: brooks.danyelle@prophecy.io
+      createdAt: '2025-09-18 14:59:55'
+      tableType: table
+sqlUnreferencedSources: {}
+sqlPipeline:
+  name: sqlPipeline
+  description: null
+  author: brooks.danyelle@prophecy.io
+  createdAt: '2025-09-18 13:54:23'
+dependencies: []
+projectDependencies:
+  '47593':
+    projectUID: 47593
+    projectName: ProphecyDatabricksSqlSpatial
+    repositoryPath: gitUri=https://github.com/prophecy-io/databricks-sql-spatial&subPath=
+    version: 0.0.4
+    isDefault: false
+    author: null
+    createdAt: '2025-09-18 13:53:41'
+  '45117':
+    projectUID: 45117
+    projectName: ProphecyDatabricksSqlBasics
+    repositoryPath: gitUri=https://github.com/prophecy-io/databricks-sql-basics&subPath=
+    version: 0.0.12
+    isDefault: true
+    author: null
+    createdAt: '2025-09-18 13:53:41'
+flags:
+  shouldAddDefaultDependenciesIfAbsent: false
+pipelineConfigurations: {}
+projectConfigurations: {}
+sqlOrchestratorPipelines:
+  .prophecy/metadata/sqlorchestratorpipeline/rfm_agent:
+    name: rfm_agent
+    schema: null
+    description: null
+    author: brooks.danyelle@prophecy.io
+    files:
+    - .prophecy/ide/pipelines/rfm_agent.json
+    - pipelines/rfm_agent.py
+    createdAt: '2025-09-18 13:55:36'
+sqlBusinessApps: {}

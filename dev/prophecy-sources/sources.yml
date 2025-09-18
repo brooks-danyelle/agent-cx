@@ -1,0 +1,37 @@
+---
+version: 2
+sources:
+- name: "itai.retail_analyst"
+  database: "itai"
+  schema: "retail_analyst"
+  tables:
+  - name: "ecom_orders"
+    columns:
+    - name: "order_id"
+      dataType:
+        type: "String"
+    - name: "customer_id"
+      dataType:
+        type: "String"
+    - name: "order_date"
+      dataType:
+        type: "Date"
+    - name: "order_amount"
+      dataType:
+        type: "Double"
+    type: "table"
+  - name: "instore_sales"
+    columns:
+    - name: "transaction_id"
+      dataType:
+        type: "String"
+    - name: "customer_id"
+      dataType:
+        type: "String"
+    - name: "transaction_date"
+      dataType:
+        type: "Date"
+    - name: "transaction_amount"
+      dataType:
+        type: "Double"
+    type: "table"

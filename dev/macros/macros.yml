@@ -1,0 +1,8 @@
+---
+version: 2
+macros:
+- name: "segment_flag"
+  description: "this is a macro to use when assigning description to customers based\
+    \ on spending"
+  arguments: []
+  macroType: "expression"
