@@ -13,34 +13,34 @@
     "isTranspiledPipeline" : false
   },
   "processes" : {
-    "MfixzSmT3GRXmifa5dzQf$$xowNisGkIcjYG6AKBZLfH" : {
-      "id" : "MfixzSmT3GRXmifa5dzQf$$xowNisGkIcjYG6AKBZLfH",
+    "customer_percent##KznSvtdp" : {
+      "id" : "customer_percent##KznSvtdp",
       "component" : "Model",
       "metadata" : {
-        "label" : "rfm_agent__customer_rfm_details",
+        "label" : "rfm_agent__customer_percentage_by_flag_segment_region",
         "phase" : 0
       },
       "properties" : {
-        "modelName" : "rfm_agent__customer_rfm_details"
+        "modelName" : "rfm_agent__customer_percentage_by_flag_segment_region"
       },
       "visualMetaInfo" : {
-        "visualProcessIds" : [ "customer_rfm_details_O5W8Yu61V6Ru-G-wYg4Tx$$KELF2-T-reqSAOcX1gU31", "MfixzSmT3GRXmifa5dzQf$$xowNisGkIcjYG6AKBZLfH", "rfm_segment_with##YpD9hven", "rfm_scores_assig##HwiQU8h5", "Reformat_1##byrt1lGC", "customer_id_join##qDf9dyKJ", "ecom_orders##LDREOPlN", "instore_sales##fBgVXNCh", "crm_customers##gQw6PGuc" ],
+        "visualProcessIds" : [ "customer_percentage_by_flag_segment_region_zH4lFEZM", "customer_percent##KznSvtdp", "customer_count_b##c6tFAoTF", "MfixzSmT3GRXmifa5dzQf$$xowNisGkIcjYG6AKBZLfH", "rfm_segment_with##aW7GTgfa", "rfm_scores_assig##oTCYlDzB", "Reformat_1##CezFDLlo", "customer_id_join##jYdz4lnf", "ecom_orders##ZiaYTbu2", "instore_sales##Dr1eZPkD", "crm_customers##yVP7umPF" ],
         "type" : "ephemeral",
         "isTemporaryTable" : true
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "rfm_agent__customer_rfm_details_in_0",
+          "id" : "rfm_agent__customer_percentage_by_flag_segment_region_in_0",
           "slug" : "in_0"
         }, {
-          "id" : "rfm_agent__customer_rfm_details_in_1",
+          "id" : "rfm_agent__customer_percentage_by_flag_segment_region_in_1",
           "slug" : "in_1"
         }, {
-          "id" : "rfm_agent__customer_rfm_details_in_2",
+          "id" : "rfm_agent__customer_percentage_by_flag_segment_region_in_2",
           "slug" : "in_2"
         } ],
         "outputs" : [ {
-          "id" : "rfm_agent__customer_rfm_details_out_0",
+          "id" : "rfm_agent__customer_percentage_by_flag_segment_region_out_0",
           "slug" : "out_0"
         } ],
         "isCustomOutputSchema" : false
