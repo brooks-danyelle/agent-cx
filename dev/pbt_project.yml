@@ -169,8 +169,8 @@ sqlOrchestratorPipelines:
     description: null
     author: brooks.danyelle@prophecy.io
     files:
-    - models/rfm_agent/rfm_agent__customer_id_join.sql
     - models/rfm_agent/schema.yml
+    - models/rfm_agent/rfm_agent__Reformat_1.sql
     - .prophecy/ide/pipelines/rfm_agent.json
     - pipelines/rfm_agent.py
     createdAt: '2025-09-18 13:55:36'

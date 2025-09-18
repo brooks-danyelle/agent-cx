@@ -1,6 +1,6 @@
 ---
 version: 2
 models:
-- name: "rfm_agent__customer_id_join"
+- name: "rfm_agent__Reformat_1"
   tags:
   - "prophecy_temp"
