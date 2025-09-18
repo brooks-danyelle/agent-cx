@@ -13,34 +13,34 @@
     "isTranspiledPipeline" : false
   },
   "processes" : {
-    "rfm_segment_with##YpD9hven" : {
-      "id" : "rfm_segment_with##YpD9hven",
+    "customer_percent##PTd7QkAT" : {
+      "id" : "customer_percent##PTd7QkAT",
       "component" : "Model",
       "metadata" : {
-        "label" : "rfm_agent__rfm_segment_with_scores",
+        "label" : "rfm_agent__customer_percentage_and_flag",
         "phase" : 0
       },
       "properties" : {
-        "modelName" : "rfm_agent__rfm_segment_with_scores"
+        "modelName" : "rfm_agent__customer_percentage_and_flag"
       },
       "visualMetaInfo" : {
-        "visualProcessIds" : [ "rfm_segment_with_scores_MzPUmtWB", "rfm_segment_with##YpD9hven", "rfm_scores_assig##HwiQU8h5", "Reformat_1##byrt1lGC", "customer_id_join##qDf9dyKJ", "ecom_orders##LDREOPlN", "instore_sales##fBgVXNCh", "crm_customers##gQw6PGuc" ],
+        "visualProcessIds" : [ "customer_percentage_and_flag_WseIHTsx", "customer_percent##PTd7QkAT", "distinct_custome##x4eHxVE4", "rfm_segment_with##YpD9hven", "rfm_scores_assig##X5xptPP9", "Reformat_1##UlfnuNIo", "customer_id_join##g6P4f8By", "ecom_orders##YksX1VE0", "instore_sales##KYrjxcgF", "crm_customers##BgsotQGT" ],
         "type" : "ephemeral",
         "isTemporaryTable" : true
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "rfm_agent__rfm_segment_with_scores_in_0",
+          "id" : "rfm_agent__customer_percentage_and_flag_in_0",
           "slug" : "in_0"
         }, {
-          "id" : "rfm_agent__rfm_segment_with_scores_in_1",
+          "id" : "rfm_agent__customer_percentage_and_flag_in_1",
           "slug" : "in_1"
         }, {
-          "id" : "rfm_agent__rfm_segment_with_scores_in_2",
+          "id" : "rfm_agent__customer_percentage_and_flag_in_2",
           "slug" : "in_2"
         } ],
         "outputs" : [ {
-          "id" : "rfm_agent__rfm_segment_with_scores_out_0",
+          "id" : "rfm_agent__customer_percentage_and_flag_out_0",
           "slug" : "out_0"
         } ],
         "isCustomOutputSchema" : false

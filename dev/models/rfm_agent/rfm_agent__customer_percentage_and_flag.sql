@@ -14,19 +14,19 @@ WITH ecom_orders AS (
 
 ),
 
-crm_customers AS (
-
-  SELECT * 
-  
-  FROM {{ source('itai.retail_analyst', 'crm_customers') }}
-
-),
-
 instore_sales AS (
 
   SELECT * 
   
   FROM {{ source('itai.retail_analyst', 'instore_sales') }}
+
+),
+
+crm_customers AS (
+
+  SELECT * 
+  
+  FROM {{ source('itai.retail_analyst', 'crm_customers') }}
 
 ),
 
@@ -145,8 +145,47 @@ rfm_segment_with_scores AS (
   
   FROM rfm_scores_assignment
 
+),
+
+distinct_customers_by_region AS (
+
+  SELECT 
+    REGION,
+    COUNT(DISTINCT CUSTOMER_ID) AS COUNT_DISTINCT_CUSTOMER_ID
+  
+  FROM rfm_segment_with_scores
+  
+  GROUP BY REGION
+
+),
+
+customer_percentage_and_flag AS (
+
+  SELECT 
+    REGION,
+    COUNT_DISTINCT_CUSTOMER_ID
+    * 100.0
+    / CASE
+        WHEN (SUM(COUNT_DISTINCT_CUSTOMER_ID) OVER (RANGE BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING)) = 0
+          THEN NULL
+        ELSE SUM(COUNT_DISTINCT_CUSTOMER_ID) OVER (RANGE BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING)
+      END AS PERCENTAGE_OF_CUSTOMERS,
+    CASE
+      WHEN COUNT_DISTINCT_CUSTOMER_ID
+      * 100.0
+      / CASE
+          WHEN (SUM(COUNT_DISTINCT_CUSTOMER_ID) OVER (RANGE BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING)) = 0
+            THEN NULL
+          ELSE SUM(COUNT_DISTINCT_CUSTOMER_ID) OVER (RANGE BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING)
+        END > 10
+        THEN 'High'
+      ELSE 'Low '
+    END AS CUSTOMER_FLAG
+  
+  FROM distinct_customers_by_region
+
 )
 
 SELECT *
 
-FROM rfm_segment_with_scores
+FROM customer_percentage_and_flag
