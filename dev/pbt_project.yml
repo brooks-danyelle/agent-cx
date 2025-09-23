@@ -204,7 +204,7 @@ sqlOrchestratorPipelines:
     author: brooks.danyelle@prophecy.io
     files:
     - models/rfm1/schema.yml
-    - models/rfm1/rfm1__rfm_score_and_segment.sql
+    - models/rfm1/rfm1__customer_rfm_analysis.sql
     - .prophecy/ide/pipelines/rfm1.json
     - pipelines/rfm1.py
     createdAt: '2025-09-23 22:58:18'

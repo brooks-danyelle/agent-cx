@@ -1,6 +1,6 @@
 with DAG():
-    rfm1__rfm_score_and_segment = Task(
-        task_id = "rfm1__rfm_score_and_segment", 
+    rfm1__customer_rfm_analysis = Task(
+        task_id = "rfm1__customer_rfm_analysis", 
         component = "Model", 
-        modelName = "rfm1__rfm_score_and_segment"
+        modelName = "rfm1__customer_rfm_analysis"
     )
