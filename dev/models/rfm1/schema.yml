@@ -1,6 +1,6 @@
 ---
 version: 2
 models:
-- name: "rfm1__customer_id_joined_data"
+- name: "rfm1__customer_rfm_analysis"
   tags:
   - "prophecy_temp"

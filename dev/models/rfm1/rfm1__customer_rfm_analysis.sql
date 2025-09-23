@@ -6,11 +6,11 @@
   })
 }}
 
-WITH instore_sales AS (
+WITH ecom_orders AS (
 
   SELECT * 
   
-  FROM {{ source('itai.retail_analyst', 'instore_sales') }}
+  FROM {{ source('itai.retail_analyst', 'ecom_orders') }}
 
 ),
 
@@ -22,11 +22,11 @@ crm_customers AS (
 
 ),
 
-ecom_orders AS (
+instore_sales AS (
 
   SELECT * 
   
-  FROM {{ source('itai.retail_analyst', 'ecom_orders') }}
+  FROM {{ source('itai.retail_analyst', 'instore_sales') }}
 
 ),
 
@@ -52,8 +52,33 @@ customer_id_joined_data AS (
   LEFT JOIN crm_customers
      ON ecom_orders.customer_id = crm_customers.customer_id
 
+),
+
+customer_rfm_analysis AS (
+
+  SELECT 
+    ANY_VALUE(ORDER_ID) AS ORDER_ID,
+    CUSTOMER_ID,
+    ANY_VALUE(ORDER_DATE) AS ORDER_DATE,
+    ANY_VALUE(ORDER_AMOUNT) AS ORDER_AMOUNT,
+    ANY_VALUE(TRANSACTION_ID) AS TRANSACTION_ID,
+    ANY_VALUE(TRANSACTION_DATE) AS TRANSACTION_DATE,
+    SUM(TRANSACTION_AMOUNT) AS TRANSACTION_AMOUNT,
+    ANY_VALUE(SIGNUP_DATE) AS SIGNUP_DATE,
+    ANY_VALUE(EMAIL) AS EMAIL,
+    ANY_VALUE(ZIP_CODE) AS ZIP_CODE,
+    ANY_VALUE(REGION) AS REGION,
+    ANY_VALUE(PREFERRED_CHANNEL) AS PREFERRED_CHANNEL,
+    DATEDIFF(DAY, MAX(TRANSACTION_DATE), CURRENT_DATE) AS recency,
+    COUNT(DISTINCT TRANSACTION_ID) AS frequency,
+    SUM(TRANSACTION_AMOUNT) AS monetary
+  
+  FROM customer_id_joined_data
+  
+  GROUP BY CUSTOMER_ID
+
 )
 
 SELECT *
 
-FROM customer_id_joined_data
+FROM customer_rfm_analysis
