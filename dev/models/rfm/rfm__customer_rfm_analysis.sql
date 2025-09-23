@@ -79,8 +79,29 @@ rfm_calculation AS (
   
   FROM rfm_aggregation
 
+),
+
+customer_rfm_analysis AS (
+
+  SELECT 
+    CUSTOMER_ID,
+    MOST_RECENT_ORDER_DATE,
+    RECENCY,
+    FREQUENCY,
+    MONETARY,
+    RECENCY + FREQUENCY + MONETARY AS RFM_SCORE,
+    CASE
+      WHEN RECENCY >= 4 AND FREQUENCY >= 4 AND MONETARY >= 4
+        THEN 'Champions      '
+      WHEN RECENCY >= 3 AND FREQUENCY >= 3 AND MONETARY >= 3
+        THEN 'Loyal Customers'
+      ELSE 'Others         '
+    END AS RFM_SEGMENT
+  
+  FROM rfm_calculation
+
 )
 
 SELECT *
 
-FROM rfm_calculation
+FROM customer_rfm_analysis
