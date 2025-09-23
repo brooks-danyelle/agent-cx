@@ -13,6 +13,33 @@
     "isTranspiledPipeline" : false
   },
   "processes" : {
+    "mask_email_id##Si39WZUo" : {
+      "id" : "mask_email_id##Si39WZUo",
+      "component" : "Model",
+      "metadata" : {
+        "label" : "rfm__mask_email_id",
+        "phase" : 0
+      },
+      "properties" : {
+        "modelName" : "rfm__mask_email_id"
+      },
+      "visualMetaInfo" : {
+        "visualProcessIds" : [ "mask_email_id_SDFIbrFU", "mask_email_id##Si39WZUo", "email_events##znu14GtC" ],
+        "type" : "ephemeral",
+        "isTemporaryTable" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "rfm__mask_email_id_in_0",
+          "slug" : "in_0"
+        } ],
+        "outputs" : [ {
+          "id" : "rfm__mask_email_id_out_0",
+          "slug" : "out_0"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
     "rfm_with_segment##HzLcVjVc" : {
       "id" : "rfm_with_segment##HzLcVjVc",
       "component" : "Model",
@@ -24,7 +51,7 @@
         "modelName" : "rfm__rfm_with_segment"
       },
       "visualMetaInfo" : {
-        "visualProcessIds" : [ "rfm_with_segment_jg0fCbEg", "rfm_with_segment##HzLcVjVc", "rfm_scores_calcu##tIu9OWX4", "rfm_calculation##dBsAW44Y", "rfm_aggregation##uYFqGT96", "customer_data_jo##fRzTGgdI", "ecom_orders##kSbXykFi", "instore_sales##ECK0GWF0", "crm_customers##XVOc7Yxi" ],
+        "visualProcessIds" : [ "rfm_with_segment_dBoD1oOy", "rfm_with_segment##HzLcVjVc", "rfm_scores_calcu##HMhjjcpo", "rfm_calculation##xfyLxT1k", "rfm_aggregation##q0bjYHd0", "customer_data_jo##YvlXBWxi", "ecom_orders##W00fDFjy", "instore_sales##HKWsQRR8", "crm_customers##xAYJjlWh" ],
         "type" : "ephemeral",
         "isTemporaryTable" : true
       },
@@ -42,60 +69,6 @@
         "outputs" : [ {
           "id" : "rfm__rfm_with_segment_out_0",
           "slug" : "out_0"
-        } ],
-        "isCustomOutputSchema" : false
-      }
-    },
-    "qvTw2IOYUzywIE9PsU2M6$$G3UmCwH_m3Ht84SNQJMpw" : {
-      "id" : "qvTw2IOYUzywIE9PsU2M6$$G3UmCwH_m3Ht84SNQJMpw",
-      "component" : "Dataset",
-      "metadata" : {
-        "label" : "email_events",
-        "x" : 940,
-        "y" : 460,
-        "phase" : 0
-      },
-      "properties" : {
-        "table" : {
-          "name" : "email_events",
-          "sourceType" : "Source",
-          "sourceName" : "itai.retail_analyst",
-          "alias" : ""
-        }
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "X3QTheGDe3tXOiSmLU4A8$$--34KGbct2sRcz-s5NzJ2",
-          "slug" : "in"
-        } ],
-        "outputs" : [ {
-          "id" : "3Qt_terj4PTZirg3KO9ct$$9dtGdgFPHDAUfp3C6T2Ef",
-          "schema" : {
-            "entityType" : "",
-            "providerType" : "databricks",
-            "fields" : [ {
-              "name" : "email_id",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "customer_id",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "event_type",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "event_date",
-              "dataType" : {
-                "type" : "Date"
-              }
-            } ]
-          },
-          "slug" : "out"
         } ],
         "isCustomOutputSchema" : false
       }

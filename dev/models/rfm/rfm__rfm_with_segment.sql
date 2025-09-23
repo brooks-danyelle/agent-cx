@@ -6,11 +6,11 @@
   })
 }}
 
-WITH instore_sales AS (
+WITH ecom_orders AS (
 
   SELECT * 
   
-  FROM {{ source('itai.retail_analyst', 'instore_sales') }}
+  FROM {{ source('itai.retail_analyst', 'ecom_orders') }}
 
 ),
 
@@ -22,11 +22,11 @@ crm_customers AS (
 
 ),
 
-ecom_orders AS (
+instore_sales AS (
 
   SELECT * 
   
-  FROM {{ source('itai.retail_analyst', 'ecom_orders') }}
+  FROM {{ source('itai.retail_analyst', 'instore_sales') }}
 
 ),
 

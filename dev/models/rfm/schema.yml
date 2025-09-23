@@ -1,6 +1,9 @@
 ---
 version: 2
 models:
+- name: "rfm__mask_email_id"
+  tags:
+  - "prophecy_temp"
 - name: "rfm__rfm_with_segment"
   tags:
   - "prophecy_temp"
