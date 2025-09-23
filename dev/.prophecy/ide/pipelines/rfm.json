@@ -652,6 +652,189 @@
       },
       "index" : 1
     },
+    "NNDPciGeSGemoJmDuNmOHSWIj" : {
+      "id" : "NNDPciGeSGemoJmDuNmOHSWIj",
+      "component" : "Dataset",
+      "metadata" : {
+        "label" : "final_rfm_results",
+        "x" : 1480,
+        "y" : 340,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "CustomerSegmentationDemo_rfm_mpfml",
+          "sourceType" : "Table",
+          "sourceName" : "danyelle.demo",
+          "alias" : "",
+          "additionalProperties" : null
+        },
+        "writeOptions" : {
+          "writeMode" : "overwrite"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "BHToZYTLO7SxsWg",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "CUSTOMER_ID",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "MOST_RECENT_ORDER_DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "RECENCY",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "FREQUENCY",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "MONETARY",
+              "dataType" : {
+                "type" : "Double"
+              }
+            }, {
+              "name" : "MONETARY_SCORE",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "FREQUENCY_SCORE",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "RECENCY_SCORE",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "RFM_SEGMENT",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "CUSTOMER_FLAG",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "EMAIL_ID",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "EVENT_TYPE",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "EVENT_DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "MASKED_EMAIL_ID",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "in"
+        } ],
+        "outputs" : [ {
+          "id" : "gIVfuXNCnxzRpjF",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "CUSTOMER_ID",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "MOST_RECENT_ORDER_DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "RECENCY",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "FREQUENCY",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "MONETARY",
+              "dataType" : {
+                "type" : "Double"
+              }
+            }, {
+              "name" : "MONETARY_SCORE",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "FREQUENCY_SCORE",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "RECENCY_SCORE",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "RFM_SEGMENT",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "CUSTOMER_FLAG",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "EMAIL_ID",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "EVENT_TYPE",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "EVENT_DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "MASKED_EMAIL_ID",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
     "customer_rfm_ema##rTARWDxO" : {
       "id" : "customer_rfm_ema##rTARWDxO",
       "component" : "Join",
@@ -1508,6 +1691,12 @@
     "sourcePort" : "drw5qncE",
     "target" : "customer_rfm_ema##rTARWDxO",
     "targetPort" : "a2LeNf0L"
+  }, {
+    "id" : "wlinIxP72xhAQXK",
+    "source" : "customer_rfm_ema##rTARWDxO",
+    "sourcePort" : "uAnpy7Li",
+    "target" : "NNDPciGeSGemoJmDuNmOHSWIj",
+    "targetPort" : "BHToZYTLO7SxsWg"
   } ],
   "component" : "Pipeline"
 }

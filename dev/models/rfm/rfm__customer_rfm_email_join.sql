@@ -1,33 +1,13 @@
 {{
   config({    
-    "materialized": "ephemeral",
+    "materialized": "table",
+    "alias": "CustomerSegmentationDemo_rfm_mpfml",
     "database": "danyelle",
     "schema": "demo"
   })
 }}
 
-WITH email_events AS (
-
-  SELECT * 
-  
-  FROM {{ source('itai.retail_analyst', 'email_events') }}
-
-),
-
-mask_email_id AS (
-
-  SELECT 
-    email_id AS EMAIL_ID,
-    customer_id AS CUSTOMER_ID,
-    event_type AS EVENT_TYPE,
-    event_date AS EVENT_DATE,
-    CONCAT(SUBSTRING(email_id, 1, 3), '****@****', SUBSTRING_INDEX(email_id, '@', -1)) AS MASKED_EMAIL_ID
-  
-  FROM email_events
-
-),
-
-crm_customers AS (
+WITH crm_customers AS (
 
   SELECT * 
   
@@ -86,6 +66,27 @@ rfm_aggregation AS (
   FROM customer_data_join
   
   GROUP BY CUSTOMER_ID
+
+),
+
+email_events AS (
+
+  SELECT * 
+  
+  FROM {{ source('itai.retail_analyst', 'email_events') }}
+
+),
+
+mask_email_id AS (
+
+  SELECT 
+    email_id AS EMAIL_ID,
+    customer_id AS CUSTOMER_ID,
+    event_type AS EVENT_TYPE,
+    event_date AS EVENT_DATE,
+    CONCAT(SUBSTRING(email_id, 1, 3), '****@****', SUBSTRING_INDEX(email_id, '@', -1)) AS MASKED_EMAIL_ID
+  
+  FROM email_events
 
 ),
 

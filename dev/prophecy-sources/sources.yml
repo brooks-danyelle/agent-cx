@@ -72,3 +72,10 @@ sources:
       dataType:
         type: "Date"
     type: "table"
+- name: "danyelle.demo"
+  database: "danyelle"
+  schema: "demo"
+  tables:
+  - name: "CustomerSegmentationDemo_rfm_mpfml"
+    columns: []
+    type: "table"
