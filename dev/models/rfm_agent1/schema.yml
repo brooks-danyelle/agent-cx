@@ -1,6 +1,6 @@
 ---
 version: 2
 models:
-- name: "rfm_agent1__rfm_segmentation"
+- name: "rfm_agent1__at_risk_customers"
   tags:
   - "prophecy_temp"
