@@ -6,7 +6,15 @@
   })
 }}
 
-WITH ecom_orders AS (
+WITH crm_customers AS (
+
+  SELECT * 
+  
+  FROM {{ source('itai.retail_analyst', 'crm_customers') }}
+
+),
+
+ecom_orders AS (
 
   SELECT * 
   
@@ -19,14 +27,6 @@ instore_sales AS (
   SELECT * 
   
   FROM {{ source('itai.retail_analyst', 'instore_sales') }}
-
-),
-
-crm_customers AS (
-
-  SELECT * 
-  
-  FROM {{ source('itai.retail_analyst', 'crm_customers') }}
 
 ),
 
@@ -85,8 +85,21 @@ customer_order_metrics AS (
   
   FROM orders_2025_filter
 
+),
+
+customer_rfm_score AS (
+
+  SELECT 
+    customer_id AS CUSTOMER_ID,
+    RECENCY,
+    FREQUENCY,
+    MONETARY,
+    RECENCY + FREQUENCY + MONETARY AS RFM_SCORE
+  
+  FROM customer_order_metrics
+
 )
 
 SELECT *
 
-FROM customer_order_metrics
+FROM customer_rfm_score

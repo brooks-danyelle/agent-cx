@@ -1,6 +1,6 @@
 ---
 version: 2
 models:
-- name: "rfm_tues__customer_order_metrics"
+- name: "rfm_tues__customer_rfm_score"
   tags:
   - "prophecy_temp"
