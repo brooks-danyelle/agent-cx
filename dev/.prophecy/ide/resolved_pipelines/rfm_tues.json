@@ -13,34 +13,34 @@
     "isTranspiledPipeline" : false
   },
   "processes" : {
-    "customer_data_jo##uBtuzFBw" : {
-      "id" : "customer_data_jo##uBtuzFBw",
+    "customer_rfm_sco##cF2e2FpX" : {
+      "id" : "customer_rfm_sco##cF2e2FpX",
       "component" : "Model",
       "metadata" : {
-        "label" : "rfm_tues__customer_data_join",
+        "label" : "rfm_tues__customer_rfm_scores",
         "phase" : 0
       },
       "properties" : {
-        "modelName" : "rfm_tues__customer_data_join"
+        "modelName" : "rfm_tues__customer_rfm_scores"
       },
       "visualMetaInfo" : {
-        "visualProcessIds" : [ "customer_data_join_uhuKMG0G", "customer_data_jo##uBtuzFBw", "oi8zwW_GFBhrpID9xKvAk", "instore_sales##ng2zMmmh", "crm_customers##ZpOTJnC0" ],
+        "visualProcessIds" : [ "customer_rfm_scores_Sweq0Qjf", "customer_rfm_sco##cF2e2FpX", "customer_rfm_agg##nyXjUBlr", "customer_data_jo##uBtuzFBw", "ecom_orders##da6UKacu", "instore_sales##tRaPxKDU", "crm_customers##m4Koujou" ],
         "type" : "ephemeral",
         "isTemporaryTable" : true
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "rfm_tues__customer_data_join_in_0",
+          "id" : "rfm_tues__customer_rfm_scores_in_0",
           "slug" : "in_0"
         }, {
-          "id" : "rfm_tues__customer_data_join_in_1",
+          "id" : "rfm_tues__customer_rfm_scores_in_1",
           "slug" : "in_1"
         }, {
-          "id" : "rfm_tues__customer_data_join_in_2",
+          "id" : "rfm_tues__customer_rfm_scores_in_2",
           "slug" : "in_2"
         } ],
         "outputs" : [ {
-          "id" : "rfm_tues__customer_data_join_out_0",
+          "id" : "rfm_tues__customer_rfm_scores_out_0",
           "slug" : "out_0"
         } ],
         "isCustomOutputSchema" : false

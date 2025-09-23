@@ -209,8 +209,8 @@ sqlOrchestratorPipelines:
     description: null
     author: brooks.danyelle@prophecy.io
     files:
-    - models/rfm_tues/rfm_tues__customer_data_join.sql
     - models/rfm_tues/schema.yml
+    - models/rfm_tues/rfm_tues__customer_rfm_scores.sql
     - .prophecy/ide/pipelines/rfm_tues.json
     - pipelines/rfm_tues.py
     createdAt: '2025-09-23 13:43:31'
