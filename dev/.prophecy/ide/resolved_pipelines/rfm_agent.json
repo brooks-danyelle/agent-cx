@@ -13,34 +13,34 @@
     "isTranspiledPipeline" : false
   },
   "processes" : {
-    "rfm_segment_with##YpD9hven" : {
-      "id" : "rfm_segment_with##YpD9hven",
+    "customer_flag_pe##tLP0k6dw" : {
+      "id" : "customer_flag_pe##tLP0k6dw",
       "component" : "Model",
       "metadata" : {
-        "label" : "rfm_agent__rfm_segment_with_scores",
+        "label" : "rfm_agent__customer_flag_percentage",
         "phase" : 0
       },
       "properties" : {
-        "modelName" : "rfm_agent__rfm_segment_with_scores"
+        "modelName" : "rfm_agent__customer_flag_percentage"
       },
       "visualMetaInfo" : {
-        "visualProcessIds" : [ "rfm_segment_with_scores_xUGE50fn", "rfm_segment_with##YpD9hven", "rfm_scores_assig##LQjmh0JF", "Reformat_1##R3Oj3WmN", "customer_id_join##AGl0ifbe", "ecom_orders##vNfmz53Y", "instore_sales##l76udYcv", "crm_customers##WjcxPFSo" ],
+        "visualProcessIds" : [ "customer_flag_percentage_VuECE6RL", "customer_flag_pe##tLP0k6dw", "customer_flag_co##ometexna", "rfm_segment_with##YpD9hven", "rfm_scores_assig##X5UDk7wt", "Reformat_1##OTXWDef7", "customer_id_join##ejcv9S4J", "ecom_orders##tHomvJlO", "instore_sales##Y3nkD4Rr", "crm_customers##MPr3gDaN" ],
         "type" : "ephemeral",
         "isTemporaryTable" : true
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "rfm_agent__rfm_segment_with_scores_in_0",
+          "id" : "rfm_agent__customer_flag_percentage_in_0",
           "slug" : "in_0"
         }, {
-          "id" : "rfm_agent__rfm_segment_with_scores_in_1",
+          "id" : "rfm_agent__customer_flag_percentage_in_1",
           "slug" : "in_1"
         }, {
-          "id" : "rfm_agent__rfm_segment_with_scores_in_2",
+          "id" : "rfm_agent__customer_flag_percentage_in_2",
           "slug" : "in_2"
         } ],
         "outputs" : [ {
-          "id" : "rfm_agent__rfm_segment_with_scores_out_0",
+          "id" : "rfm_agent__customer_flag_percentage_out_0",
           "slug" : "out_0"
         } ],
         "isCustomOutputSchema" : false
