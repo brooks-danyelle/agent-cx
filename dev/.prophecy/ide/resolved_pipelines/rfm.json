@@ -45,6 +45,60 @@
         } ],
         "isCustomOutputSchema" : false
       }
+    },
+    "qvTw2IOYUzywIE9PsU2M6$$G3UmCwH_m3Ht84SNQJMpw" : {
+      "id" : "qvTw2IOYUzywIE9PsU2M6$$G3UmCwH_m3Ht84SNQJMpw",
+      "component" : "Dataset",
+      "metadata" : {
+        "label" : "email_events",
+        "x" : 940,
+        "y" : 460,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "email_events",
+          "sourceType" : "Source",
+          "sourceName" : "itai.retail_analyst",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "X3QTheGDe3tXOiSmLU4A8$$--34KGbct2sRcz-s5NzJ2",
+          "slug" : "in"
+        } ],
+        "outputs" : [ {
+          "id" : "3Qt_terj4PTZirg3KO9ct$$9dtGdgFPHDAUfp3C6T2Ef",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "email_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "event_type",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "event_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
     }
   },
   "connections" : [ ],

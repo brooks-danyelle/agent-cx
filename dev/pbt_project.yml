@@ -134,6 +134,27 @@ sqlSources:
       description: null
       author: brooks.danyelle@prophecy.io
       createdAt: '2025-09-18 15:13:11'
+    - name: email_events
+      schema:
+        entityType: ''
+        providerType: databricks
+        fields:
+        - name: email_id
+          dataType:
+            type: String
+        - name: customer_id
+          dataType:
+            type: String
+        - name: event_type
+          dataType:
+            type: String
+        - name: event_date
+          dataType:
+            type: Date
+      description: null
+      author: brooks.danyelle@prophecy.io
+      createdAt: '2025-09-23 13:07:50'
+      tableType: table
 sqlUnreferencedSources: {}
 sqlPipeline:
   name: sqlPipeline

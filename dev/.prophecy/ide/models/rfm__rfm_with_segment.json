@@ -158,7 +158,7 @@
         "phase" : 0
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "VdZg5zDf##CUSTOMER_ID", "VdZg5zDf##MOST_RECENT_ORDER_DATE", "VdZg5zDf##RECENCY", "VdZg5zDf##FREQUENCY", "VdZg5zDf##MONETARY", "VdZg5zDf##MONETARY_SCORE", "VdZg5zDf##FREQUENCY_SCORE", "VdZg5zDf##RECENCY_SCORE" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "CUSTOMER_ID"
@@ -205,6 +205,12 @@
           },
           "alias" : "RFM_SEGMENT",
           "_row_id" : "61042125"
+        }, {
+          "expression" : {
+            "expression" : "{{ segment_flag() }}"
+          },
+          "alias" : "CUSTOMER_FLAG",
+          "_row_id" : "vj8PhUJuwJ"
         } ]
       },
       "ports" : {

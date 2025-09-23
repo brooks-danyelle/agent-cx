@@ -292,7 +292,7 @@
         "phase" : 0
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "VdZg5zDf##CUSTOMER_ID", "VdZg5zDf##MOST_RECENT_ORDER_DATE", "VdZg5zDf##RECENCY", "VdZg5zDf##FREQUENCY", "VdZg5zDf##MONETARY", "VdZg5zDf##MONETARY_SCORE", "VdZg5zDf##FREQUENCY_SCORE", "VdZg5zDf##RECENCY_SCORE" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "CUSTOMER_ID"
@@ -339,6 +339,12 @@
           },
           "alias" : "RFM_SEGMENT",
           "_row_id" : "61042125"
+        }, {
+          "expression" : {
+            "expression" : "{{ segment_flag() }}"
+          },
+          "alias" : "CUSTOMER_FLAG",
+          "_row_id" : "vj8PhUJuwJ"
         } ]
       },
       "ports" : {
@@ -438,6 +444,11 @@
               }
             }, {
               "name" : "RFM_SEGMENT",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "CUSTOMER_FLAG",
               "dataType" : {
                 "type" : "String"
               }
@@ -1000,6 +1011,60 @@
               "name" : "MONETARY",
               "dataType" : {
                 "type" : "Double"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "qvTw2IOYUzywIE9PsU2M6$$G3UmCwH_m3Ht84SNQJMpw" : {
+      "id" : "qvTw2IOYUzywIE9PsU2M6$$G3UmCwH_m3Ht84SNQJMpw",
+      "component" : "Dataset",
+      "metadata" : {
+        "label" : "email_events",
+        "x" : 940,
+        "y" : 460,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "email_events",
+          "sourceType" : "Source",
+          "sourceName" : "itai.retail_analyst",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "X3QTheGDe3tXOiSmLU4A8$$--34KGbct2sRcz-s5NzJ2",
+          "slug" : "in"
+        } ],
+        "outputs" : [ {
+          "id" : "3Qt_terj4PTZirg3KO9ct$$9dtGdgFPHDAUfp3C6T2Ef",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "email_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "event_type",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "event_date",
+              "dataType" : {
+                "type" : "Date"
               }
             } ]
           },
