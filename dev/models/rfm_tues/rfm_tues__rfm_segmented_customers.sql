@@ -112,8 +112,38 @@ customer_rfm_scores AS (
   
   FROM customer_rfm_aggregation
 
+),
+
+rfm_segmented_customers AS (
+
+  SELECT 
+    ORDER_ID,
+    CUSTOMER_ID,
+    ORDER_DATE,
+    ORDER_AMOUNT,
+    TRANSACTION_ID,
+    TRANSACTION_DATE,
+    TRANSACTION_AMOUNT,
+    SIGNUP_DATE,
+    EMAIL,
+    ZIP_CODE,
+    REGION,
+    PREFERRED_CHANNEL,
+    RECENCY_SCORE,
+    FREQUENCY_SCORE,
+    MONETARY_SCORE,
+    CASE
+      WHEN RECENCY_SCORE >= 4 AND FREQUENCY_SCORE >= 4 AND MONETARY_SCORE >= 4
+        THEN 'Champions      '
+      WHEN RECENCY_SCORE >= 3 AND FREQUENCY_SCORE >= 3 AND MONETARY_SCORE >= 3
+        THEN 'Loyal Customers'
+      ELSE 'Others         '
+    END AS RFM_SEGMENT
+  
+  FROM customer_rfm_scores
+
 )
 
 SELECT *
 
-FROM customer_rfm_scores
+FROM rfm_segmented_customers
