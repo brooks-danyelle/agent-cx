@@ -6,7 +6,15 @@
   })
 }}
 
-WITH crm_customers AS (
+WITH instore_sales AS (
+
+  SELECT * 
+  
+  FROM {{ source('itai.retail_analyst', 'instore_sales') }}
+
+),
+
+crm_customers AS (
 
   SELECT * 
   
@@ -19,14 +27,6 @@ ecom_orders AS (
   SELECT * 
   
   FROM {{ source('itai.retail_analyst', 'ecom_orders') }}
-
-),
-
-instore_sales AS (
-
-  SELECT * 
-  
-  FROM {{ source('itai.retail_analyst', 'instore_sales') }}
 
 ),
 
@@ -98,8 +98,32 @@ customer_rfm_score AS (
   
   FROM customer_order_metrics
 
+),
+
+customer_count_per_segment AS (
+
+  SELECT 
+    RFM_SCORE,
+    COUNT(CUSTOMER_ID) AS COUNT_CUSTOMER_ID
+  
+  FROM customer_rfm_score
+  
+  GROUP BY RFM_SCORE
+
+),
+
+customer_percentage_per_segment AS (
+
+  SELECT 
+    RFM_SCORE,
+    COUNT_CUSTOMER_ID
+    * 100.0
+    / (SUM(COUNT_CUSTOMER_ID) OVER (RANGE BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING)) AS PERCENTAGE_OF_CUSTOMERS
+  
+  FROM customer_count_per_segment
+
 )
 
 SELECT *
 
-FROM customer_rfm_score
+FROM customer_percentage_per_segment

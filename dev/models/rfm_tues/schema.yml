@@ -1,6 +1,6 @@
 ---
 version: 2
 models:
-- name: "rfm_tues__customer_rfm_score"
+- name: "rfm_tues__customer_percentage_per_segment"
   tags:
   - "prophecy_temp"
