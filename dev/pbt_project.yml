@@ -65,16 +65,7 @@ sqlSources:
     files:
     - prophecy-sources/sources.yml
     createdAt: '2025-09-23 13:11:50'
-    tables:
-    - name: CustomerSegmentationDemo_rfm_mpfml
-      schema:
-        entityType: ''
-        providerType: databricks
-        fields: []
-      description: null
-      author: brooks.danyelle@prophecy.io
-      createdAt: '2025-09-23 13:11:50'
-      tableType: table
+    tables: []
   .prophecy/metadata/sqlsources/itai_retail_analyst:
     name: itai.retail_analyst
     description: null

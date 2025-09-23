@@ -9,8 +9,7 @@
     },
     "graphConfig" : {
       "entityConfig" : {
-        "alias" : "\"CustomerSegmentationDemo_rfm_mpfml\"",
-        "materialized" : "table",
+        "materialized" : "ephemeral",
         "database" : "\"danyelle\"",
         "schema" : "\"demo\"",
         "type" : "ModelConfig"
@@ -19,6 +18,36 @@
     "version" : 3
   },
   "processes" : {
+    "customer_rfm_email_join_uAnpy7Li" : {
+      "id" : "customer_rfm_email_join_uAnpy7Li",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "customer_rfm_email_join"
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "\nSELECT *\n\nFROM customer_rfm_email_join\n\n",
+        "isModel" : true,
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "input_port_0",
+          "slug" : "input_port_0"
+        } ],
+        "outputs" : [ {
+          "id" : "output_port_0",
+          "slug" : "output_port_0"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
     "crm_customers##WnqUN7GQ" : {
       "id" : "crm_customers##WnqUN7GQ",
       "component" : "Source",
@@ -300,37 +329,6 @@
         "inputs" : [ ],
         "outputs" : [ {
           "id" : "d9qOlp0O",
-          "slug" : "out"
-        } ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      }
-    },
-    "NNDPciGeSGemoJmDuNmOHSWIj" : {
-      "id" : "NNDPciGeSGemoJmDuNmOHSWIj",
-      "component" : "TargetModel",
-      "metadata" : {
-        "label" : "final_rfm_results",
-        "phase" : 0
-      },
-      "properties" : {
-        "customQueryDisabled" : true,
-        "customQuery" : false,
-        "incrementalEditorDisabled" : true,
-        "query" : "\nSELECT *\n\nFROM customer_rfm_email_join\n\n",
-        "isModel" : true,
-        "incrementalKey" : false,
-        "incremental" : {
-          "expression" : "true"
-        }
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "BHToZYTLO7SxsWg",
-          "slug" : "in"
-        } ],
-        "outputs" : [ {
-          "id" : "gIVfuXNCnxzRpjF",
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false,
@@ -698,11 +696,11 @@
     }
   },
   "connections" : [ {
-    "id" : "wlinIxP72xhAQXK",
+    "id" : "conn_customer_rfm_ema##rTARWDxO_customer_rfm_email_join_uAnpy7Li",
     "source" : "customer_rfm_ema##rTARWDxO",
     "sourcePort" : "uAnpy7Li",
-    "target" : "NNDPciGeSGemoJmDuNmOHSWIj",
-    "targetPort" : "BHToZYTLO7SxsWg"
+    "target" : "customer_rfm_email_join_uAnpy7Li",
+    "targetPort" : "input_port_0"
   }, {
     "id" : "SMOg9CRB",
     "source" : "rfm_with_segment##IXjEY736",
