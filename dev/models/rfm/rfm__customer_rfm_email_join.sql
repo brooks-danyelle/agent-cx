@@ -6,11 +6,24 @@
   })
 }}
 
-WITH ecom_orders AS (
+WITH email_events AS (
 
   SELECT * 
   
-  FROM {{ source('itai.retail_analyst', 'ecom_orders') }}
+  FROM {{ source('itai.retail_analyst', 'email_events') }}
+
+),
+
+mask_email_id AS (
+
+  SELECT 
+    email_id AS EMAIL_ID,
+    customer_id AS CUSTOMER_ID,
+    event_type AS EVENT_TYPE,
+    event_date AS EVENT_DATE,
+    CONCAT(SUBSTRING(email_id, 1, 3), '****@****', SUBSTRING_INDEX(email_id, '@', -1)) AS MASKED_EMAIL_ID
+  
+  FROM email_events
 
 ),
 
@@ -19,6 +32,14 @@ crm_customers AS (
   SELECT * 
   
   FROM {{ source('itai.retail_analyst', 'crm_customers') }}
+
+),
+
+ecom_orders AS (
+
+  SELECT * 
+  
+  FROM {{ source('itai.retail_analyst', 'ecom_orders') }}
 
 ),
 
@@ -89,9 +110,9 @@ rfm_scores_calculation AS (
     RECENCY,
     FREQUENCY,
     MONETARY,
-    NTILE(5) OVER (ORDER BY MONETARY DESC NULLS FIRST ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS MONETARY_SCORE,
-    NTILE(5) OVER (ORDER BY FREQUENCY DESC NULLS FIRST ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS FREQUENCY_SCORE,
-    NTILE(5) OVER (ORDER BY RECENCY NULLS LAST ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS RECENCY_SCORE
+    NTILE(5) OVER (ORDER BY MONETARY DESC NULLS FIRST) AS MONETARY_SCORE,
+    NTILE(5) OVER (ORDER BY FREQUENCY DESC NULLS FIRST) AS FREQUENCY_SCORE,
+    NTILE(5) OVER (ORDER BY RECENCY ASC NULLS LAST) AS RECENCY_SCORE
   
   FROM rfm_calculation
 
@@ -109,12 +130,36 @@ rfm_with_segment AS (
     FREQUENCY_SCORE,
     RECENCY_SCORE,
     CONCAT(RECENCY_SCORE, FREQUENCY_SCORE, MONETARY_SCORE) AS RFM_SEGMENT,
-    {{ segment_flag() }} AS CUSTOMER_FLAG
+    'SEGMENT_FLAG' AS CUSTOMER_FLAG
   
   FROM rfm_scores_calculation
+
+),
+
+customer_rfm_email_join AS (
+
+  SELECT 
+    rfm_with_segment.CUSTOMER_ID,
+    rfm_with_segment.MOST_RECENT_ORDER_DATE,
+    rfm_with_segment.RECENCY,
+    rfm_with_segment.FREQUENCY,
+    rfm_with_segment.MONETARY,
+    rfm_with_segment.MONETARY_SCORE,
+    rfm_with_segment.FREQUENCY_SCORE,
+    rfm_with_segment.RECENCY_SCORE,
+    rfm_with_segment.RFM_SEGMENT,
+    rfm_with_segment.CUSTOMER_FLAG,
+    mask_email_id.EMAIL_ID,
+    mask_email_id.EVENT_TYPE,
+    mask_email_id.EVENT_DATE,
+    mask_email_id.MASKED_EMAIL_ID
+  
+  FROM rfm_with_segment
+  INNER JOIN mask_email_id
+     ON rfm_with_segment.CUSTOMER_ID = mask_email_id.CUSTOMER_ID
 
 )
 
 SELECT *
 
-FROM rfm_with_segment
+FROM customer_rfm_email_join

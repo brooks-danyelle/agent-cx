@@ -13,61 +13,37 @@
     "isTranspiledPipeline" : false
   },
   "processes" : {
-    "mask_email_id##Si39WZUo" : {
-      "id" : "mask_email_id##Si39WZUo",
+    "customer_rfm_ema##rTARWDxO" : {
+      "id" : "customer_rfm_ema##rTARWDxO",
       "component" : "Model",
       "metadata" : {
-        "label" : "rfm__mask_email_id",
+        "label" : "rfm__customer_rfm_email_join",
         "phase" : 0
       },
       "properties" : {
-        "modelName" : "rfm__mask_email_id"
+        "modelName" : "rfm__customer_rfm_email_join"
       },
       "visualMetaInfo" : {
-        "visualProcessIds" : [ "mask_email_id_SDFIbrFU", "mask_email_id##Si39WZUo", "email_events##znu14GtC" ],
+        "visualProcessIds" : [ "customer_rfm_email_join_uAnpy7Li", "customer_rfm_ema##rTARWDxO", "rfm_with_segment##IXjEY736", "mask_email_id##Si39WZUo", "email_events##ev7zBJYp", "rfm_scores_calcu##ljh1ergZ", "rfm_calculation##LI7LO1n5", "rfm_aggregation##dCE7Rk1y", "customer_data_jo##AuRZb1D7", "ecom_orders##xcutHmqV", "instore_sales##G113tcET", "crm_customers##WnqUN7GQ" ],
         "type" : "ephemeral",
         "isTemporaryTable" : true
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "rfm__mask_email_id_in_0",
-          "slug" : "in_0"
-        } ],
-        "outputs" : [ {
-          "id" : "rfm__mask_email_id_out_0",
-          "slug" : "out_0"
-        } ],
-        "isCustomOutputSchema" : false
-      }
-    },
-    "rfm_with_segment##HzLcVjVc" : {
-      "id" : "rfm_with_segment##HzLcVjVc",
-      "component" : "Model",
-      "metadata" : {
-        "label" : "rfm__rfm_with_segment",
-        "phase" : 0
-      },
-      "properties" : {
-        "modelName" : "rfm__rfm_with_segment"
-      },
-      "visualMetaInfo" : {
-        "visualProcessIds" : [ "rfm_with_segment_dBoD1oOy", "rfm_with_segment##HzLcVjVc", "rfm_scores_calcu##HMhjjcpo", "rfm_calculation##xfyLxT1k", "rfm_aggregation##q0bjYHd0", "customer_data_jo##YvlXBWxi", "ecom_orders##W00fDFjy", "instore_sales##HKWsQRR8", "crm_customers##xAYJjlWh" ],
-        "type" : "ephemeral",
-        "isTemporaryTable" : true
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "rfm__rfm_with_segment_in_0",
+          "id" : "rfm__customer_rfm_email_join_in_0",
           "slug" : "in_0"
         }, {
-          "id" : "rfm__rfm_with_segment_in_1",
+          "id" : "rfm__customer_rfm_email_join_in_1",
           "slug" : "in_1"
         }, {
-          "id" : "rfm__rfm_with_segment_in_2",
+          "id" : "rfm__customer_rfm_email_join_in_2",
           "slug" : "in_2"
+        }, {
+          "id" : "rfm__customer_rfm_email_join_in_3",
+          "slug" : "in_3"
         } ],
         "outputs" : [ {
-          "id" : "rfm__rfm_with_segment_out_0",
+          "id" : "rfm__customer_rfm_email_join_out_0",
           "slug" : "out_0"
         } ],
         "isCustomOutputSchema" : false

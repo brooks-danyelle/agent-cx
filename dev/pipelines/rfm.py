@@ -1,7 +1,6 @@
 with DAG():
-    rfm__mask_email_id = Task(task_id = "rfm__mask_email_id", component = "Model", modelName = "rfm__mask_email_id")
-    rfm__rfm_with_segment = Task(
-        task_id = "rfm__rfm_with_segment", 
+    rfm__customer_rfm_email_join = Task(
+        task_id = "rfm__customer_rfm_email_join", 
         component = "Model", 
-        modelName = "rfm__rfm_with_segment"
+        modelName = "rfm__customer_rfm_email_join"
     )
