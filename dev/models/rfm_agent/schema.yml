@@ -1,6 +1,6 @@
 ---
 version: 2
 models:
-- name: "rfm_agent__percentage_customers_at_risk"
+- name: "rfm_agent__rfm_segment_with_scores"
   tags:
   - "prophecy_temp"

@@ -146,21 +146,8 @@ rfm_segment_with_scores AS (
   
   FROM rfm_scores_assignment
 
-),
-
-percentage_customers_at_risk AS (
-
-  SELECT (
-           COUNT(CASE
-             WHEN CUSTOMER_FLAG = 'At Risk'
-               THEN 1
-           END) * 100.0 / NULLIF(COUNT(*), 0)
-         ) AS percentage_at_risk
-  
-  FROM rfm_segment_with_scores
-
 )
 
 SELECT *
 
-FROM percentage_customers_at_risk
+FROM rfm_segment_with_scores
