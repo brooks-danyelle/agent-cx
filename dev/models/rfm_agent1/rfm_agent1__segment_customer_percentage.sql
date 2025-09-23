@@ -134,8 +134,32 @@ rfm_segmentation AS (
   
   FROM customer_rfm_metrics
 
+),
+
+customer_count_by_segment AS (
+
+  SELECT 
+    FLAG,
+    COUNT(CUSTOMER_ID) AS COUNT_CUSTOMER_ID
+  
+  FROM rfm_segmentation
+  
+  GROUP BY FLAG
+
+),
+
+segment_customer_percentage AS (
+
+  SELECT 
+    FLAG,
+    COUNT_CUSTOMER_ID
+    * 100.0
+    / (SUM(COUNT_CUSTOMER_ID) OVER (RANGE BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING)) AS PERCENTAGE_OF_CUSTOMERS
+  
+  FROM customer_count_by_segment
+
 )
 
 SELECT *
 
-FROM rfm_segmentation
+FROM segment_customer_percentage
