@@ -23,7 +23,7 @@
         "phase" : 0
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "hdblbyEu##CUSTOMER_ID", "hdblbyEu##RECENCY", "hdblbyEu##FREQUENCY", "hdblbyEu##MONETARY", "hdblbyEu##ZIP_CODE", "hdblbyEu##REGION", "hdblbyEu##EMAIL" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "CUSTOMER_ID"
@@ -68,6 +68,30 @@
           },
           "alias" : "RFM_SEGMENT",
           "_row_id" : "1401799036"
+        }, {
+          "expression" : {
+            "expression" : "{{ segment_flag() }}"
+          },
+          "alias" : "FLAG",
+          "_row_id" : "FGO3GqGm_-"
+        }, {
+          "expression" : {
+            "expression" : "ZIP_CODE"
+          },
+          "alias" : "ZIP_CODE",
+          "_row_id" : "1367918742"
+        }, {
+          "expression" : {
+            "expression" : "REGION"
+          },
+          "alias" : "REGION",
+          "_row_id" : "1484143727"
+        }, {
+          "expression" : {
+            "expression" : "EMAIL"
+          },
+          "alias" : "EMAIL",
+          "_row_id" : "364455724"
         } ]
       },
       "ports" : {
@@ -197,6 +221,26 @@
               }
             }, {
               "name" : "RFM_SEGMENT",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "FLAG",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ZIP_CODE",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "REGION",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "EMAIL",
               "dataType" : {
                 "type" : "String"
               }
