@@ -209,9 +209,7 @@ sqlOrchestratorPipelines:
     description: null
     author: brooks.danyelle@prophecy.io
     files:
-    - models/rfm_tues/schema.yml
-    - models/rfm_tues/rfm_tues__customer_percentage_by_flag_segment_region.sql
     - .prophecy/ide/pipelines/rfm_tues.json
     - pipelines/rfm_tues.py
-    createdAt: '2025-09-23 13:43:31'
+    createdAt: '2025-09-23 14:12:00'
 sqlBusinessApps: {}

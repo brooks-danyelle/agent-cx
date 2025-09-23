@@ -1,6 +1,0 @@
----
-version: 2
-models:
-- name: "rfm_tues__customer_percentage_by_flag_segment_region"
-  tags:
-  - "prophecy_temp"
