@@ -1,6 +1,6 @@
 ---
 version: 2
 models:
-- name: "rfm__customer_rfm_email_join"
+- name: "rfm__percentage_of_customers_per_segment"
   tags:
   - "prophecy_temp"

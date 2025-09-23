@@ -210,7 +210,7 @@ sqlOrchestratorPipelines:
     author: brooks.danyelle@prophecy.io
     files:
     - models/rfm/schema.yml
-    - models/rfm/rfm__customer_rfm_email_join.sql
+    - models/rfm/rfm__percentage_of_customers_per_segment.sql
     - models/rfm_agent/rfm_agent__customer_percentage_by_flag_segment_region.sql
     - models/rfm_agent/schema.yml
     - .prophecy/ide/pipelines/rfm.json

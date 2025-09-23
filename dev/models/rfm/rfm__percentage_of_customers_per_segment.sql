@@ -27,19 +27,19 @@ mask_email_id AS (
 
 ),
 
-crm_customers AS (
-
-  SELECT * 
-  
-  FROM {{ source('itai.retail_analyst', 'crm_customers') }}
-
-),
-
 ecom_orders AS (
 
   SELECT * 
   
   FROM {{ source('itai.retail_analyst', 'ecom_orders') }}
+
+),
+
+crm_customers AS (
+
+  SELECT * 
+  
+  FROM {{ source('itai.retail_analyst', 'crm_customers') }}
 
 ),
 
@@ -158,8 +158,46 @@ customer_rfm_email_join AS (
   INNER JOIN mask_email_id
      ON rfm_with_segment.CUSTOMER_ID = mask_email_id.CUSTOMER_ID
 
+),
+
+customer_count_per_segment AS (
+
+  SELECT 
+    RFM_SEGMENT,
+    COUNT(DISTINCT CUSTOMER_ID) AS COUNT_DISTINCT_CUSTOMER_ID
+  
+  FROM customer_rfm_email_join
+  
+  GROUP BY RFM_SEGMENT
+
+),
+
+total_customer_count AS (
+
+  SELECT DISTINCT COUNT(DISTINCT CUSTOMER_ID) AS COUNT_DISTINCT_CUSTOMER_ID_
+  
+  FROM customer_rfm_email_join
+
+),
+
+percentage_of_customers_per_segment AS (
+
+  SELECT 
+    customer_count_per_segment.RFM_SEGMENT,
+    customer_count_per_segment.COUNT_DISTINCT_CUSTOMER_ID
+    * 100.0
+    / CASE
+        WHEN total_customer_count.COUNT_DISTINCT_CUSTOMER_ID_ = 0
+          THEN NULL
+        ELSE total_customer_count.COUNT_DISTINCT_CUSTOMER_ID_
+      END AS PERCENTAGE_OF_CUSTOMERS
+  
+  FROM customer_count_per_segment
+  LEFT JOIN total_customer_count
+     ON TRUE
+
 )
 
 SELECT *
 
-FROM customer_rfm_email_join
+FROM percentage_of_customers_per_segment

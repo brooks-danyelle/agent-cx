@@ -1,6 +1,6 @@
 with DAG():
-    rfm__customer_rfm_email_join = Task(
-        task_id = "rfm__customer_rfm_email_join", 
+    rfm__percentage_of_customers_per_segment = Task(
+        task_id = "rfm__percentage_of_customers_per_segment", 
         component = "Model", 
-        modelName = "rfm__customer_rfm_email_join"
+        modelName = "rfm__percentage_of_customers_per_segment"
     )

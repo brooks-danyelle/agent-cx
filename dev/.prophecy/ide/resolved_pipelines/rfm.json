@@ -13,37 +13,37 @@
     "isTranspiledPipeline" : false
   },
   "processes" : {
-    "customer_rfm_ema##rTARWDxO" : {
-      "id" : "customer_rfm_ema##rTARWDxO",
+    "percentage_of_cu##iQjsMYqk" : {
+      "id" : "percentage_of_cu##iQjsMYqk",
       "component" : "Model",
       "metadata" : {
-        "label" : "rfm__customer_rfm_email_join",
+        "label" : "rfm__percentage_of_customers_per_segment",
         "phase" : 0
       },
       "properties" : {
-        "modelName" : "rfm__customer_rfm_email_join"
+        "modelName" : "rfm__percentage_of_customers_per_segment"
       },
       "visualMetaInfo" : {
-        "visualProcessIds" : [ "customer_rfm_email_join_uAnpy7Li", "customer_rfm_ema##rTARWDxO", "rfm_with_segment##IXjEY736", "mask_email_id##Si39WZUo", "email_events##ev7zBJYp", "rfm_scores_calcu##ljh1ergZ", "rfm_calculation##LI7LO1n5", "rfm_aggregation##dCE7Rk1y", "customer_data_jo##AuRZb1D7", "ecom_orders##xcutHmqV", "instore_sales##G113tcET", "crm_customers##WnqUN7GQ" ],
+        "visualProcessIds" : [ "percentage_of_customers_per_segment_ENedkU3B", "percentage_of_cu##iQjsMYqk", "customer_count_p##zSSOB9ek", "total_customer_c##ME1nQCxo", "customer_rfm_ema##rTARWDxO", "rfm_with_segment##dI5U3LbM", "mask_email_id##Jpf0mUNN", "email_events##T7E1xoXK", "rfm_scores_calcu##d53mxWxf", "rfm_calculation##sMEnJKdf", "rfm_aggregation##V0eMLmbg", "customer_data_jo##L2zcBcQ6", "ecom_orders##D7wPQn39", "instore_sales##FcD1s6vU", "crm_customers##K54wz1KY" ],
         "type" : "ephemeral",
         "isTemporaryTable" : true
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "rfm__customer_rfm_email_join_in_0",
+          "id" : "rfm__percentage_of_customers_per_segment_in_0",
           "slug" : "in_0"
         }, {
-          "id" : "rfm__customer_rfm_email_join_in_1",
+          "id" : "rfm__percentage_of_customers_per_segment_in_1",
           "slug" : "in_1"
         }, {
-          "id" : "rfm__customer_rfm_email_join_in_2",
+          "id" : "rfm__percentage_of_customers_per_segment_in_2",
           "slug" : "in_2"
         }, {
-          "id" : "rfm__customer_rfm_email_join_in_3",
+          "id" : "rfm__percentage_of_customers_per_segment_in_3",
           "slug" : "in_3"
         } ],
         "outputs" : [ {
-          "id" : "rfm__customer_rfm_email_join_out_0",
+          "id" : "rfm__percentage_of_customers_per_segment_out_0",
           "slug" : "out_0"
         } ],
         "isCustomOutputSchema" : false
