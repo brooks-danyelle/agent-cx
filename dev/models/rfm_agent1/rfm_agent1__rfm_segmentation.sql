@@ -14,19 +14,19 @@ WITH ecom_orders AS (
 
 ),
 
-crm_customers AS (
-
-  SELECT * 
-  
-  FROM {{ source('itai.retail_analyst', 'crm_customers') }}
-
-),
-
 instore_sales AS (
 
   SELECT * 
   
   FROM {{ source('itai.retail_analyst', 'instore_sales') }}
+
+),
+
+crm_customers AS (
+
+  SELECT * 
+  
+  FROM {{ source('itai.retail_analyst', 'crm_customers') }}
 
 ),
 
@@ -129,24 +129,13 @@ rfm_segmentation AS (
       NTILE(5) OVER (ORDER BY FREQUENCY NULLS LAST ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW), 
       NTILE(5) OVER (ORDER BY MONETARY NULLS LAST ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)) AS RFM_SEGMENT,
     {{ segment_flag() }} AS FLAG,
-    ZIP_CODE AS ZIP_CODE,
-    REGION AS REGION,
-    EMAIL AS EMAIL
+    EMAIL AS EMAIL,
+    ZIP_CODE AS ZIP_CODE
   
   FROM customer_rfm_metrics
-
-),
-
-at_risk_customers AS (
-
-  SELECT * 
-  
-  FROM rfm_segmentation
-  
-  WHERE RFM_SEGMENT = 'At Risk'
 
 )
 
 SELECT *
 
-FROM at_risk_customers
+FROM rfm_segmentation

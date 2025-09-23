@@ -215,7 +215,7 @@ sqlOrchestratorPipelines:
     - models/rfm_agent/schema.yml
     - models/rfm_agent/rfm_agent__customer_flag_percentage.sql
     - models/rfm_agent1/schema.yml
-    - models/rfm_agent1/rfm_agent1__at_risk_customers.sql
+    - models/rfm_agent1/rfm_agent1__rfm_segmentation.sql
     - .prophecy/ide/pipelines/rfm_agent.json
     - pipelines/rfm_agent.py
     createdAt: '2025-09-18 13:55:36'
@@ -226,7 +226,7 @@ sqlOrchestratorPipelines:
     author: brooks.danyelle@prophecy.io
     files:
     - models/rfm_agent1/schema.yml
-    - models/rfm_agent1/rfm_agent1__at_risk_customers.sql
+    - models/rfm_agent1/rfm_agent1__rfm_segmentation.sql
     - .prophecy/ide/pipelines/rfm_agent1.json
     - pipelines/rfm_agent1.py
     createdAt: '2025-09-23 16:51:37'
