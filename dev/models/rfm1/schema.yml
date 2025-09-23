@@ -1,6 +1,6 @@
 ---
 version: 2
 models:
-- name: "rfm1__customer_rfm_analysis"
+- name: "rfm1__rfm_segmentation_analysis"
   tags:
   - "prophecy_temp"
