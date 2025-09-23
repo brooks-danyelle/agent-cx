@@ -1,0 +1,6 @@
+---
+version: 2
+models:
+- name: "rfm_tues__orders_2025_filter"
+  tags:
+  - "prophecy_temp"
