@@ -163,7 +163,8 @@ rfm_segmentation_analysis AS (
         WHEN monetary >= 250
           THEN 2
         ELSE 1
-      END AS STRING)) AS RFM_segment
+      END AS STRING)) AS RFM_segment,
+    {{ segment_flag() }} AS CUSTOMER_FLAG
   
   FROM customer_rfm_analysis
 
