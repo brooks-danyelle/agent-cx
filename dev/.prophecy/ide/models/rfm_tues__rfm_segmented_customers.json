@@ -28,7 +28,7 @@
         "phase" : 0
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "wIYr8l0p##ORDER_ID", "wIYr8l0p##CUSTOMER_ID", "wIYr8l0p##ORDER_DATE", "wIYr8l0p##ORDER_AMOUNT", "wIYr8l0p##TRANSACTION_ID", "wIYr8l0p##TRANSACTION_DATE", "wIYr8l0p##TRANSACTION_AMOUNT", "wIYr8l0p##SIGNUP_DATE", "wIYr8l0p##EMAIL", "wIYr8l0p##ZIP_CODE", "wIYr8l0p##REGION", "wIYr8l0p##PREFERRED_CHANNEL", "wIYr8l0p##RECENCY_SCORE", "wIYr8l0p##FREQUENCY_SCORE", "wIYr8l0p##MONETARY_SCORE" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "ORDER_ID"
@@ -110,6 +110,12 @@
           },
           "alias" : "RFM_SEGMENT",
           "_row_id" : "1894299018"
+        }, {
+          "expression" : {
+            "expression" : "{{ segment_flag() }}"
+          },
+          "alias" : "CUSTOMER_FLAG",
+          "_row_id" : "PG6USwAU1i"
         } ]
       },
       "ports" : {

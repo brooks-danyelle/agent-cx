@@ -138,7 +138,8 @@ rfm_segmented_customers AS (
       WHEN RECENCY_SCORE >= 3 AND FREQUENCY_SCORE >= 3 AND MONETARY_SCORE >= 3
         THEN 'Loyal Customers'
       ELSE 'Others         '
-    END AS RFM_SEGMENT
+    END AS RFM_SEGMENT,
+    {{ segment_flag() }} AS CUSTOMER_FLAG
   
   FROM customer_rfm_scores
 
