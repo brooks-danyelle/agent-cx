@@ -1,6 +1,7 @@
 {{
   config({    
-    "materialized": "ephemeral",
+    "materialized": "table",
+    "alias": "cx_demo",
     "database": "danyelle",
     "schema": "demo"
   })

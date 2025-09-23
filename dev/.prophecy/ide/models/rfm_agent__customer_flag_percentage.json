@@ -9,7 +9,8 @@
     },
     "graphConfig" : {
       "entityConfig" : {
-        "materialized" : "ephemeral",
+        "alias" : "\"cx_demo\"",
+        "materialized" : "table",
         "database" : "\"danyelle\"",
         "schema" : "\"demo\"",
         "type" : "ModelConfig"
@@ -28,7 +29,7 @@
         "phase" : 0
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "CFV9kuwc##CUSTOMER_FLAG", "CFV9kuwc##COUNT" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "CUSTOMER_FLAG"
@@ -55,36 +56,6 @@
         "autoUpdateOnRun" : false
       }
     },
-    "customer_flag_percentage_VuECE6RL" : {
-      "id" : "customer_flag_percentage_VuECE6RL",
-      "component" : "TargetModel",
-      "metadata" : {
-        "label" : "customer_flag_percentage"
-      },
-      "properties" : {
-        "customQueryDisabled" : true,
-        "customQuery" : false,
-        "incrementalEditorDisabled" : true,
-        "query" : "\nSELECT *\n\nFROM customer_flag_percentage\n\n",
-        "isModel" : true,
-        "incrementalKey" : false,
-        "incremental" : {
-          "expression" : "true"
-        }
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "input_port_0",
-          "slug" : "input_port_0"
-        } ],
-        "outputs" : [ {
-          "id" : "output_port_0",
-          "slug" : "output_port_0"
-        } ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      }
-    },
     "instore_sales##Y3nkD4Rr" : {
       "id" : "instore_sales##Y3nkD4Rr",
       "component" : "Source",
@@ -105,6 +76,37 @@
         "inputs" : [ ],
         "outputs" : [ {
           "id" : "Kt9mrcyS",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "NDYgviprFFBSUsGBRJAj7$$WafjaXoh4fvNGdnT95Od8" : {
+      "id" : "NDYgviprFFBSUsGBRJAj7$$WafjaXoh4fvNGdnT95Od8",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "customer_distribution",
+        "phase" : 0
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "\nSELECT *\n\nFROM customer_flag_percentage\n\n",
+        "isModel" : true,
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Ryix-om30Nuc1QHzuqX_4$$vcP-KQo5_dmKXsW8KYV5E",
+          "slug" : "in"
+        } ],
+        "outputs" : [ {
+          "id" : "INMOxxrv-oDI9jPhtNxtY$$R9lBoruWfVh_-3tLxkUH-",
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false,
@@ -223,7 +225,7 @@
           "expression" : ""
         },
         "activeTab" : "aggregate",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "Ezf7exui##ORDER_ID", "Ezf7exui##CUSTOMER_ID", "Ezf7exui##ORDER_DATE", "Ezf7exui##ORDER_AMOUNT", "Ezf7exui##TRANSACTION_ID", "Ezf7exui##TRANSACTION_DATE", "Ezf7exui##TRANSACTION_AMOUNT", "Ezf7exui##SIGNUP_DATE", "Ezf7exui##EMAIL", "Ezf7exui##ZIP_CODE", "Ezf7exui##REGION", "Ezf7exui##PREFERRED_CHANNEL" ],
         "groupBy" : [ {
           "expression" : {
             "expression" : "ORDER_ID"
@@ -396,7 +398,7 @@
           "_row_id" : "2102802830"
         } ],
         "activeTab" : "conditions",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "UCLr7Ifl##customer_id", "cGFil7hz##customer_id", "cKhMjm6W##customer_id", "UCLr7Ifl##order_id", "UCLr7Ifl##customer_id", "UCLr7Ifl##order_date", "UCLr7Ifl##order_amount", "cGFil7hz##transaction_id", "cGFil7hz##transaction_date", "cGFil7hz##transaction_amount", "cKhMjm6W##signup_date", "cKhMjm6W##email", "cKhMjm6W##zip_code", "cKhMjm6W##region", "cKhMjm6W##preferred_channel" ],
         "headAlias" : "ecom_orders"
       },
       "ports" : {
@@ -428,7 +430,7 @@
         "phase" : 0
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "dcsDhKF0##ORDER_ID", "dcsDhKF0##CUSTOMER_ID", "dcsDhKF0##ORDER_DATE", "dcsDhKF0##ORDER_AMOUNT", "dcsDhKF0##TRANSACTION_ID", "dcsDhKF0##TRANSACTION_DATE", "dcsDhKF0##TRANSACTION_AMOUNT", "dcsDhKF0##SIGNUP_DATE", "dcsDhKF0##EMAIL", "dcsDhKF0##ZIP_CODE", "dcsDhKF0##REGION", "dcsDhKF0##PREFERRED_CHANNEL", "dcsDhKF0##LAST_PURCHASE", "dcsDhKF0##RECENCY", "dcsDhKF0##FREQUENCY", "dcsDhKF0##MONETARY", "dcsDhKF0##RECENCY_SCORE", "dcsDhKF0##FREQUENCY_SCORE", "dcsDhKF0##MONETARY_SCORE" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "ORDER_ID"
@@ -578,7 +580,7 @@
           "expression" : ""
         },
         "activeTab" : "aggregate",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "D7hUsEFC##CUSTOMER_FLAG" ],
         "groupBy" : [ {
           "expression" : {
             "expression" : "CUSTOMER_FLAG"
@@ -661,7 +663,7 @@
         "phase" : 0
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "zFeitVMl##ORDER_ID", "zFeitVMl##CUSTOMER_ID", "zFeitVMl##ORDER_DATE", "zFeitVMl##ORDER_AMOUNT", "zFeitVMl##TRANSACTION_ID", "zFeitVMl##TRANSACTION_DATE", "zFeitVMl##TRANSACTION_AMOUNT", "zFeitVMl##SIGNUP_DATE", "zFeitVMl##EMAIL", "zFeitVMl##ZIP_CODE", "zFeitVMl##REGION", "zFeitVMl##PREFERRED_CHANNEL", "zFeitVMl##LAST_PURCHASE", "zFeitVMl##RECENCY", "zFeitVMl##FREQUENCY", "zFeitVMl##MONETARY" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "ORDER_ID"
@@ -777,11 +779,11 @@
     }
   },
   "connections" : [ {
-    "id" : "conn_customer_flag_pe##tLP0k6dw_customer_flag_percentage_VuECE6RL",
+    "id" : "QszDxCF_KTL9d3g97GxKt",
     "source" : "customer_flag_pe##tLP0k6dw",
     "sourcePort" : "VuECE6RL",
-    "target" : "customer_flag_percentage_VuECE6RL",
-    "targetPort" : "input_port_0"
+    "target" : "NDYgviprFFBSUsGBRJAj7$$WafjaXoh4fvNGdnT95Od8",
+    "targetPort" : "Ryix-om30Nuc1QHzuqX_4$$vcP-KQo5_dmKXsW8KYV5E"
   }, {
     "id" : "yNLkl50g",
     "source" : "customer_flag_co##ometexna",

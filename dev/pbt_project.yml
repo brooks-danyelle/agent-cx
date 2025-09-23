@@ -65,7 +65,23 @@ sqlSources:
     files:
     - prophecy-sources/sources.yml
     createdAt: '2025-09-23 13:11:50'
-    tables: []
+    tables:
+    - name: cx_demo
+      schema:
+        entityType: ''
+        providerType: databricks
+        fields:
+        - name: CUSTOMER_FLAG
+          dataType:
+            type: String
+        - name: PERCENTAGE_OF_CUSTOMERS
+          dataType:
+            type: Decimal
+      description: Customer segmentation data indicating the proportion of customers
+        within specific categories, aiding in market analysis and strategy development.
+      author: brooks.danyelle@prophecy.io
+      createdAt: '2025-09-23 16:50:24'
+      tableType: table
   .prophecy/metadata/sqlsources/itai_retail_analyst:
     name: itai.retail_analyst
     description: null
@@ -94,7 +110,6 @@ sqlSources:
       description: null
       author: brooks.danyelle@prophecy.io
       createdAt: '2025-09-18 14:59:36'
-      tableType: table
     - name: instore_sales
       schema:
         entityType: ''
@@ -115,7 +130,6 @@ sqlSources:
       description: null
       author: brooks.danyelle@prophecy.io
       createdAt: '2025-09-18 14:59:55'
-      tableType: table
     - name: crm_customers
       schema:
         entityType: ''
@@ -203,4 +217,13 @@ sqlOrchestratorPipelines:
     - .prophecy/ide/pipelines/rfm_agent.json
     - pipelines/rfm_agent.py
     createdAt: '2025-09-18 13:55:36'
+  .prophecy/metadata/sqlorchestratorpipeline/rfm_agent1:
+    name: rfm_agent1
+    schema: null
+    description: null
+    author: brooks.danyelle@prophecy.io
+    files:
+    - .prophecy/ide/pipelines/rfm_agent1.json
+    - pipelines/rfm_agent1.py
+    createdAt: '2025-09-23 16:51:37'
 sqlBusinessApps: {}

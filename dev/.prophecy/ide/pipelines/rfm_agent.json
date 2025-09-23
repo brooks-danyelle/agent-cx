@@ -23,7 +23,7 @@
         "phase" : 0
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "CFV9kuwc##CUSTOMER_FLAG", "CFV9kuwc##COUNT" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "CUSTOMER_FLAG"
@@ -79,12 +79,31 @@
         "isCustomOutputSchema" : false
       }
     },
+    "saAoIqruFQ2T2aINgdRta$$rrkc1eb-6hGyS3_kw6eth" : {
+      "id" : "saAoIqruFQ2T2aINgdRta$$rrkc1eb-6hGyS3_kw6eth",
+      "component" : "Comment",
+      "metadata" : {
+        "label" : "Comment_2",
+        "x" : 1160,
+        "y" : -20,
+        "height" : 158.39060974121094,
+        "width" : 220,
+        "phase" : 0
+      },
+      "properties" : {
+        "comment" : "## 4. Percentage of customers in each segment group"
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ ]
+      }
+    },
     "ltWuI_FXc2a-DRncIAv-i$$kqMH_ssAEottCT6bM45nF" : {
       "id" : "ltWuI_FXc2a-DRncIAv-i$$kqMH_ssAEottCT6bM45nF",
       "component" : "Comment",
       "metadata" : {
         "label" : "Comment_1",
-        "x" : 280,
+        "x" : 320,
         "y" : -20,
         "height" : 158.39060974121094,
         "width" : 220,
@@ -96,6 +115,48 @@
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ ]
+      }
+    },
+    "woF4Tu9gMw1K9Opb4df4c$$V65UxItys-BkIoGhXOKhA" : {
+      "id" : "woF4Tu9gMw1K9Opb4df4c$$V65UxItys-BkIoGhXOKhA",
+      "component" : "Email",
+      "metadata" : {
+        "label" : "send_cx_report",
+        "x" : 1540,
+        "y" : 80,
+        "phase" : 0
+      },
+      "properties" : {
+        "body" : "csv output",
+        "subject" : "CX segmentation report",
+        "includeData" : false,
+        "fileName" : "",
+        "to" : [ "danyelle@prophecy.io" ],
+        "fileFormat" : "",
+        "hasTemplate" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "iw1vm-2t3QihIzJ0HzKRU$$DpFysM_X5jhdpm8oQYkoz",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "CUSTOMER_FLAG",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "PERCENTAGE_OF_CUSTOMERS",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            } ]
+          },
+          "slug" : "customer_flag_percentage"
+        } ],
+        "outputs" : [ ],
+        "isCustomOutputSchema" : false
       }
     },
     "instore_sales##Y3nkD4Rr" : {
@@ -154,7 +215,7 @@
       "component" : "Comment",
       "metadata" : {
         "label" : "Comment_3",
-        "x" : 500,
+        "x" : 580,
         "y" : 0,
         "height" : 129.59376525878906,
         "width" : 220,
@@ -166,6 +227,68 @@
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ ]
+      }
+    },
+    "NDYgviprFFBSUsGBRJAj7$$WafjaXoh4fvNGdnT95Od8" : {
+      "id" : "NDYgviprFFBSUsGBRJAj7$$WafjaXoh4fvNGdnT95Od8",
+      "component" : "Dataset",
+      "metadata" : {
+        "label" : "customer_distribution",
+        "x" : 1540,
+        "y" : 280,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "cx_demo",
+          "sourceType" : "Source",
+          "sourceName" : "danyelle.demo",
+          "alias" : ""
+        },
+        "writeOptions" : {
+          "writeMode" : "overwrite"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Ryix-om30Nuc1QHzuqX_4$$vcP-KQo5_dmKXsW8KYV5E",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "CUSTOMER_FLAG",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "PERCENTAGE_OF_CUSTOMERS",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            } ]
+          },
+          "slug" : "in"
+        } ],
+        "outputs" : [ {
+          "id" : "INMOxxrv-oDI9jPhtNxtY$$R9lBoruWfVh_-3tLxkUH-",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "CUSTOMER_FLAG",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "PERCENTAGE_OF_CUSTOMERS",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
       }
     },
     "Reformat_1##OTXWDef7" : {
@@ -280,7 +403,7 @@
           "expression" : ""
         },
         "activeTab" : "aggregate",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "Ezf7exui##ORDER_ID", "Ezf7exui##CUSTOMER_ID", "Ezf7exui##ORDER_DATE", "Ezf7exui##ORDER_AMOUNT", "Ezf7exui##TRANSACTION_ID", "Ezf7exui##TRANSACTION_DATE", "Ezf7exui##TRANSACTION_AMOUNT", "Ezf7exui##SIGNUP_DATE", "Ezf7exui##EMAIL", "Ezf7exui##ZIP_CODE", "Ezf7exui##REGION", "Ezf7exui##PREFERRED_CHANNEL" ],
         "groupBy" : [ {
           "expression" : {
             "expression" : "ORDER_ID"
@@ -602,7 +725,7 @@
           "_row_id" : "2102802830"
         } ],
         "activeTab" : "conditions",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "UCLr7Ifl##customer_id", "cGFil7hz##customer_id", "cKhMjm6W##customer_id", "UCLr7Ifl##order_id", "UCLr7Ifl##customer_id", "UCLr7Ifl##order_date", "UCLr7Ifl##order_amount", "cGFil7hz##transaction_id", "cGFil7hz##transaction_date", "cGFil7hz##transaction_amount", "cKhMjm6W##signup_date", "cKhMjm6W##email", "cKhMjm6W##zip_code", "cKhMjm6W##region", "cKhMjm6W##preferred_channel" ],
         "headAlias" : "ecom_orders"
       },
       "ports" : {
@@ -783,7 +906,7 @@
         "phase" : 0
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "dcsDhKF0##ORDER_ID", "dcsDhKF0##CUSTOMER_ID", "dcsDhKF0##ORDER_DATE", "dcsDhKF0##ORDER_AMOUNT", "dcsDhKF0##TRANSACTION_ID", "dcsDhKF0##TRANSACTION_DATE", "dcsDhKF0##TRANSACTION_AMOUNT", "dcsDhKF0##SIGNUP_DATE", "dcsDhKF0##EMAIL", "dcsDhKF0##ZIP_CODE", "dcsDhKF0##REGION", "dcsDhKF0##PREFERRED_CHANNEL", "dcsDhKF0##LAST_PURCHASE", "dcsDhKF0##RECENCY", "dcsDhKF0##FREQUENCY", "dcsDhKF0##MONETARY", "dcsDhKF0##RECENCY_SCORE", "dcsDhKF0##FREQUENCY_SCORE", "dcsDhKF0##MONETARY_SCORE" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "ORDER_ID"
@@ -1142,7 +1265,7 @@
           "expression" : ""
         },
         "activeTab" : "aggregate",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "D7hUsEFC##CUSTOMER_FLAG" ],
         "groupBy" : [ {
           "expression" : {
             "expression" : "CUSTOMER_FLAG"
@@ -1409,7 +1532,7 @@
         "phase" : 0
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "zFeitVMl##ORDER_ID", "zFeitVMl##CUSTOMER_ID", "zFeitVMl##ORDER_DATE", "zFeitVMl##ORDER_AMOUNT", "zFeitVMl##TRANSACTION_ID", "zFeitVMl##TRANSACTION_DATE", "zFeitVMl##TRANSACTION_AMOUNT", "zFeitVMl##SIGNUP_DATE", "zFeitVMl##EMAIL", "zFeitVMl##ZIP_CODE", "zFeitVMl##REGION", "zFeitVMl##PREFERRED_CHANNEL", "zFeitVMl##LAST_PURCHASE", "zFeitVMl##RECENCY", "zFeitVMl##FREQUENCY", "zFeitVMl##MONETARY" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "ORDER_ID"
@@ -1712,7 +1835,7 @@
       "component" : "Comment",
       "metadata" : {
         "label" : "Comment_5",
-        "x" : 720,
+        "x" : 820,
         "y" : 0,
         "height" : 129.59376525878906,
         "width" : 220,
@@ -1775,6 +1898,18 @@
     "sourcePort" : "oXCrUwYb",
     "target" : "customer_flag_pe##tLP0k6dw",
     "targetPort" : "CFV9kuwc"
+  }, {
+    "id" : "K8_rNbxqsSZEIcYHiLzTL$$7uMVM6Is4YZWIUUGedbik",
+    "source" : "customer_flag_pe##tLP0k6dw",
+    "sourcePort" : "VuECE6RL",
+    "target" : "woF4Tu9gMw1K9Opb4df4c$$V65UxItys-BkIoGhXOKhA",
+    "targetPort" : "iw1vm-2t3QihIzJ0HzKRU$$DpFysM_X5jhdpm8oQYkoz"
+  }, {
+    "id" : "QszDxCF_KTL9d3g97GxKt",
+    "source" : "customer_flag_pe##tLP0k6dw",
+    "sourcePort" : "VuECE6RL",
+    "target" : "NDYgviprFFBSUsGBRJAj7$$WafjaXoh4fvNGdnT95Od8",
+    "targetPort" : "Ryix-om30Nuc1QHzuqX_4$$vcP-KQo5_dmKXsW8KYV5E"
   } ],
   "component" : "Pipeline"
 }
