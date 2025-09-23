@@ -6,15 +6,7 @@
   })
 }}
 
-WITH crm_customers AS (
-
-  SELECT * 
-  
-  FROM {{ source('itai.retail_analyst', 'crm_customers') }}
-
-),
-
-ecom_orders AS (
+WITH ecom_orders AS (
 
   SELECT * 
   
@@ -27,6 +19,14 @@ instore_sales AS (
   SELECT * 
   
   FROM {{ source('itai.retail_analyst', 'instore_sales') }}
+
+),
+
+crm_customers AS (
+
+  SELECT * 
+  
+  FROM {{ source('itai.retail_analyst', 'crm_customers') }}
 
 ),
 
@@ -52,8 +52,35 @@ customer_data_join AS (
   LEFT JOIN crm_customers
      ON ecom_orders.customer_id = crm_customers.customer_id
 
+),
+
+rfm_aggregation AS (
+
+  SELECT 
+    CUSTOMER_ID,
+    MAX(ORDER_DATE) AS MOST_RECENT_ORDER_DATE,
+    COUNT(ORDER_ID) AS FREQUENCY,
+    SUM(ORDER_AMOUNT) AS MONETARY
+  
+  FROM customer_data_join
+  
+  GROUP BY CUSTOMER_ID
+
+),
+
+rfm_calculation AS (
+
+  SELECT 
+    CUSTOMER_ID,
+    MOST_RECENT_ORDER_DATE,
+    DATEDIFF(DAY, MOST_RECENT_ORDER_DATE, CURRENT_DATE) AS RECENCY,
+    FREQUENCY,
+    MONETARY
+  
+  FROM rfm_aggregation
+
 )
 
 SELECT *
 
-FROM customer_data_join
+FROM rfm_calculation
