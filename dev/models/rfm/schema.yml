@@ -1,0 +1,6 @@
+---
+version: 2
+models:
+- name: "rfm__customer_data_join"
+  tags:
+  - "prophecy_temp"
