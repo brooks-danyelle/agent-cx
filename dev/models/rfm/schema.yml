@@ -1,6 +1,6 @@
 ---
 version: 2
 models:
-- name: "rfm__rfm_calculation"
+- name: "rfm__rfm_scores_calculation"
   tags:
   - "prophecy_temp"

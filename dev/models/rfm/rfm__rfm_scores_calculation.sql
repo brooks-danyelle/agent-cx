@@ -6,7 +6,15 @@
   })
 }}
 
-WITH ecom_orders AS (
+WITH crm_customers AS (
+
+  SELECT * 
+  
+  FROM {{ source('itai.retail_analyst', 'crm_customers') }}
+
+),
+
+ecom_orders AS (
 
   SELECT * 
   
@@ -19,14 +27,6 @@ instore_sales AS (
   SELECT * 
   
   FROM {{ source('itai.retail_analyst', 'instore_sales') }}
-
-),
-
-crm_customers AS (
-
-  SELECT * 
-  
-  FROM {{ source('itai.retail_analyst', 'crm_customers') }}
 
 ),
 
@@ -79,8 +79,24 @@ rfm_calculation AS (
   
   FROM rfm_aggregation
 
+),
+
+rfm_scores_calculation AS (
+
+  SELECT 
+    CUSTOMER_ID,
+    MOST_RECENT_ORDER_DATE,
+    RECENCY,
+    FREQUENCY,
+    MONETARY,
+    NTILE(5) OVER (ORDER BY MONETARY DESC NULLS FIRST ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS MONETARY_SCORE,
+    NTILE(5) OVER (ORDER BY FREQUENCY DESC NULLS FIRST ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS FREQUENCY_SCORE,
+    NTILE(5) OVER (ORDER BY RECENCY NULLS LAST ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS RECENCY_SCORE
+  
+  FROM rfm_calculation
+
 )
 
 SELECT *
 
-FROM rfm_calculation
+FROM rfm_scores_calculation
