@@ -6,7 +6,15 @@
   })
 }}
 
-WITH ecom_orders AS (
+WITH crm_customers AS (
+
+  SELECT * 
+  
+  FROM {{ source('itai.retail_analyst', 'crm_customers') }}
+
+),
+
+ecom_orders AS (
 
   SELECT * 
   
@@ -19,14 +27,6 @@ instore_sales AS (
   SELECT * 
   
   FROM {{ source('itai.retail_analyst', 'instore_sales') }}
-
-),
-
-crm_customers AS (
-
-  SELECT * 
-  
-  FROM {{ source('itai.retail_analyst', 'crm_customers') }}
 
 ),
 
@@ -134,8 +134,18 @@ rfm_segmentation AS (
   
   FROM customer_rfm_metrics
 
+),
+
+at_risk_customers AS (
+
+  SELECT * 
+  
+  FROM rfm_segmentation
+  
+  WHERE FLAG = 'at risk'
+
 )
 
 SELECT *
 
-FROM rfm_segmentation
+FROM at_risk_customers
