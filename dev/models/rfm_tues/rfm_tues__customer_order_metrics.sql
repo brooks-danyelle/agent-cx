@@ -62,8 +62,31 @@ orders_2025_filter AS (
   
   WHERE EXTRACT(YEAR FROM order_date) = 2025
 
+),
+
+customer_order_metrics AS (
+
+  SELECT 
+    order_id AS order_id,
+    customer_id AS customer_id,
+    order_date AS order_date,
+    order_amount AS order_amount,
+    transaction_id AS transaction_id,
+    transaction_date AS transaction_date,
+    transaction_amount AS transaction_amount,
+    signup_date AS signup_date,
+    email AS email,
+    zip_code AS zip_code,
+    region AS region,
+    preferred_channel AS preferred_channel,
+    DATEDIFF(DAY, order_date, CURRENT_DATE) AS RECENCY,
+    COUNT(order_id) OVER (PARTITION BY customer_id) AS FREQUENCY,
+    SUM(order_amount) OVER (PARTITION BY customer_id) AS MONETARY
+  
+  FROM orders_2025_filter
+
 )
 
 SELECT *
 
-FROM orders_2025_filter
+FROM customer_order_metrics
