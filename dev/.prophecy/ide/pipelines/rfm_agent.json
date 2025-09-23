@@ -84,7 +84,7 @@
         "phase" : 0
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "b6LJRDr7##ORDER_ID", "b6LJRDr7##CUSTOMER_ID", "b6LJRDr7##ORDER_DATE", "b6LJRDr7##ORDER_AMOUNT", "b6LJRDr7##TRANSACTION_ID", "b6LJRDr7##TRANSACTION_DATE", "b6LJRDr7##TRANSACTION_AMOUNT", "b6LJRDr7##SIGNUP_DATE", "b6LJRDr7##EMAIL", "b6LJRDr7##ZIP_CODE", "b6LJRDr7##REGION", "b6LJRDr7##PREFERRED_CHANNEL", "b6LJRDr7##LAST_PURCHASE", "b6LJRDr7##RECENCY", "b6LJRDr7##FREQUENCY", "b6LJRDr7##MONETARY", "b6LJRDr7##RECENCY_SCORE", "b6LJRDr7##FREQUENCY_SCORE", "b6LJRDr7##MONETARY_SCORE", "b6LJRDr7##RFM_SEGMENT" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "ORDER_ID"
@@ -477,7 +477,7 @@
           "expression" : ""
         },
         "activeTab" : "aggregate",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "w3ZyNgZF##REGION", "w3ZyNgZF##RFM_SEGMENT", "w3ZyNgZF##CUSTOMER_FLAG", "w3ZyNgZF##CUSTOMER_ID" ],
         "groupBy" : [ {
           "expression" : {
             "expression" : "REGION"
@@ -739,7 +739,7 @@
           "_row_id" : "1301126124"
         } ],
         "activeTab" : "conditions",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "t59r7n7Q##customer_id", "OOJbHqsq##customer_id", "E5xFg0by##customer_id", "t59r7n7Q##order_id", "t59r7n7Q##customer_id", "t59r7n7Q##order_date", "t59r7n7Q##order_amount", "OOJbHqsq##transaction_id", "OOJbHqsq##transaction_date", "OOJbHqsq##transaction_amount", "E5xFg0by##signup_date", "E5xFg0by##email", "E5xFg0by##zip_code", "E5xFg0by##region", "E5xFg0by##preferred_channel" ],
         "headAlias" : "ecom_orders"
       },
       "ports" : {
@@ -920,7 +920,7 @@
         "phase" : 0
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "OE0c7o7x##CUSTOMER_FLAG", "OE0c7o7x##RFM_SEGMENT", "OE0c7o7x##REGION", "OE0c7o7x##COUNT_DISTINCT_CUSTOMER_ID" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "CUSTOMER_FLAG"
@@ -1016,7 +1016,7 @@
         "phase" : 0
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "qisaw861##ORDER_ID", "qisaw861##CUSTOMER_ID", "qisaw861##ORDER_DATE", "qisaw861##ORDER_AMOUNT", "qisaw861##TRANSACTION_ID", "qisaw861##TRANSACTION_DATE", "qisaw861##TRANSACTION_AMOUNT", "qisaw861##SIGNUP_DATE", "qisaw861##EMAIL", "qisaw861##ZIP_CODE", "qisaw861##REGION", "qisaw861##PREFERRED_CHANNEL", "qisaw861##LAST_PURCHASE", "qisaw861##RECENCY", "qisaw861##FREQUENCY", "qisaw861##MONETARY", "qisaw861##RECENCY_SCORE", "qisaw861##FREQUENCY_SCORE", "qisaw861##MONETARY_SCORE" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "ORDER_ID"
@@ -1347,7 +1347,7 @@
         "phase" : 0
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "mLPDWFld##ORDER_ID", "mLPDWFld##CUSTOMER_ID", "mLPDWFld##ORDER_DATE", "mLPDWFld##ORDER_AMOUNT", "mLPDWFld##TRANSACTION_ID", "mLPDWFld##TRANSACTION_DATE", "mLPDWFld##TRANSACTION_AMOUNT", "mLPDWFld##SIGNUP_DATE", "mLPDWFld##EMAIL", "mLPDWFld##ZIP_CODE", "mLPDWFld##REGION", "mLPDWFld##PREFERRED_CHANNEL", "mLPDWFld##LAST_PURCHASE", "mLPDWFld##RECENCY", "mLPDWFld##FREQUENCY", "mLPDWFld##MONETARY" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "ORDER_ID"
@@ -1757,7 +1757,7 @@
           "expression" : ""
         },
         "activeTab" : "aggregate",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "VcjO8X5Z##ORDER_ID", "VcjO8X5Z##CUSTOMER_ID", "VcjO8X5Z##ORDER_DATE", "VcjO8X5Z##ORDER_AMOUNT", "VcjO8X5Z##TRANSACTION_ID", "VcjO8X5Z##TRANSACTION_DATE", "VcjO8X5Z##TRANSACTION_AMOUNT", "VcjO8X5Z##SIGNUP_DATE", "VcjO8X5Z##EMAIL", "VcjO8X5Z##ZIP_CODE", "VcjO8X5Z##REGION", "VcjO8X5Z##PREFERRED_CHANNEL" ],
         "groupBy" : [ {
           "expression" : {
             "expression" : "ORDER_ID"
