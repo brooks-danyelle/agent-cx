@@ -10,200 +10,38 @@
         "fields" : [ ]
       }
     },
-    "schedule" : {
-      "cron" : "* 0 2 * * * *",
-      "timeZone" : "GMT",
-      "emailOnSuccess" : false,
-      "emailOnFailure" : false,
-      "emailOnStart" : false,
-      "emails" : [ "email@gmail.com" ],
-      "enabled" : false
-    },
-    "sensorSchedule" : {
-      "enabled" : false,
-      "isDefaultView" : false,
-      "triggers" : { }
-    },
     "isTranspiledPipeline" : false
   },
   "processes" : {
-    "PhGByqlZvUpQARmxOoBf8" : {
-      "id" : "PhGByqlZvUpQARmxOoBf8",
-      "component" : "Dataset",
+    "customer_data_jo##hKEAw2X7" : {
+      "id" : "customer_data_jo##hKEAw2X7",
+      "component" : "Model",
       "metadata" : {
-        "label" : "ecom_orders",
-        "x" : 40,
-        "y" : 80,
+        "label" : "rfm_agent1__customer_data_join",
         "phase" : 0
       },
       "properties" : {
-        "writeOptions" : {
-          "writeMode" : "overwrite"
-        },
-        "table" : {
-          "name" : "ecom_orders",
-          "sourceType" : "Table",
-          "sourceName" : "itai.retail_analyst",
-          "alias" : ""
-        }
+        "modelName" : "rfm_agent1__customer_data_join"
+      },
+      "visualMetaInfo" : {
+        "visualProcessIds" : [ "customer_data_join_UBK9PQpd", "customer_data_jo##hKEAw2X7", "PhGByqlZvUpQARmxOoBf8", "instore_sales##teUk1Lgl", "crm_customers##cekBq1MB" ],
+        "type" : "ephemeral",
+        "isTemporaryTable" : true
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "LvKlIkH_5semcGM7Hb_aK",
-          "slug" : "in"
+          "id" : "rfm_agent1__customer_data_join_in_0",
+          "slug" : "in_0"
+        }, {
+          "id" : "rfm_agent1__customer_data_join_in_1",
+          "slug" : "in_1"
+        }, {
+          "id" : "rfm_agent1__customer_data_join_in_2",
+          "slug" : "in_2"
         } ],
         "outputs" : [ {
-          "id" : "5x9Csund98QaD1uK7hZHD",
-          "schema" : {
-            "entityType" : "",
-            "providerType" : "databricks",
-            "fields" : [ {
-              "name" : "order_id",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "customer_id",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "order_date",
-              "dataType" : {
-                "type" : "Date"
-              }
-            }, {
-              "name" : "order_amount",
-              "dataType" : {
-                "type" : "Double"
-              }
-            } ]
-          },
-          "slug" : "out"
-        } ],
-        "isCustomOutputSchema" : false
-      }
-    },
-    "lpP-xLbPQmPX5eMTPvV6x" : {
-      "id" : "lpP-xLbPQmPX5eMTPvV6x",
-      "component" : "Dataset",
-      "metadata" : {
-        "label" : "instore_sales",
-        "x" : 40,
-        "y" : 260,
-        "phase" : 0
-      },
-      "properties" : {
-        "writeOptions" : {
-          "writeMode" : "overwrite"
-        },
-        "table" : {
-          "name" : "instore_sales",
-          "sourceType" : "Table",
-          "sourceName" : "itai.retail_analyst",
-          "alias" : ""
-        }
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "7cwSVQbmNwYx89miZH4No",
-          "slug" : "in"
-        } ],
-        "outputs" : [ {
-          "id" : "rLh3cdK4IWvbfhTYARP-W",
-          "schema" : {
-            "entityType" : "",
-            "providerType" : "databricks",
-            "fields" : [ {
-              "name" : "transaction_id",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "customer_id",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "transaction_date",
-              "dataType" : {
-                "type" : "Date"
-              }
-            }, {
-              "name" : "transaction_amount",
-              "dataType" : {
-                "type" : "Double"
-              }
-            } ]
-          },
-          "slug" : "out"
-        } ],
-        "isCustomOutputSchema" : false
-      }
-    },
-    "2qZLRfOBb7XJ9ibBm5A3g" : {
-      "id" : "2qZLRfOBb7XJ9ibBm5A3g",
-      "component" : "Dataset",
-      "metadata" : {
-        "label" : "crm_customers",
-        "x" : 60,
-        "y" : 420,
-        "phase" : 0
-      },
-      "properties" : {
-        "writeOptions" : {
-          "writeMode" : "overwrite"
-        },
-        "table" : {
-          "name" : "crm_customers",
-          "sourceType" : "Table",
-          "sourceName" : "itai.retail_analyst",
-          "alias" : ""
-        }
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "EMHpj8ogmP-UxHZXqIG6U",
-          "slug" : "in"
-        } ],
-        "outputs" : [ {
-          "id" : "SQacQlge_D08N0Rqxx6Na",
-          "schema" : {
-            "entityType" : "",
-            "providerType" : "databricks",
-            "fields" : [ {
-              "name" : "customer_id",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "signup_date",
-              "dataType" : {
-                "type" : "Date"
-              }
-            }, {
-              "name" : "email",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "zip_code",
-              "dataType" : {
-                "type" : "Bigint"
-              }
-            }, {
-              "name" : "region",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "preferred_channel",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
-          "slug" : "out"
+          "id" : "rfm_agent1__customer_data_join_out_0",
+          "slug" : "out_0"
         } ],
         "isCustomOutputSchema" : false
       }
