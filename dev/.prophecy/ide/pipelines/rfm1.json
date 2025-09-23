@@ -866,6 +866,249 @@
         "isCustomOutputSchema" : false
       }
     },
+    "L2WrC9sHgNVyCOPi7mgr1dV7W" : {
+      "id" : "L2WrC9sHgNVyCOPi7mgr1dV7W",
+      "component" : "Dataset",
+      "metadata" : {
+        "label" : "final_rfm1_results",
+        "x" : 820,
+        "y" : 220,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "CustomerSegmentationDemo_rfm1_p70pn",
+          "sourceType" : "Table",
+          "sourceName" : "danyelle.demo",
+          "alias" : "",
+          "additionalProperties" : null
+        },
+        "writeOptions" : {
+          "writeMode" : "overwrite"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "NS3HINPIIJK8K5A",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "ORDER_ID",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "CUSTOMER_ID",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ORDER_DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "ORDER_AMOUNT",
+              "dataType" : {
+                "type" : "Double"
+              }
+            }, {
+              "name" : "TRANSACTION_ID",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "TRANSACTION_DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "TRANSACTION_AMOUNT",
+              "dataType" : {
+                "type" : "Double"
+              }
+            }, {
+              "name" : "SIGNUP_DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "EMAIL",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ZIP_CODE",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "REGION",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "PREFERRED_CHANNEL",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "recency",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "frequency",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "monetary",
+              "dataType" : {
+                "type" : "Double"
+              }
+            }, {
+              "name" : "recency_score",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "frequency_score",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "monetary_score",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "RFM_segment",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "CUSTOMER_FLAG",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "in"
+        } ],
+        "outputs" : [ {
+          "id" : "6lPlZoJsomTQhpi",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "ORDER_ID",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "CUSTOMER_ID",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ORDER_DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "ORDER_AMOUNT",
+              "dataType" : {
+                "type" : "Double"
+              }
+            }, {
+              "name" : "TRANSACTION_ID",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "TRANSACTION_DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "TRANSACTION_AMOUNT",
+              "dataType" : {
+                "type" : "Double"
+              }
+            }, {
+              "name" : "SIGNUP_DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "EMAIL",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ZIP_CODE",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "REGION",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "PREFERRED_CHANNEL",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "recency",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "frequency",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "monetary",
+              "dataType" : {
+                "type" : "Double"
+              }
+            }, {
+              "name" : "recency_score",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "frequency_score",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "monetary_score",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "RFM_segment",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "CUSTOMER_FLAG",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
     "crm_customers##P6YCRAe4" : {
       "id" : "crm_customers##P6YCRAe4",
       "component" : "Dataset",
@@ -1060,6 +1303,12 @@
     "sourcePort" : "a5AtqJM5",
     "target" : "rfm_segmentation##JJJohAo3",
     "targetPort" : "UVbcQlHO"
+  }, {
+    "id" : "rTvF42SO7vrKdwF",
+    "source" : "rfm_segmentation##JJJohAo3",
+    "sourcePort" : "cmh5jsZC",
+    "target" : "L2WrC9sHgNVyCOPi7mgr1dV7W",
+    "targetPort" : "NS3HINPIIJK8K5A"
   } ],
   "component" : "Pipeline"
 }

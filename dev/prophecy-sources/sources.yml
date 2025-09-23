@@ -76,3 +76,6 @@ sources:
       dataType:
         type: "Decimal"
     type: "table"
+  - name: "CustomerSegmentationDemo_rfm1_p70pn"
+    columns: []
+    type: "table"

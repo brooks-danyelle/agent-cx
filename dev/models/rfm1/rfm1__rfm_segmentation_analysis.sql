@@ -1,6 +1,7 @@
 {{
   config({    
-    "materialized": "ephemeral",
+    "materialized": "table",
+    "alias": "CustomerSegmentationDemo_rfm1_p70pn",
     "database": "danyelle",
     "schema": "demo"
   })

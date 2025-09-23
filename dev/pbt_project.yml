@@ -82,6 +82,15 @@ sqlSources:
       author: brooks.danyelle@prophecy.io
       createdAt: '2025-09-23 16:50:24'
       tableType: table
+    - name: CustomerSegmentationDemo_rfm1_p70pn
+      schema:
+        entityType: ''
+        providerType: databricks
+        fields: []
+      description: null
+      author: brooks.danyelle@prophecy.io
+      createdAt: '2025-09-23 23:13:27'
+      tableType: table
   .prophecy/metadata/sqlsources/itai_retail_analyst:
     name: itai.retail_analyst
     description: null
