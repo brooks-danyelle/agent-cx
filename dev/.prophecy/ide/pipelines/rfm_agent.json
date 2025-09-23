@@ -31,7 +31,7 @@
           "_row_id" : "301443003"
         }, {
           "expression" : {
-            "expression" : "COUNT * 100.0 / (SUM(COUNT) OVER (RANGE BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING))"
+            "expression" : "ROUND((COUNT / SUM(COUNT) OVER ()) * 100, 2)"
           },
           "alias" : "PERCENTAGE_OF_CUSTOMERS",
           "_row_id" : "12699443"
@@ -70,7 +70,7 @@
             }, {
               "name" : "PERCENTAGE_OF_CUSTOMERS",
               "dataType" : {
-                "type" : "Decimal"
+                "type" : "Double"
               }
             } ]
           },
@@ -84,10 +84,10 @@
       "component" : "Comment",
       "metadata" : {
         "label" : "Comment_2",
-        "x" : 1160,
-        "y" : -20,
-        "height" : 158.39060974121094,
-        "width" : 220,
+        "x" : 1258,
+        "y" : 0,
+        "height" : 138.390625,
+        "width" : 281.9999694824219,
         "phase" : 0
       },
       "properties" : {
@@ -115,48 +115,6 @@
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ ]
-      }
-    },
-    "woF4Tu9gMw1K9Opb4df4c$$V65UxItys-BkIoGhXOKhA" : {
-      "id" : "woF4Tu9gMw1K9Opb4df4c$$V65UxItys-BkIoGhXOKhA",
-      "component" : "Email",
-      "metadata" : {
-        "label" : "send_cx_report",
-        "x" : 1540,
-        "y" : 80,
-        "phase" : 0
-      },
-      "properties" : {
-        "body" : "csv output",
-        "subject" : "CX segmentation report",
-        "includeData" : false,
-        "fileName" : "",
-        "to" : [ "danyelle@prophecy.io" ],
-        "fileFormat" : "",
-        "hasTemplate" : false
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "iw1vm-2t3QihIzJ0HzKRU$$DpFysM_X5jhdpm8oQYkoz",
-          "schema" : {
-            "entityType" : "",
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "CUSTOMER_FLAG",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "PERCENTAGE_OF_CUSTOMERS",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            } ]
-          },
-          "slug" : "customer_flag_percentage"
-        } ],
-        "outputs" : [ ],
-        "isCustomOutputSchema" : false
       }
     },
     "instore_sales##Y3nkD4Rr" : {
@@ -217,12 +175,12 @@
         "label" : "Comment_3",
         "x" : 580,
         "y" : 0,
-        "height" : 129.59376525878906,
-        "width" : 220,
+        "height" : 158.39064025878906,
+        "width" : 328.0000915527344,
         "phase" : 0
       },
       "properties" : {
-        "comment" : "## 2. Calculate RFM metrics"
+        "comment" : "## 2. Enhance the dataset with RFM metrics from transaction history"
       },
       "ports" : {
         "inputs" : [ ],
@@ -235,7 +193,7 @@
       "metadata" : {
         "label" : "customer_distribution",
         "x" : 1540,
-        "y" : 280,
+        "y" : 220,
         "phase" : 0
       },
       "properties" : {
@@ -263,7 +221,7 @@
             }, {
               "name" : "PERCENTAGE_OF_CUSTOMERS",
               "dataType" : {
-                "type" : "Decimal"
+                "type" : "Double"
               }
             } ]
           },
@@ -282,7 +240,7 @@
             }, {
               "name" : "PERCENTAGE_OF_CUSTOMERS",
               "dataType" : {
-                "type" : "Decimal"
+                "type" : "Double"
               }
             } ]
           },
@@ -1835,7 +1793,7 @@
       "component" : "Comment",
       "metadata" : {
         "label" : "Comment_5",
-        "x" : 820,
+        "x" : 980,
         "y" : 0,
         "height" : 129.59376525878906,
         "width" : 220,
@@ -1898,12 +1856,6 @@
     "sourcePort" : "oXCrUwYb",
     "target" : "customer_flag_pe##tLP0k6dw",
     "targetPort" : "CFV9kuwc"
-  }, {
-    "id" : "K8_rNbxqsSZEIcYHiLzTL$$7uMVM6Is4YZWIUUGedbik",
-    "source" : "customer_flag_pe##tLP0k6dw",
-    "sourcePort" : "VuECE6RL",
-    "target" : "woF4Tu9gMw1K9Opb4df4c$$V65UxItys-BkIoGhXOKhA",
-    "targetPort" : "iw1vm-2t3QihIzJ0HzKRU$$DpFysM_X5jhdpm8oQYkoz"
   }, {
     "id" : "QszDxCF_KTL9d3g97GxKt",
     "source" : "customer_flag_pe##tLP0k6dw",

@@ -13,48 +13,6 @@
     "isTranspiledPipeline" : false
   },
   "processes" : {
-    "woF4Tu9gMw1K9Opb4df4c$$V65UxItys-BkIoGhXOKhA" : {
-      "id" : "woF4Tu9gMw1K9Opb4df4c$$V65UxItys-BkIoGhXOKhA",
-      "component" : "Email",
-      "metadata" : {
-        "label" : "send_cx_report",
-        "x" : 1540,
-        "y" : 80,
-        "phase" : 0
-      },
-      "properties" : {
-        "body" : "csv output",
-        "subject" : "CX segmentation report",
-        "includeData" : false,
-        "fileName" : "",
-        "to" : [ "danyelle@prophecy.io" ],
-        "fileFormat" : "",
-        "hasTemplate" : false
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "iw1vm-2t3QihIzJ0HzKRU$$DpFysM_X5jhdpm8oQYkoz",
-          "schema" : {
-            "entityType" : "",
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "CUSTOMER_FLAG",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "PERCENTAGE_OF_CUSTOMERS",
-              "dataType" : {
-                "type" : "Decimal"
-              }
-            } ]
-          },
-          "slug" : "customer_flag_percentage"
-        } ],
-        "outputs" : [ ],
-        "isCustomOutputSchema" : false
-      }
-    },
     "NDYgviprFFBSUsGBRJAj7$$WafjaXoh4fvNGdnT95Od8" : {
       "id" : "NDYgviprFFBSUsGBRJAj7$$WafjaXoh4fvNGdnT95Od8",
       "component" : "Model",
@@ -89,12 +47,6 @@
       }
     }
   },
-  "connections" : [ {
-    "id" : "conn_customer_flag_pe##tLP0k6dw_iw1vm-2t3QihIzJ0HzKRU$$DpFysM_X5jhdpm8oQYkoz",
-    "source" : "NDYgviprFFBSUsGBRJAj7$$WafjaXoh4fvNGdnT95Od8",
-    "sourcePort" : "rfm_agent__customer_flag_percentage_out_0",
-    "target" : "woF4Tu9gMw1K9Opb4df4c$$V65UxItys-BkIoGhXOKhA",
-    "targetPort" : "iw1vm-2t3QihIzJ0HzKRU$$DpFysM_X5jhdpm8oQYkoz"
-  } ],
+  "connections" : [ ],
   "component" : "Pipeline"
 }

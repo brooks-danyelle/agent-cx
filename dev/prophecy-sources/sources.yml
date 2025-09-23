@@ -38,8 +38,6 @@ sources:
       dataType:
         type: "Double"
   - name: "crm_customers"
-    quoting:
-      identifier: true
     columns:
     - name: "customer_id"
       dataType:
@@ -59,20 +57,6 @@ sources:
     - name: "preferred_channel"
       dataType:
         type: "String"
-  - name: "email_events"
-    columns:
-    - name: "email_id"
-      dataType:
-        type: "String"
-    - name: "customer_id"
-      dataType:
-        type: "String"
-    - name: "event_type"
-      dataType:
-        type: "String"
-    - name: "event_date"
-      dataType:
-        type: "Date"
     type: "table"
 - name: "danyelle.demo"
   database: "danyelle"

@@ -37,7 +37,7 @@
           "_row_id" : "301443003"
         }, {
           "expression" : {
-            "expression" : "COUNT * 100.0 / (SUM(COUNT) OVER (RANGE BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING))"
+            "expression" : "ROUND((COUNT / SUM(COUNT) OVER ()) * 100, 2)"
           },
           "alias" : "PERCENTAGE_OF_CUSTOMERS",
           "_row_id" : "12699443"
