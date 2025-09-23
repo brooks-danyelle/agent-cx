@@ -134,18 +134,8 @@ rfm_segmentation AS (
   
   FROM customer_rfm_metrics
 
-),
-
-at_risk_customers AS (
-
-  SELECT * 
-  
-  FROM rfm_segmentation
-  
-  WHERE FLAG = 'at risk'
-
 )
 
 SELECT *
 
-FROM at_risk_customers
+FROM rfm_segmentation

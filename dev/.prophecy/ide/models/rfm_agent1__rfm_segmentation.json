@@ -1,7 +1,7 @@
 {
-  "id" : "rfm_agent1__at_risk_customers",
+  "id" : "rfm_agent1__rfm_segmentation",
   "metainfo" : {
-    "label" : "rfm_agent1__at_risk_customers",
+    "label" : "rfm_agent1__rfm_segmentation",
     "autoLayout" : true,
     "staleState" : "none",
     "sourceSuggestions" : {
@@ -28,7 +28,7 @@
         "phase" : 0
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "HkyEBIoB##CUSTOMER_ID", "HkyEBIoB##RECENCY", "HkyEBIoB##FREQUENCY", "HkyEBIoB##MONETARY", "HkyEBIoB##EMAIL", "HkyEBIoB##ZIP_CODE" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "CUSTOMER_ID"
@@ -101,6 +101,36 @@
         "outputs" : [ {
           "id" : "evwuGzXz",
           "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "rfm_segmentation_evwuGzXz" : {
+      "id" : "rfm_segmentation_evwuGzXz",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "rfm_segmentation"
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "\nSELECT *\n\nFROM rfm_segmentation\n\n",
+        "isModel" : true,
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "input_port_0",
+          "slug" : "input_port_0"
+        } ],
+        "outputs" : [ {
+          "id" : "output_port_0",
+          "slug" : "output_port_0"
         } ],
         "isCustomOutputSchema" : false,
         "autoUpdateOnRun" : false
@@ -229,7 +259,7 @@
           "_row_id" : "1043978978"
         } ],
         "activeTab" : "conditions",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "TTlgjrDZ##customer_id", "eiMekyXe##customer_id", "VMuxs8ap##customer_id", "TTlgjrDZ##order_id", "TTlgjrDZ##customer_id", "TTlgjrDZ##order_date", "TTlgjrDZ##order_amount", "eiMekyXe##transaction_id", "eiMekyXe##transaction_date", "eiMekyXe##transaction_amount", "VMuxs8ap##signup_date", "VMuxs8ap##email", "VMuxs8ap##zip_code", "VMuxs8ap##region", "VMuxs8ap##preferred_channel" ],
         "headAlias" : "ecom_orders"
       },
       "ports" : {
@@ -345,7 +375,7 @@
           "expression" : ""
         },
         "activeTab" : "aggregate",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "qKm9Q98T##ORDER_ID", "qKm9Q98T##CUSTOMER_ID", "qKm9Q98T##ORDER_DATE", "qKm9Q98T##ORDER_AMOUNT", "qKm9Q98T##TRANSACTION_ID", "qKm9Q98T##TRANSACTION_DATE", "qKm9Q98T##TRANSACTION_AMOUNT", "qKm9Q98T##SIGNUP_DATE", "qKm9Q98T##EMAIL", "qKm9Q98T##ZIP_CODE", "qKm9Q98T##REGION", "qKm9Q98T##PREFERRED_CHANNEL" ],
         "groupBy" : [ {
           "expression" : {
             "expression" : "ORDER_ID"
@@ -421,64 +451,6 @@
         "autoUpdateOnRun" : false
       }
     },
-    "at_risk_customer##tgaeA3CN" : {
-      "id" : "at_risk_customer##tgaeA3CN",
-      "component" : "Filter",
-      "metadata" : {
-        "label" : "at_risk_customers",
-        "x" : 1060,
-        "y" : 260,
-        "phase" : 0
-      },
-      "properties" : {
-        "columnsSelector" : [ ],
-        "condition" : {
-          "expression" : "FLAG = 'at risk'"
-        }
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "ri9n77MA",
-          "slug" : "rfm_segmentation"
-        } ],
-        "outputs" : [ {
-          "id" : "Q7G4CCuX",
-          "slug" : "out"
-        } ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      }
-    },
-    "at_risk_customers_Q7G4CCuX" : {
-      "id" : "at_risk_customers_Q7G4CCuX",
-      "component" : "TargetModel",
-      "metadata" : {
-        "label" : "at_risk_customers"
-      },
-      "properties" : {
-        "customQueryDisabled" : true,
-        "customQuery" : false,
-        "incrementalEditorDisabled" : true,
-        "query" : "\nSELECT *\n\nFROM at_risk_customers\n\n",
-        "isModel" : true,
-        "incrementalKey" : false,
-        "incremental" : {
-          "expression" : "true"
-        }
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "input_port_0",
-          "slug" : "input_port_0"
-        } ],
-        "outputs" : [ {
-          "id" : "output_port_0",
-          "slug" : "output_port_0"
-        } ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      }
-    },
     "ecom_orders##UIz2MV1z" : {
       "id" : "ecom_orders##UIz2MV1z",
       "component" : "Source",
@@ -515,7 +487,7 @@
         "phase" : 0
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "Rkfj2oLk##CUSTOMER_ID", "Rkfj2oLk##ORDER_ID", "Rkfj2oLk##ORDER_DATE", "Rkfj2oLk##ORDER_AMOUNT", "Rkfj2oLk##TRANSACTION_ID", "Rkfj2oLk##TRANSACTION_DATE", "Rkfj2oLk##TRANSACTION_AMOUNT", "Rkfj2oLk##SIGNUP_DATE", "Rkfj2oLk##EMAIL", "Rkfj2oLk##ZIP_CODE", "Rkfj2oLk##REGION", "Rkfj2oLk##PREFERRED_CHANNEL", "Rkfj2oLk##FREQUENCY", "Rkfj2oLk##MONETARY" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "CUSTOMER_ID"
@@ -635,17 +607,11 @@
     }
   },
   "connections" : [ {
-    "id" : "conn_at_risk_customer##tgaeA3CN_at_risk_customers_Q7G4CCuX",
-    "source" : "at_risk_customer##tgaeA3CN",
-    "sourcePort" : "Q7G4CCuX",
-    "target" : "at_risk_customers_Q7G4CCuX",
-    "targetPort" : "input_port_0"
-  }, {
-    "id" : "UvEbH1JU",
+    "id" : "conn_rfm_segmentation##oHkP2Pbe_rfm_segmentation_evwuGzXz",
     "source" : "rfm_segmentation##oHkP2Pbe",
     "sourcePort" : "evwuGzXz",
-    "target" : "at_risk_customer##tgaeA3CN",
-    "targetPort" : "ri9n77MA"
+    "target" : "rfm_segmentation_evwuGzXz",
+    "targetPort" : "input_port_0"
   }, {
     "id" : "WL5R8My2",
     "source" : "customer_rfm_met##El3FKNcz",
