@@ -215,7 +215,7 @@ sqlOrchestratorPipelines:
     author: brooks.danyelle@prophecy.io
     files:
     - models/exrfm/schema.yml
-    - models/exrfm/exrfm__customer_rfm_details.sql
+    - models/exrfm/exrfm__rfm_analysis.sql
     - .prophecy/ide/pipelines/exrfm.json
     - pipelines/exrfm.py
     createdAt: '2025-09-24 18:28:55'

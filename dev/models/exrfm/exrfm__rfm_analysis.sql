@@ -6,15 +6,7 @@
   })
 }}
 
-WITH ecom_orders AS (
-
-  SELECT * 
-  
-  FROM {{ source('itai.retail_analyst', 'ecom_orders') }}
-
-),
-
-instore_sales AS (
+WITH instore_sales AS (
 
   SELECT * 
   
@@ -27,6 +19,14 @@ crm_customers AS (
   SELECT * 
   
   FROM {{ source('itai.retail_analyst', 'crm_customers') }}
+
+),
+
+ecom_orders AS (
+
+  SELECT * 
+  
+  FROM {{ source('itai.retail_analyst', 'ecom_orders') }}
 
 ),
 
@@ -79,8 +79,31 @@ customer_rfm_details AS (
   
   FROM customer_rfm_aggregation
 
+),
+
+rfm_analysis AS (
+
+  SELECT 
+    CUSTOMER_ID,
+    LAST_ORDER_DATE,
+    FREQUENCY,
+    MONETARY,
+    RECENCY,
+    FREQUENCY + MONETARY + RECENCY AS RFM_SCORE,
+    CASE
+      WHEN RECENCY <= 30 AND FREQUENCY >= 10 AND MONETARY >= 1000
+        THEN 'Champions      '
+      WHEN RECENCY <= 30 AND FREQUENCY >= 5
+        THEN 'Loyal Customers'
+      WHEN RECENCY > 30 AND FREQUENCY < 5
+        THEN 'At Risk        '
+      ELSE 'Others         '
+    END AS RFM_SEGMENT
+  
+  FROM customer_rfm_details
+
 )
 
 SELECT *
 
-FROM customer_rfm_details
+FROM rfm_analysis
