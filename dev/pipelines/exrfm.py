@@ -1,6 +1,6 @@
 with DAG():
-    exrfm__customer_order_join = Task(
-        task_id = "exrfm__customer_order_join", 
+    exrfm__customer_rfm_analysis = Task(
+        task_id = "exrfm__customer_rfm_analysis", 
         component = "Model", 
-        modelName = "exrfm__customer_order_join"
+        modelName = "exrfm__customer_rfm_analysis"
     )
