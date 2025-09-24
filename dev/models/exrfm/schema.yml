@@ -1,6 +1,6 @@
 ---
 version: 2
 models:
-- name: "exrfm__rfm_analysis_1"
+- name: "exrfm__customer_order_join"
   tags:
   - "prophecy_temp"
