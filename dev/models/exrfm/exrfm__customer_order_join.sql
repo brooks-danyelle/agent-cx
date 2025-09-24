@@ -52,58 +52,8 @@ customer_order_join AS (
   LEFT JOIN crm_customers
      ON ecom_orders.customer_id = crm_customers.customer_id
 
-),
-
-customer_rfm_aggregation AS (
-
-  SELECT 
-    CUSTOMER_ID,
-    MAX(ORDER_DATE) AS LAST_ORDER_DATE,
-    COUNT(ORDER_ID) AS FREQUENCY,
-    SUM(ORDER_AMOUNT) AS MONETARY
-  
-  FROM customer_order_join
-  
-  GROUP BY CUSTOMER_ID
-
-),
-
-customer_rfm_details AS (
-
-  SELECT 
-    CUSTOMER_ID,
-    LAST_ORDER_DATE,
-    FREQUENCY,
-    MONETARY,
-    DATEDIFF(DAY, LAST_ORDER_DATE, CURRENT_DATE) AS RECENCY
-  
-  FROM customer_rfm_aggregation
-
-),
-
-rfm_analysis AS (
-
-  SELECT 
-    CUSTOMER_ID,
-    LAST_ORDER_DATE,
-    FREQUENCY,
-    MONETARY,
-    RECENCY,
-    FREQUENCY + MONETARY + RECENCY AS RFM_SCORE,
-    CASE
-      WHEN RECENCY <= 30 AND FREQUENCY >= 10 AND MONETARY >= 1000
-        THEN 'Champions      '
-      WHEN RECENCY <= 30 AND FREQUENCY >= 5
-        THEN 'Loyal Customers'
-      WHEN RECENCY > 30 AND FREQUENCY < 5
-        THEN 'At Risk        '
-      ELSE 'Others         '
-    END AS RFM_SEGMENT
-  
-  FROM customer_rfm_details
-
 )
 
 SELECT *
 
-FROM rfm_analysis
+FROM customer_order_join
