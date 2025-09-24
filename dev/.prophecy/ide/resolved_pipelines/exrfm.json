@@ -13,34 +13,34 @@
     "isTranspiledPipeline" : false
   },
   "processes" : {
-    "customer_rfm_ana##NMOE3tCn" : {
-      "id" : "customer_rfm_ana##NMOE3tCn",
+    "rfm_scores_and_s##K9vejNQS" : {
+      "id" : "rfm_scores_and_s##K9vejNQS",
       "component" : "Model",
       "metadata" : {
-        "label" : "exrfm__customer_rfm_analysis",
+        "label" : "exrfm__rfm_scores_and_segment",
         "phase" : 0
       },
       "properties" : {
-        "modelName" : "exrfm__customer_rfm_analysis"
+        "modelName" : "exrfm__rfm_scores_and_segment"
       },
       "visualMetaInfo" : {
-        "visualProcessIds" : [ "customer_rfm_analysis_FT42aJdF", "customer_rfm_ana##NMOE3tCn", "customer_order_a##hkJok1cq", "customer_order_j##woXBnDYB", "ecom_orders##odeZ0KiF", "instore_sales##XxjxScVv", "crm_customers##bX9rmNKN" ],
+        "visualProcessIds" : [ "rfm_scores_and_segment_DmR0B2dk", "rfm_scores_and_s##K9vejNQS", "customer_rfm_ana##NMOE3tCn", "customer_order_a##yUvBWWlP", "customer_order_j##tW0taKdz", "ecom_orders##o17EghsP", "instore_sales##btv4NR8A", "crm_customers##R0u1kmKi" ],
         "type" : "ephemeral",
         "isTemporaryTable" : true
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "exrfm__customer_rfm_analysis_in_0",
+          "id" : "exrfm__rfm_scores_and_segment_in_0",
           "slug" : "in_0"
         }, {
-          "id" : "exrfm__customer_rfm_analysis_in_1",
+          "id" : "exrfm__rfm_scores_and_segment_in_1",
           "slug" : "in_1"
         }, {
-          "id" : "exrfm__customer_rfm_analysis_in_2",
+          "id" : "exrfm__rfm_scores_and_segment_in_2",
           "slug" : "in_2"
         } ],
         "outputs" : [ {
-          "id" : "exrfm__customer_rfm_analysis_out_0",
+          "id" : "exrfm__rfm_scores_and_segment_out_0",
           "slug" : "out_0"
         } ],
         "isCustomOutputSchema" : false
