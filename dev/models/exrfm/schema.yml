@@ -1,0 +1,6 @@
+---
+version: 2
+models:
+- name: "exrfm__customer_rfm_details"
+  tags:
+  - "prophecy_temp"

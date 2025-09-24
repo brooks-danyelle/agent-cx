@@ -74,7 +74,7 @@
         "phase" : 0
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "vTbqHRzN##CUSTOMER_ID", "vTbqHRzN##LAST_ORDER_DATE", "vTbqHRzN##FREQUENCY", "vTbqHRzN##MONETARY" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "CUSTOMER_ID"
@@ -227,7 +227,7 @@
       "metadata" : {
         "label" : "customer_order_join",
         "x" : 220,
-        "y" : 250,
+        "y" : 260,
         "phase" : 0
       },
       "properties" : {
@@ -318,7 +318,7 @@
           "_row_id" : "334311097"
         } ],
         "activeTab" : "conditions",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "NMuZvMlj##customer_id", "ECn5XB1v##customer_id", "KEB2Hap1##customer_id", "NMuZvMlj##order_id", "NMuZvMlj##customer_id", "NMuZvMlj##order_date", "NMuZvMlj##order_amount", "ECn5XB1v##transaction_id", "ECn5XB1v##transaction_date", "ECn5XB1v##transaction_amount", "KEB2Hap1##signup_date", "KEB2Hap1##email", "KEB2Hap1##zip_code", "KEB2Hap1##region", "KEB2Hap1##preferred_channel" ],
         "headAlias" : "ecom_orders"
       },
       "ports" : {
@@ -528,7 +528,7 @@
           "expression" : ""
         },
         "activeTab" : "aggregate",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "NOy9jQNi##CUSTOMER_ID", "NOy9jQNi##ORDER_DATE", "NOy9jQNi##ORDER_ID", "NOy9jQNi##ORDER_AMOUNT" ],
         "groupBy" : [ {
           "expression" : {
             "expression" : "CUSTOMER_ID"
