@@ -214,6 +214,8 @@ sqlOrchestratorPipelines:
     description: null
     author: brooks.danyelle@prophecy.io
     files:
+    - models/exrfm/exrfm__customer_order_join.sql
+    - models/exrfm/schema.yml
     - .prophecy/ide/pipelines/exrfm.json
     - pipelines/exrfm.py
     createdAt: '2025-09-24 18:28:55'
