@@ -60,7 +60,7 @@
       "id" : "instore_sales##Y3nkD4Rr",
       "component" : "Source",
       "metadata" : {
-        "label" : "instore_sales",
+        "label" : "financial_transactions",
         "x" : 100,
         "y" : 220,
         "phase" : 0
@@ -86,7 +86,7 @@
       "id" : "NDYgviprFFBSUsGBRJAj7$$WafjaXoh4fvNGdnT95Od8",
       "component" : "TargetModel",
       "metadata" : {
-        "label" : "customer_distribution",
+        "label" : "customer_segmentation",
         "phase" : 0
       },
       "properties" : {
@@ -117,7 +117,7 @@
       "id" : "Reformat_1##OTXWDef7",
       "component" : "Aggregate",
       "metadata" : {
-        "label" : "Reformat_1",
+        "label" : "customer_purchase_analysis",
         "x" : 560,
         "y" : 220,
         "phase" : 0
@@ -305,7 +305,7 @@
       "id" : "customer_id_join##ejcv9S4J",
       "component" : "Join",
       "metadata" : {
-        "label" : "customer_id_join",
+        "label" : "customer_order_transaction_details",
         "x" : 360,
         "y" : 220,
         "phase" : 0
@@ -424,7 +424,7 @@
       "id" : "rfm_segment_with##YpD9hven",
       "component" : "Reformat",
       "metadata" : {
-        "label" : "rfm_segment_with_scores",
+        "label" : "rfm_customer_analysis",
         "x" : 960,
         "y" : 220,
         "phase" : 0
@@ -605,7 +605,7 @@
       "id" : "ecom_orders##tHomvJlO",
       "component" : "Source",
       "metadata" : {
-        "label" : "ecom_orders",
+        "label" : "order_transactions",
         "x" : 100,
         "y" : 40,
         "phase" : 0
@@ -631,7 +631,7 @@
       "id" : "crm_customers##MPr3gDaN",
       "component" : "Source",
       "metadata" : {
-        "label" : "crm_customers",
+        "label" : "customer_insights",
         "x" : 100,
         "y" : 400,
         "phase" : 0
@@ -657,7 +657,7 @@
       "id" : "rfm_scores_assig##X5UDk7wt",
       "component" : "Reformat",
       "metadata" : {
-        "label" : "rfm_scores_assignment",
+        "label" : "rfm_scores",
         "x" : 760,
         "y" : 220,
         "phase" : 0

@@ -7,7 +7,7 @@
   })
 }}
 
-WITH instore_sales AS (
+WITH financial_transactions AS (
 
   SELECT * 
   
@@ -15,7 +15,7 @@ WITH instore_sales AS (
 
 ),
 
-ecom_orders AS (
+order_transactions AS (
 
   SELECT * 
   
@@ -23,7 +23,7 @@ ecom_orders AS (
 
 ),
 
-crm_customers AS (
+customer_insights AS (
 
   SELECT * 
   
@@ -31,8 +31,9 @@ crm_customers AS (
 
 ),
 
-customer_id_join AS (
+customer_order_transaction_details AS (
 
+  {#Consolidates customer transactions and profiles from online and in-store sales.#}
   SELECT 
     ecom_orders.order_id AS ORDER_ID,
     ecom_orders.customer_id AS CUSTOMER_ID,
@@ -47,16 +48,17 @@ customer_id_join AS (
     crm_customers.region AS REGION,
     crm_customers.preferred_channel AS PREFERRED_CHANNEL
   
-  FROM ecom_orders
-  LEFT JOIN instore_sales
+  FROM order_transactions AS ecom_orders
+  LEFT JOIN financial_transactions AS instore_sales
      ON ecom_orders.customer_id = instore_sales.customer_id
-  LEFT JOIN crm_customers
+  LEFT JOIN customer_insights AS crm_customers
      ON ecom_orders.customer_id = crm_customers.customer_id
 
 ),
 
-Reformat_1 AS (
+customer_purchase_analysis AS (
 
+  {#Compiles customer transaction details to assess purchase behavior, including last purchase date, frequency, and monetary value.#}
   SELECT 
     ORDER_ID AS ORDER_ID,
     CUSTOMER_ID AS CUSTOMER_ID,
@@ -75,7 +77,7 @@ Reformat_1 AS (
     COUNT(ORDER_ID) AS FREQUENCY,
     SUM(ORDER_AMOUNT) AS MONETARY
   
-  FROM customer_id_join
+  FROM customer_order_transaction_details AS customer_id_join
   
   GROUP BY 
     ORDER_ID, 
@@ -93,8 +95,9 @@ Reformat_1 AS (
 
 ),
 
-rfm_scores_assignment AS (
+rfm_scores AS (
 
+  {#Assigns RFM scores to customers for targeted marketing based on recency, frequency, and monetary value of transactions.#}
   SELECT 
     ORDER_ID,
     CUSTOMER_ID,
@@ -116,12 +119,13 @@ rfm_scores_assignment AS (
     NTILE(5) OVER (ORDER BY FREQUENCY DESC NULLS FIRST ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS FREQUENCY_SCORE,
     NTILE(5) OVER (ORDER BY MONETARY DESC NULLS FIRST ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS MONETARY_SCORE
   
-  FROM Reformat_1
+  FROM customer_purchase_analysis AS Reformat_1
 
 ),
 
-rfm_segment_with_scores AS (
+rfm_customer_analysis AS (
 
+  {#Assigns RFM segments and scores to customers for targeted marketing strategies.#}
   SELECT 
     ORDER_ID,
     CUSTOMER_ID,
@@ -145,17 +149,18 @@ rfm_segment_with_scores AS (
     CONCAT(RECENCY_SCORE, FREQUENCY_SCORE, MONETARY_SCORE) AS RFM_SEGMENT,
     {{ segment_flag() }} AS CUSTOMER_FLAG
   
-  FROM rfm_scores_assignment
+  FROM rfm_scores AS rfm_scores_assignment
 
 ),
 
 customer_flag_count AS (
 
+  {#Counts customers by their assigned flags for segmentation analysis.#}
   SELECT 
     CUSTOMER_FLAG,
     COUNT(*) AS COUNT
   
-  FROM rfm_segment_with_scores
+  FROM rfm_customer_analysis AS rfm_segment_with_scores
   
   GROUP BY CUSTOMER_FLAG
 
@@ -163,6 +168,7 @@ customer_flag_count AS (
 
 customer_flag_percentage AS (
 
+  {#Calculates the percentage distribution of customer flags.#}
   SELECT 
     CUSTOMER_FLAG,
     ROUND((COUNT / SUM(COUNT) OVER ()) * 100, 2) AS PERCENTAGE_OF_CUSTOMERS

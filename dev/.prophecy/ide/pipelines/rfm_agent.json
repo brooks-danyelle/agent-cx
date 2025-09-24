@@ -20,7 +20,9 @@
         "label" : "customer_flag_percentage",
         "x" : 1360,
         "y" : 220,
-        "phase" : 0
+        "phase" : 0,
+        "comment" : "Calculates the percentage distribution of customer flags.",
+        "autoUpdateComment" : true
       },
       "properties" : {
         "columnsSelector" : [ "CFV9kuwc##CUSTOMER_FLAG", "CFV9kuwc##COUNT" ],
@@ -84,7 +86,7 @@
       "component" : "Comment",
       "metadata" : {
         "label" : "Comment_2",
-        "x" : 1258,
+        "x" : 1260,
         "y" : 0,
         "height" : 138.390625,
         "width" : 281.9999694824219,
@@ -117,14 +119,35 @@
         "outputs" : [ ]
       }
     },
+    "Co10marlr9r0OsasJ7OIm$$blCTTI8Y_9JRS4Z3P4mW6" : {
+      "id" : "Co10marlr9r0OsasJ7OIm$$blCTTI8Y_9JRS4Z3P4mW6",
+      "component" : "Comment",
+      "metadata" : {
+        "label" : "Comment_4",
+        "x" : 140,
+        "y" : -80,
+        "height" : 180,
+        "width" : 30,
+        "phase" : 0
+      },
+      "properties" : {
+        "comment" : ""
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ ]
+      }
+    },
     "instore_sales##Y3nkD4Rr" : {
       "id" : "instore_sales##Y3nkD4Rr",
       "component" : "Dataset",
       "metadata" : {
-        "label" : "instore_sales",
+        "label" : "financial_transactions",
         "x" : 100,
         "y" : 220,
-        "phase" : 0
+        "phase" : 0,
+        "comment" : "Accesses in-store sales data for retail analysis.",
+        "autoUpdateComment" : true
       },
       "properties" : {
         "table" : {
@@ -191,10 +214,12 @@
       "id" : "NDYgviprFFBSUsGBRJAj7$$WafjaXoh4fvNGdnT95Od8",
       "component" : "Dataset",
       "metadata" : {
-        "label" : "customer_distribution",
+        "label" : "customer_segmentation",
         "x" : 1540,
         "y" : 220,
-        "phase" : 0
+        "phase" : 0,
+        "comment" : "Overwrites the 'cx_demo' dataset with new data from the 'danyelle.demo' source.",
+        "autoUpdateComment" : true
       },
       "properties" : {
         "table" : {
@@ -253,10 +278,12 @@
       "id" : "Reformat_1##OTXWDef7",
       "component" : "Aggregate",
       "metadata" : {
-        "label" : "Reformat_1",
+        "label" : "customer_purchase_analysis",
         "x" : 560,
         "y" : 220,
-        "phase" : 0
+        "phase" : 0,
+        "comment" : "Compiles customer transaction details to assess purchase behavior, including last purchase date, frequency, and monetary value.",
+        "autoUpdateComment" : true
       },
       "properties" : {
         "aggregate" : [ {
@@ -590,10 +617,12 @@
       "id" : "customer_id_join##ejcv9S4J",
       "component" : "Join",
       "metadata" : {
-        "label" : "customer_id_join",
+        "label" : "customer_order_transaction_details",
         "x" : 360,
         "y" : 220,
-        "phase" : 0
+        "phase" : 0,
+        "comment" : "Consolidates customer transactions and profiles from online and in-store sales.",
+        "autoUpdateComment" : true
       },
       "properties" : {
         "conditions" : [ {
@@ -858,10 +887,12 @@
       "id" : "rfm_segment_with##YpD9hven",
       "component" : "Reformat",
       "metadata" : {
-        "label" : "rfm_segment_with_scores",
+        "label" : "rfm_customer_analysis",
         "x" : 960,
         "y" : 220,
-        "phase" : 0
+        "phase" : 0,
+        "comment" : "Assigns RFM segments and scores to customers for targeted marketing strategies.",
+        "autoUpdateComment" : true
       },
       "properties" : {
         "columnsSelector" : [ "dcsDhKF0##ORDER_ID", "dcsDhKF0##CUSTOMER_ID", "dcsDhKF0##ORDER_DATE", "dcsDhKF0##ORDER_AMOUNT", "dcsDhKF0##TRANSACTION_ID", "dcsDhKF0##TRANSACTION_DATE", "dcsDhKF0##TRANSACTION_AMOUNT", "dcsDhKF0##SIGNUP_DATE", "dcsDhKF0##EMAIL", "dcsDhKF0##ZIP_CODE", "dcsDhKF0##REGION", "dcsDhKF0##PREFERRED_CHANNEL", "dcsDhKF0##LAST_PURCHASE", "dcsDhKF0##RECENCY", "dcsDhKF0##FREQUENCY", "dcsDhKF0##MONETARY", "dcsDhKF0##RECENCY_SCORE", "dcsDhKF0##FREQUENCY_SCORE", "dcsDhKF0##MONETARY_SCORE" ],
@@ -1203,7 +1234,9 @@
         "label" : "customer_flag_count",
         "x" : 1160,
         "y" : 220,
-        "phase" : 0
+        "phase" : 0,
+        "comment" : "Counts customers by their assigned flags for segmentation analysis.",
+        "autoUpdateComment" : true
       },
       "properties" : {
         "aggregate" : [ {
@@ -1372,10 +1405,12 @@
       "id" : "ecom_orders##tHomvJlO",
       "component" : "Dataset",
       "metadata" : {
-        "label" : "ecom_orders",
+        "label" : "order_transactions",
         "x" : 100,
         "y" : 40,
-        "phase" : 0
+        "phase" : 0,
+        "comment" : "Accesses e-commerce order data for retail analysis.",
+        "autoUpdateComment" : true
       },
       "properties" : {
         "table" : {
@@ -1423,10 +1458,12 @@
       "id" : "crm_customers##MPr3gDaN",
       "component" : "Dataset",
       "metadata" : {
-        "label" : "crm_customers",
+        "label" : "customer_insights",
         "x" : 100,
         "y" : 400,
-        "phase" : 0
+        "phase" : 0,
+        "comment" : "Accesses CRM customer data from the retail analyst source for analysis.",
+        "autoUpdateComment" : true
       },
       "properties" : {
         "table" : {
@@ -1484,10 +1521,12 @@
       "id" : "rfm_scores_assig##X5UDk7wt",
       "component" : "Reformat",
       "metadata" : {
-        "label" : "rfm_scores_assignment",
+        "label" : "rfm_scores",
         "x" : 760,
         "y" : 220,
-        "phase" : 0
+        "phase" : 0,
+        "comment" : "Assigns RFM scores to customers for targeted marketing based on recency, frequency, and monetary value of transactions.",
+        "autoUpdateComment" : true
       },
       "properties" : {
         "columnsSelector" : [ "zFeitVMl##ORDER_ID", "zFeitVMl##CUSTOMER_ID", "zFeitVMl##ORDER_DATE", "zFeitVMl##ORDER_AMOUNT", "zFeitVMl##TRANSACTION_ID", "zFeitVMl##TRANSACTION_DATE", "zFeitVMl##TRANSACTION_AMOUNT", "zFeitVMl##SIGNUP_DATE", "zFeitVMl##EMAIL", "zFeitVMl##ZIP_CODE", "zFeitVMl##REGION", "zFeitVMl##PREFERRED_CHANNEL", "zFeitVMl##LAST_PURCHASE", "zFeitVMl##RECENCY", "zFeitVMl##FREQUENCY", "zFeitVMl##MONETARY" ],
