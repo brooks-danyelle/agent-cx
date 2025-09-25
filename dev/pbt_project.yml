@@ -214,6 +214,8 @@ sqlOrchestratorPipelines:
     description: null
     author: brooks.danyelle@prophecy.io
     files:
+    - models/rfm_retail_agent/rfm_retail_agent__customer_data_join.sql
+    - models/rfm_retail_agent/schema.yml
     - .prophecy/ide/pipelines/rfm_retail_agent.json
     - pipelines/rfm_retail_agent.py
     createdAt: '2025-09-25 17:52:26'
