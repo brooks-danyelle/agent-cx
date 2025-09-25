@@ -14,19 +14,19 @@ WITH ecom_orders AS (
 
 ),
 
-crm_customers AS (
-
-  SELECT * 
-  
-  FROM {{ source('itai.retail_analyst', 'crm_customers') }}
-
-),
-
 instore_sales AS (
 
   SELECT * 
   
   FROM {{ source('itai.retail_analyst', 'instore_sales') }}
+
+),
+
+crm_customers AS (
+
+  SELECT * 
+  
+  FROM {{ source('itai.retail_analyst', 'crm_customers') }}
 
 ),
 
@@ -71,8 +71,67 @@ Reformat_1 AS (
   GROUP BY 
     ORDER_ID, CUSTOMER_ID, EMAIL, ZIP_CODE, REGION
 
+),
+
+rfm_analysis AS (
+
+  SELECT 
+    ORDER_ID,
+    CUSTOMER_ID,
+    EMAIL,
+    ZIP_CODE,
+    REGION,
+    RECENCY,
+    FREQUENCY,
+    MONETARY,
+    CASE
+      WHEN RECENCY >= 4
+        THEN 'High  '
+      WHEN RECENCY BETWEEN 2 AND 3
+        THEN 'Medium'
+      ELSE 'Low   '
+    END AS RECENCY_SCORE,
+    CASE
+      WHEN FREQUENCY >= 4
+        THEN 'High  '
+      WHEN FREQUENCY BETWEEN 2 AND 3
+        THEN 'Medium'
+      ELSE 'Low   '
+    END AS FREQUENCY_SCORE,
+    CASE
+      WHEN MONETARY >= 1000
+        THEN 'High  '
+      WHEN MONETARY BETWEEN 500 AND 999
+        THEN 'Medium'
+      ELSE 'Low   '
+    END AS MONETARY_SCORE,
+    CONCAT(
+      CASE
+        WHEN RECENCY >= 4
+          THEN 'H'
+        WHEN RECENCY BETWEEN 2 AND 3
+          THEN 'M'
+        ELSE 'L'
+      END, 
+      CASE
+        WHEN FREQUENCY >= 4
+          THEN 'H'
+        WHEN FREQUENCY BETWEEN 2 AND 3
+          THEN 'M'
+        ELSE 'L'
+      END, 
+      CASE
+        WHEN MONETARY >= 1000
+          THEN 'H'
+        WHEN MONETARY BETWEEN 500 AND 999
+          THEN 'M'
+        ELSE 'L'
+      END) AS RFM_SEGMENT
+  
+  FROM Reformat_1
+
 )
 
 SELECT *
 
-FROM Reformat_1
+FROM rfm_analysis
