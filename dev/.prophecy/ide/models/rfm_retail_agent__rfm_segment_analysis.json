@@ -1,7 +1,7 @@
 {
-  "id" : "rfm_retail_agent__customer_segment_percentage",
+  "id" : "rfm_retail_agent__rfm_segment_analysis",
   "metainfo" : {
-    "label" : "rfm_retail_agent__customer_segment_percentage",
+    "label" : "rfm_retail_agent__rfm_segment_analysis",
     "autoLayout" : true,
     "staleState" : "none",
     "sourceSuggestions" : {
@@ -54,7 +54,7 @@
         "phase" : 0
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "v1osbVKd##ORDER_ID", "v1osbVKd##CUSTOMER_ID", "v1osbVKd##EMAIL", "v1osbVKd##ZIP_CODE", "v1osbVKd##REGION", "v1osbVKd##RECENCY", "v1osbVKd##FREQUENCY", "v1osbVKd##MONETARY", "v1osbVKd##RECENCY_SCORE", "v1osbVKd##FREQUENCY_SCORE", "v1osbVKd##MONETARY_SCORE" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "ORDER_ID"
@@ -245,7 +245,7 @@
           "_row_id" : "1739924153"
         } ],
         "activeTab" : "conditions",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "Rz1Tmpe0##customer_id", "SLDZcDbR##customer_id", "hbHyBLQ5##customer_id", "Rz1Tmpe0##order_id", "Rz1Tmpe0##customer_id", "Rz1Tmpe0##order_date", "Rz1Tmpe0##order_amount", "SLDZcDbR##transaction_id", "SLDZcDbR##transaction_date", "SLDZcDbR##transaction_amount", "hbHyBLQ5##signup_date", "hbHyBLQ5##email", "hbHyBLQ5##zip_code", "hbHyBLQ5##region", "hbHyBLQ5##preferred_channel" ],
         "headAlias" : "ecom_orders"
       },
       "ports" : {
@@ -383,7 +383,7 @@
           "expression" : ""
         },
         "activeTab" : "aggregate",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "xK2rbWbq##ORDER_ID", "xK2rbWbq##CUSTOMER_ID", "xK2rbWbq##EMAIL", "xK2rbWbq##ZIP_CODE", "xK2rbWbq##REGION", "xK2rbWbq##ORDER_AMOUNT" ],
         "groupBy" : [ {
           "expression" : {
             "expression" : "ORDER_ID"
@@ -424,17 +424,17 @@
         "autoUpdateOnRun" : false
       }
     },
-    "customer_segment_percentage_GupDZMk9" : {
-      "id" : "customer_segment_percentage_GupDZMk9",
+    "rfm_segment_analysis_ir3bKtaE" : {
+      "id" : "rfm_segment_analysis_ir3bKtaE",
       "component" : "TargetModel",
       "metadata" : {
-        "label" : "customer_segment_percentage"
+        "label" : "rfm_segment_analysis"
       },
       "properties" : {
         "customQueryDisabled" : true,
         "customQuery" : false,
         "incrementalEditorDisabled" : true,
-        "query" : "\nSELECT *\n\nFROM customer_segment_percentage\n\n",
+        "query" : "\nSELECT *\n\nFROM rfm_segment_analysis\n\n",
         "isModel" : true,
         "incrementalKey" : false,
         "incremental" : {
@@ -454,106 +454,6 @@
         "autoUpdateOnRun" : false
       }
     },
-    "customer_segment##am4eg2Jr" : {
-      "id" : "customer_segment##am4eg2Jr",
-      "component" : "Reformat",
-      "metadata" : {
-        "label" : "customer_segment_percentage",
-        "x" : 600,
-        "y" : -260,
-        "phase" : 0
-      },
-      "properties" : {
-        "columnsSelector" : [ ],
-        "expressions" : [ {
-          "expression" : {
-            "expression" : "RFM_SEGMENT"
-          },
-          "_row_id" : "1811952849"
-        }, {
-          "expression" : {
-            "expression" : "FLAG"
-          },
-          "_row_id" : "1898514257"
-        }, {
-          "expression" : {
-            "expression" : "COUNT_DISTINCT_CUSTOMER_ID\n* 100.0\n/ (SUM(COUNT_DISTINCT_CUSTOMER_ID) OVER (PARTITION BY FLAG RANGE BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING))"
-          },
-          "alias" : "PERCENTAGE_OF_CUSTOMERS",
-          "_row_id" : "154411707"
-        } ]
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "CRuulmAg",
-          "slug" : "customer_segment_count"
-        } ],
-        "outputs" : [ {
-          "id" : "GupDZMk9",
-          "slug" : "out"
-        } ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      }
-    },
-    "customer_segment##bG1MNsDY" : {
-      "id" : "customer_segment##bG1MNsDY",
-      "component" : "Aggregate",
-      "metadata" : {
-        "label" : "customer_segment_count",
-        "x" : 400,
-        "y" : -260,
-        "phase" : 0
-      },
-      "properties" : {
-        "aggregate" : [ {
-          "expression" : {
-            "expression" : "RFM_SEGMENT"
-          },
-          "_row_id" : "448828700"
-        }, {
-          "expression" : {
-            "expression" : "FLAG"
-          },
-          "_row_id" : "1526771827"
-        }, {
-          "expression" : {
-            "expression" : "COUNT(DISTINCT CUSTOMER_ID)"
-          },
-          "alias" : "COUNT_DISTINCT_CUSTOMER_ID",
-          "_row_id" : "1472649288"
-        } ],
-        "allowSelection" : true,
-        "condition" : {
-          "expression" : ""
-        },
-        "activeTab" : "aggregate",
-        "columnsSelector" : [ ],
-        "groupBy" : [ {
-          "expression" : {
-            "expression" : "RFM_SEGMENT"
-          },
-          "_row_id" : "286991627"
-        }, {
-          "expression" : {
-            "expression" : "FLAG"
-          },
-          "_row_id" : "248266076"
-        } ]
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "IOBgb9VY",
-          "slug" : "rfm_segment_analysis"
-        } ],
-        "outputs" : [ {
-          "id" : "SApOdDOs",
-          "slug" : "out"
-        } ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      }
-    },
     "rfm_analysis##TIVcAQEe" : {
       "id" : "rfm_analysis##TIVcAQEe",
       "component" : "Reformat",
@@ -564,7 +464,7 @@
         "phase" : 0
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "QA06Gb82##ORDER_ID", "QA06Gb82##CUSTOMER_ID", "QA06Gb82##EMAIL", "QA06Gb82##ZIP_CODE", "QA06Gb82##REGION", "QA06Gb82##RECENCY", "QA06Gb82##FREQUENCY", "QA06Gb82##MONETARY", "QA06Gb82##recency", "QA06Gb82##monetary", "QA06Gb82##frequency" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "ORDER_ID"
@@ -640,23 +540,11 @@
     }
   },
   "connections" : [ {
-    "id" : "conn_customer_segment##am4eg2Jr_customer_segment_percentage_GupDZMk9",
-    "source" : "customer_segment##am4eg2Jr",
-    "sourcePort" : "GupDZMk9",
-    "target" : "customer_segment_percentage_GupDZMk9",
-    "targetPort" : "input_port_0"
-  }, {
-    "id" : "S06ipoyR",
-    "source" : "customer_segment##bG1MNsDY",
-    "sourcePort" : "SApOdDOs",
-    "target" : "customer_segment##am4eg2Jr",
-    "targetPort" : "CRuulmAg"
-  }, {
-    "id" : "vW8JAUiT",
+    "id" : "conn_bZrZRN3Wi4B6akFSgUI0t$$jyV7_np2Oki7RGqEuoien_rfm_segment_analysis_ir3bKtaE",
     "source" : "bZrZRN3Wi4B6akFSgUI0t$$jyV7_np2Oki7RGqEuoien",
     "sourcePort" : "ir3bKtaE",
-    "target" : "customer_segment##bG1MNsDY",
-    "targetPort" : "IOBgb9VY"
+    "target" : "rfm_segment_analysis_ir3bKtaE",
+    "targetPort" : "input_port_0"
   }, {
     "id" : "sAlnzacI",
     "source" : "rfm_analysis##TIVcAQEe",
