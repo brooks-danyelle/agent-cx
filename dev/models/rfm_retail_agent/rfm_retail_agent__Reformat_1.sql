@@ -52,8 +52,27 @@ customer_data_join AS (
   LEFT JOIN crm_customers
      ON ecom_orders.customer_id = crm_customers.customer_id
 
+),
+
+Reformat_1 AS (
+
+  SELECT 
+    ORDER_ID AS ORDER_ID,
+    CUSTOMER_ID AS CUSTOMER_ID,
+    EMAIL AS EMAIL,
+    ZIP_CODE AS ZIP_CODE,
+    REGION AS REGION,
+    DATEDIFF(DAY, MAX(ORDER_DATE), CURRENT_DATE) AS RECENCY,
+    COUNT(DISTINCT ORDER_ID) AS FREQUENCY,
+    SUM(ORDER_AMOUNT) AS MONETARY
+  
+  FROM customer_data_join
+  
+  GROUP BY 
+    ORDER_ID, CUSTOMER_ID, EMAIL, ZIP_CODE, REGION
+
 )
 
 SELECT *
 
-FROM customer_data_join
+FROM Reformat_1
