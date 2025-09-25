@@ -1,6 +1,6 @@
 ---
 version: 2
 models:
-- name: "rfm_retail_agent__rfm_analysis"
+- name: "rfm_retail_agent__rfm_segment_analysis"
   tags:
   - "prophecy_temp"

@@ -1,7 +1,7 @@
 {
-  "id" : "rfm_retail_agent__rfm_analysis",
+  "id" : "rfm_retail_agent__rfm_segment_analysis",
   "metainfo" : {
-    "label" : "rfm_retail_agent__rfm_analysis",
+    "label" : "rfm_retail_agent__rfm_segment_analysis",
     "autoLayout" : true,
     "staleState" : "none",
     "sourceSuggestions" : {
@@ -18,6 +18,110 @@
     "version" : 3
   },
   "processes" : {
+    "bZrZRN3Wi4B6akFSgUI0t$$jyV7_np2Oki7RGqEuoien" : {
+      "id" : "bZrZRN3Wi4B6akFSgUI0t$$jyV7_np2Oki7RGqEuoien",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "rfm_segment_analysis",
+        "x" : 200,
+        "y" : -260,
+        "phase" : 0
+      },
+      "properties" : {
+        "columnsSelector" : [ "IzvuWgnU7LvD50BBTxgjL$$ttkdc7rBw2PPEnkXEqFAa##ORDER_ID", "IzvuWgnU7LvD50BBTxgjL$$ttkdc7rBw2PPEnkXEqFAa##CUSTOMER_ID", "IzvuWgnU7LvD50BBTxgjL$$ttkdc7rBw2PPEnkXEqFAa##EMAIL", "IzvuWgnU7LvD50BBTxgjL$$ttkdc7rBw2PPEnkXEqFAa##ZIP_CODE", "IzvuWgnU7LvD50BBTxgjL$$ttkdc7rBw2PPEnkXEqFAa##REGION", "IzvuWgnU7LvD50BBTxgjL$$ttkdc7rBw2PPEnkXEqFAa##RECENCY", "IzvuWgnU7LvD50BBTxgjL$$ttkdc7rBw2PPEnkXEqFAa##FREQUENCY", "IzvuWgnU7LvD50BBTxgjL$$ttkdc7rBw2PPEnkXEqFAa##MONETARY", "IzvuWgnU7LvD50BBTxgjL$$ttkdc7rBw2PPEnkXEqFAa##RECENCY_SCORE", "IzvuWgnU7LvD50BBTxgjL$$ttkdc7rBw2PPEnkXEqFAa##FREQUENCY_SCORE", "IzvuWgnU7LvD50BBTxgjL$$ttkdc7rBw2PPEnkXEqFAa##MONETARY_SCORE" ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "ORDER_ID"
+          },
+          "alias" : "ORDER_ID",
+          "_row_id" : "932856795"
+        }, {
+          "expression" : {
+            "expression" : "CUSTOMER_ID"
+          },
+          "alias" : "CUSTOMER_ID",
+          "_row_id" : "1766942212"
+        }, {
+          "expression" : {
+            "expression" : "EMAIL"
+          },
+          "alias" : "EMAIL",
+          "_row_id" : "1684494725"
+        }, {
+          "expression" : {
+            "expression" : "ZIP_CODE"
+          },
+          "alias" : "ZIP_CODE",
+          "_row_id" : "60785622"
+        }, {
+          "expression" : {
+            "expression" : "REGION"
+          },
+          "alias" : "REGION",
+          "_row_id" : "551893214"
+        }, {
+          "expression" : {
+            "expression" : "RECENCY"
+          },
+          "alias" : "RECENCY",
+          "_row_id" : "1209851332"
+        }, {
+          "expression" : {
+            "expression" : "FREQUENCY"
+          },
+          "alias" : "FREQUENCY",
+          "_row_id" : "667769291"
+        }, {
+          "expression" : {
+            "expression" : "MONETARY"
+          },
+          "alias" : "MONETARY",
+          "_row_id" : "2133936712"
+        }, {
+          "expression" : {
+            "expression" : "RECENCY_SCORE"
+          },
+          "alias" : "RECENCY_SCORE",
+          "_row_id" : "1279064435"
+        }, {
+          "expression" : {
+            "expression" : "FREQUENCY_SCORE"
+          },
+          "alias" : "FREQUENCY_SCORE",
+          "_row_id" : "596478893"
+        }, {
+          "expression" : {
+            "expression" : "MONETARY_SCORE"
+          },
+          "alias" : "MONETARY_SCORE",
+          "_row_id" : "407116005"
+        }, {
+          "expression" : {
+            "expression" : "CONCAT(RECENCY_SCORE, FREQUENCY_SCORE, MONETARY_SCORE)"
+          },
+          "alias" : "RFM_SEGMENT",
+          "_row_id" : "hypSmHAwFL"
+        }, {
+          "expression" : {
+            "expression" : "{{ segment_flag() }}"
+          },
+          "alias" : "FLAG",
+          "_row_id" : "S-fuKl_skf"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "IzvuWgnU7LvD50BBTxgjL$$ttkdc7rBw2PPEnkXEqFAa",
+          "slug" : "rfm_analysis"
+        } ],
+        "outputs" : [ {
+          "id" : "H5qcDM_nNltW2LftikIU_$$Jk7vw8mKjEJDFz_GTwoqg",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
     "ecom_orders##fpybREdf" : {
       "id" : "ecom_orders##fpybREdf",
       "component" : "Source",
@@ -141,7 +245,7 @@
           "_row_id" : "775986607"
         } ],
         "activeTab" : "conditions",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "Tz8XxJqW##customer_id", "fD6TF4sG##customer_id", "xvN9UG7m##customer_id", "Tz8XxJqW##order_id", "Tz8XxJqW##customer_id", "Tz8XxJqW##order_date", "Tz8XxJqW##order_amount", "fD6TF4sG##transaction_id", "fD6TF4sG##transaction_date", "fD6TF4sG##transaction_amount", "xvN9UG7m##signup_date", "xvN9UG7m##email", "xvN9UG7m##zip_code", "xvN9UG7m##region", "xvN9UG7m##preferred_channel" ],
         "headAlias" : "ecom_orders"
       },
       "ports" : {
@@ -227,7 +331,7 @@
           "expression" : ""
         },
         "activeTab" : "aggregate",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "wdNiRYLY##ORDER_ID", "wdNiRYLY##CUSTOMER_ID", "wdNiRYLY##EMAIL", "wdNiRYLY##ZIP_CODE", "wdNiRYLY##REGION", "wdNiRYLY##ORDER_AMOUNT" ],
         "groupBy" : [ {
           "expression" : {
             "expression" : "ORDER_ID"
@@ -304,7 +408,7 @@
         "phase" : 0
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "IvhJUo8D##ORDER_ID", "IvhJUo8D##CUSTOMER_ID", "IvhJUo8D##EMAIL", "IvhJUo8D##ZIP_CODE", "IvhJUo8D##REGION", "IvhJUo8D##RECENCY", "IvhJUo8D##FREQUENCY", "IvhJUo8D##MONETARY", "IvhJUo8D##recency", "IvhJUo8D##monetary", "IvhJUo8D##frequency" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "ORDER_ID"
@@ -347,28 +451,22 @@
           "_row_id" : "1894241148"
         }, {
           "expression" : {
-            "expression" : "CASE\n  WHEN RECENCY >= 4\n    THEN 'High  '\n  WHEN RECENCY BETWEEN 2 AND 3\n    THEN 'Medium'\n  ELSE 'Low   '\nEND"
+            "expression" : "CASE\n  WHEN recency <= 30\n    THEN 5\n  WHEN recency <= 60\n    THEN 4\n  WHEN recency <= 90\n    THEN 3\n  WHEN recency <= 120\n    THEN 2\n  ELSE 1\nEND"
           },
           "alias" : "RECENCY_SCORE",
           "_row_id" : "2020075733"
         }, {
           "expression" : {
-            "expression" : "CASE\n  WHEN FREQUENCY >= 4\n    THEN 'High  '\n  WHEN FREQUENCY BETWEEN 2 AND 3\n    THEN 'Medium'\n  ELSE 'Low   '\nEND"
+            "expression" : "CASE\n  WHEN monetary >= 1000\n    THEN 5\n  WHEN monetary >= 500\n    THEN 4\n  WHEN monetary >= 250\n    THEN 3\n  WHEN monetary >= 100\n    THEN 2\n  ELSE 1\nEND"
           },
           "alias" : "FREQUENCY_SCORE",
           "_row_id" : "1923073396"
         }, {
           "expression" : {
-            "expression" : "CASE\n  WHEN MONETARY >= 1000\n    THEN 'High  '\n  WHEN MONETARY BETWEEN 500 AND 999\n    THEN 'Medium'\n  ELSE 'Low   '\nEND"
+            "expression" : "CASE\n  WHEN frequency >= 10\n    THEN 5\n  WHEN frequency >= 5\n    THEN 4\n  WHEN frequency >= 3\n    THEN 3\n  WHEN frequency >= 2\n    THEN 2\n  ELSE 1\nEND"
           },
           "alias" : "MONETARY_SCORE",
           "_row_id" : "696728365"
-        }, {
-          "expression" : {
-            "expression" : "CONCAT(\n  CASE\n    WHEN RECENCY >= 4\n      THEN 'H'\n    WHEN RECENCY BETWEEN 2 AND 3\n      THEN 'M'\n    ELSE 'L'\n  END, \n  CASE\n    WHEN FREQUENCY >= 4\n      THEN 'H'\n    WHEN FREQUENCY BETWEEN 2 AND 3\n      THEN 'M'\n    ELSE 'L'\n  END, \n  CASE\n    WHEN MONETARY >= 1000\n      THEN 'H'\n    WHEN MONETARY BETWEEN 500 AND 999\n      THEN 'M'\n    ELSE 'L'\n  END)"
-          },
-          "alias" : "RFM_SEGMENT",
-          "_row_id" : "1194516095"
         } ]
       },
       "ports" : {
@@ -379,6 +477,36 @@
         "outputs" : [ {
           "id" : "AnwmrLM5",
           "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "rfm_segment_analysis_H5qcDM_nNltW2LftikIU_$$Jk7vw8mKjEJDFz_GTwoqg" : {
+      "id" : "rfm_segment_analysis_H5qcDM_nNltW2LftikIU_$$Jk7vw8mKjEJDFz_GTwoqg",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "rfm_segment_analysis"
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "\nSELECT *\n\nFROM rfm_segment_analysis\n\n",
+        "isModel" : true,
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "input_port_0",
+          "slug" : "input_port_0"
+        } ],
+        "outputs" : [ {
+          "id" : "output_port_0",
+          "slug" : "output_port_0"
         } ],
         "isCustomOutputSchema" : false,
         "autoUpdateOnRun" : false
@@ -409,44 +537,20 @@
         "isCustomOutputSchema" : false,
         "autoUpdateOnRun" : false
       }
-    },
-    "rfm_analysis_AnwmrLM5" : {
-      "id" : "rfm_analysis_AnwmrLM5",
-      "component" : "TargetModel",
-      "metadata" : {
-        "label" : "rfm_analysis"
-      },
-      "properties" : {
-        "customQueryDisabled" : true,
-        "customQuery" : false,
-        "incrementalEditorDisabled" : true,
-        "query" : "\nSELECT *\n\nFROM rfm_analysis\n\n",
-        "isModel" : true,
-        "incrementalKey" : false,
-        "incremental" : {
-          "expression" : "true"
-        }
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "input_port_0",
-          "slug" : "input_port_0"
-        } ],
-        "outputs" : [ {
-          "id" : "output_port_0",
-          "slug" : "output_port_0"
-        } ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      }
     }
   },
   "connections" : [ {
-    "id" : "conn_rfm_analysis##FOq87v0i_rfm_analysis_AnwmrLM5",
+    "id" : "conn_bZrZRN3Wi4B6akFSgUI0t$$jyV7_np2Oki7RGqEuoien_rfm_segment_analysis_H5qcDM_nNltW2LftikIU_$$Jk7vw8mKjEJDFz_GTwoqg",
+    "source" : "bZrZRN3Wi4B6akFSgUI0t$$jyV7_np2Oki7RGqEuoien",
+    "sourcePort" : "H5qcDM_nNltW2LftikIU_$$Jk7vw8mKjEJDFz_GTwoqg",
+    "target" : "rfm_segment_analysis_H5qcDM_nNltW2LftikIU_$$Jk7vw8mKjEJDFz_GTwoqg",
+    "targetPort" : "input_port_0"
+  }, {
+    "id" : "nCqeBU7Z55fS3yFtlqVNN$$OucJdKGSPhp7znzaWoGPp",
     "source" : "rfm_analysis##FOq87v0i",
     "sourcePort" : "AnwmrLM5",
-    "target" : "rfm_analysis_AnwmrLM5",
-    "targetPort" : "input_port_0"
+    "target" : "bZrZRN3Wi4B6akFSgUI0t$$jyV7_np2Oki7RGqEuoien",
+    "targetPort" : "IzvuWgnU7LvD50BBTxgjL$$ttkdc7rBw2PPEnkXEqFAa"
   }, {
     "id" : "c8PpHfeV",
     "source" : "NApNOlHtKV7KDUH1_EXaH$$I69lPwzIok2u4470GGEZM",

@@ -13,34 +13,34 @@
     "isTranspiledPipeline" : false
   },
   "processes" : {
-    "rfm_analysis##FOq87v0i" : {
-      "id" : "rfm_analysis##FOq87v0i",
+    "bZrZRN3Wi4B6akFSgUI0t$$jyV7_np2Oki7RGqEuoien" : {
+      "id" : "bZrZRN3Wi4B6akFSgUI0t$$jyV7_np2Oki7RGqEuoien",
       "component" : "Model",
       "metadata" : {
-        "label" : "rfm_retail_agent__rfm_analysis",
+        "label" : "rfm_retail_agent__rfm_segment_analysis",
         "phase" : 0
       },
       "properties" : {
-        "modelName" : "rfm_retail_agent__rfm_analysis"
+        "modelName" : "rfm_retail_agent__rfm_segment_analysis"
       },
       "visualMetaInfo" : {
-        "visualProcessIds" : [ "rfm_analysis_AnwmrLM5", "rfm_analysis##FOq87v0i", "NApNOlHtKV7KDUH1_EXaH$$I69lPwzIok2u4470GGEZM", "customer_data_jo##TWpY1edX", "ecom_orders##fpybREdf", "instore_sales##zLvc4RN3", "crm_customers##snMe2ZT0" ],
+        "visualProcessIds" : [ "rfm_segment_analysis_H5qcDM_nNltW2LftikIU_$$Jk7vw8mKjEJDFz_GTwoqg", "bZrZRN3Wi4B6akFSgUI0t$$jyV7_np2Oki7RGqEuoien", "rfm_analysis##FOq87v0i", "NApNOlHtKV7KDUH1_EXaH$$I69lPwzIok2u4470GGEZM", "customer_data_jo##TWpY1edX", "ecom_orders##fpybREdf", "instore_sales##zLvc4RN3", "crm_customers##snMe2ZT0" ],
         "type" : "ephemeral",
         "isTemporaryTable" : true
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "rfm_retail_agent__rfm_analysis_in_0",
+          "id" : "rfm_retail_agent__rfm_segment_analysis_in_0",
           "slug" : "in_0"
         }, {
-          "id" : "rfm_retail_agent__rfm_analysis_in_1",
+          "id" : "rfm_retail_agent__rfm_segment_analysis_in_1",
           "slug" : "in_1"
         }, {
-          "id" : "rfm_retail_agent__rfm_analysis_in_2",
+          "id" : "rfm_retail_agent__rfm_segment_analysis_in_2",
           "slug" : "in_2"
         } ],
         "outputs" : [ {
-          "id" : "rfm_retail_agent__rfm_analysis_out_0",
+          "id" : "rfm_retail_agent__rfm_segment_analysis_out_0",
           "slug" : "out_0"
         } ],
         "isCustomOutputSchema" : false

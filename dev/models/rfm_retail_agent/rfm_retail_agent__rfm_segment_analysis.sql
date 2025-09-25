@@ -85,53 +85,64 @@ rfm_analysis AS (
     FREQUENCY,
     MONETARY,
     CASE
-      WHEN RECENCY >= 4
-        THEN 'High  '
-      WHEN RECENCY BETWEEN 2 AND 3
-        THEN 'Medium'
-      ELSE 'Low   '
+      WHEN recency <= 30
+        THEN 5
+      WHEN recency <= 60
+        THEN 4
+      WHEN recency <= 90
+        THEN 3
+      WHEN recency <= 120
+        THEN 2
+      ELSE 1
     END AS RECENCY_SCORE,
     CASE
-      WHEN FREQUENCY >= 4
-        THEN 'High  '
-      WHEN FREQUENCY BETWEEN 2 AND 3
-        THEN 'Medium'
-      ELSE 'Low   '
+      WHEN monetary >= 1000
+        THEN 5
+      WHEN monetary >= 500
+        THEN 4
+      WHEN monetary >= 250
+        THEN 3
+      WHEN monetary >= 100
+        THEN 2
+      ELSE 1
     END AS FREQUENCY_SCORE,
     CASE
-      WHEN MONETARY >= 1000
-        THEN 'High  '
-      WHEN MONETARY BETWEEN 500 AND 999
-        THEN 'Medium'
-      ELSE 'Low   '
-    END AS MONETARY_SCORE,
-    CONCAT(
-      CASE
-        WHEN RECENCY >= 4
-          THEN 'H'
-        WHEN RECENCY BETWEEN 2 AND 3
-          THEN 'M'
-        ELSE 'L'
-      END, 
-      CASE
-        WHEN FREQUENCY >= 4
-          THEN 'H'
-        WHEN FREQUENCY BETWEEN 2 AND 3
-          THEN 'M'
-        ELSE 'L'
-      END, 
-      CASE
-        WHEN MONETARY >= 1000
-          THEN 'H'
-        WHEN MONETARY BETWEEN 500 AND 999
-          THEN 'M'
-        ELSE 'L'
-      END) AS RFM_SEGMENT
+      WHEN frequency >= 10
+        THEN 5
+      WHEN frequency >= 5
+        THEN 4
+      WHEN frequency >= 3
+        THEN 3
+      WHEN frequency >= 2
+        THEN 2
+      ELSE 1
+    END AS MONETARY_SCORE
   
   FROM Reformat_1
+
+),
+
+rfm_segment_analysis AS (
+
+  SELECT 
+    ORDER_ID AS ORDER_ID,
+    CUSTOMER_ID AS CUSTOMER_ID,
+    EMAIL AS EMAIL,
+    ZIP_CODE AS ZIP_CODE,
+    REGION AS REGION,
+    RECENCY AS RECENCY,
+    FREQUENCY AS FREQUENCY,
+    MONETARY AS MONETARY,
+    RECENCY_SCORE AS RECENCY_SCORE,
+    FREQUENCY_SCORE AS FREQUENCY_SCORE,
+    MONETARY_SCORE AS MONETARY_SCORE,
+    CONCAT(RECENCY_SCORE, FREQUENCY_SCORE, MONETARY_SCORE) AS RFM_SEGMENT,
+    {{ segment_flag() }} AS FLAG
+  
+  FROM rfm_analysis
 
 )
 
 SELECT *
 
-FROM rfm_analysis
+FROM rfm_segment_analysis
