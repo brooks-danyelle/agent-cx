@@ -198,7 +198,8 @@ rfm_scores_and_segment AS (
         WHEN MONETARY >= 250
           THEN 2
         ELSE 1
-      END AS STRING)) AS RFM_SEGMENT
+      END AS STRING)) AS RFM_SEGMENT,
+    {{ segment_flag() }} AS FLAG
   
   FROM customer_rfm_analysis
 
