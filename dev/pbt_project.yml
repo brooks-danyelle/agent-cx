@@ -203,8 +203,8 @@ sqlOrchestratorPipelines:
     description: null
     author: brooks.danyelle@prophecy.io
     files:
-    - models/test/test__customer_order_join.sql
     - models/test/schema.yml
+    - models/test/test__customer_rfm_scores.sql
     - .prophecy/ide/pipelines/test.json
     - pipelines/test.py
     createdAt: '2025-09-29 18:35:42'

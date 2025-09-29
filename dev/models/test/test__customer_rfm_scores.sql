@@ -6,11 +6,11 @@
   })
 }}
 
-WITH ecom_orders AS (
+WITH crm_customers AS (
 
   SELECT * 
   
-  FROM {{ source('itai.retail_analyst', 'ecom_orders') }}
+  FROM {{ source('itai.retail_analyst', 'crm_customers') }}
 
 ),
 
@@ -22,11 +22,11 @@ instore_sales AS (
 
 ),
 
-crm_customers AS (
+ecom_orders AS (
 
   SELECT * 
   
-  FROM {{ source('itai.retail_analyst', 'crm_customers') }}
+  FROM {{ source('itai.retail_analyst', 'ecom_orders') }}
 
 ),
 
@@ -52,8 +52,31 @@ customer_order_join AS (
   LEFT JOIN crm_customers
      ON ecom_orders.customer_id = crm_customers.customer_id
 
+),
+
+customer_rfm_scores AS (
+
+  SELECT 
+    ORDER_ID,
+    CUSTOMER_ID,
+    ORDER_DATE,
+    ORDER_AMOUNT,
+    TRANSACTION_ID,
+    TRANSACTION_DATE,
+    TRANSACTION_AMOUNT,
+    SIGNUP_DATE,
+    EMAIL,
+    ZIP_CODE,
+    REGION,
+    PREFERRED_CHANNEL,
+    DATEDIFF(DAY, MAX(ORDER_DATE), CURRENT_DATE) OVER (PARTITION BY CUSTOMER_ID) AS recency_score,
+    COUNT(ORDER_ID) OVER (PARTITION BY CUSTOMER_ID) AS frequency_score,
+    SUM(ORDER_AMOUNT) OVER (PARTITION BY CUSTOMER_ID) AS monetary_score
+  
+  FROM customer_order_join
+
 )
 
 SELECT *
 
-FROM customer_order_join
+FROM customer_rfm_scores

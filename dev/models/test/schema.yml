@@ -1,6 +1,6 @@
 ---
 version: 2
 models:
-- name: "test__customer_order_join"
+- name: "test__customer_rfm_scores"
   tags:
   - "prophecy_temp"
