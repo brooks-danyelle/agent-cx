@@ -1,6 +1,6 @@
 with DAG():
-    test__rfm_scores_calculation = Task(
-        task_id = "test__rfm_scores_calculation", 
+    test__percentage_of_customers_per_segment = Task(
+        task_id = "test__percentage_of_customers_per_segment", 
         component = "Model", 
-        modelName = "test__rfm_scores_calculation"
+        modelName = "test__percentage_of_customers_per_segment"
     )

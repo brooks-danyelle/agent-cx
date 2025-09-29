@@ -13,34 +13,34 @@
     "isTranspiledPipeline" : false
   },
   "processes" : {
-    "rfm_scores_calcu##ItVAIgH7" : {
-      "id" : "rfm_scores_calcu##ItVAIgH7",
+    "percentage_of_cu##Ru2NrqEM" : {
+      "id" : "percentage_of_cu##Ru2NrqEM",
       "component" : "Model",
       "metadata" : {
-        "label" : "test__rfm_scores_calculation",
+        "label" : "test__percentage_of_customers_per_segment",
         "phase" : 0
       },
       "properties" : {
-        "modelName" : "test__rfm_scores_calculation"
+        "modelName" : "test__percentage_of_customers_per_segment"
       },
       "visualMetaInfo" : {
-        "visualProcessIds" : [ "rfm_scores_calculation_o6k1PPDv", "rfm_scores_calcu##ItVAIgH7", "t7wrzuJUuDt0sGhg29DO9$$vv4n3u3dHa2ejypsOdRPT", "customer_order_j##mCCdI7mK", "ecom_orders##eJnu6BIX", "instore_sales##hPJKewuQ", "crm_customers##qXWwz0sP" ],
+        "visualProcessIds" : [ "percentage_of_customers_per_segment_QwbQ1irS", "percentage_of_cu##Ru2NrqEM", "customer_count_p##PnWIqChR", "rfm_scores_calcu##ItVAIgH7", "Reformat_1##IY9zc9wG", "customer_order_j##tXV85egw", "ecom_orders##D0b8edT2", "instore_sales##hDuewmrQ", "crm_customers##At0fbwQZ" ],
         "type" : "ephemeral",
         "isTemporaryTable" : true
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "test__rfm_scores_calculation_in_0",
+          "id" : "test__percentage_of_customers_per_segment_in_0",
           "slug" : "in_0"
         }, {
-          "id" : "test__rfm_scores_calculation_in_1",
+          "id" : "test__percentage_of_customers_per_segment_in_1",
           "slug" : "in_1"
         }, {
-          "id" : "test__rfm_scores_calculation_in_2",
+          "id" : "test__percentage_of_customers_per_segment_in_2",
           "slug" : "in_2"
         } ],
         "outputs" : [ {
-          "id" : "test__rfm_scores_calculation_out_0",
+          "id" : "test__percentage_of_customers_per_segment_out_0",
           "slug" : "out_0"
         } ],
         "isCustomOutputSchema" : false

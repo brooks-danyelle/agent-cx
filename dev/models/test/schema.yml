@@ -1,6 +1,6 @@
 ---
 version: 2
 models:
-- name: "test__rfm_scores_calculation"
+- name: "test__percentage_of_customers_per_segment"
   tags:
   - "prophecy_temp"
