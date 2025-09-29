@@ -1,7 +1,7 @@
 {
-  "id" : "dbx_demo__ecommerce_instore_customer_join",
+  "id" : "dbx_demo__Reformat_1",
   "metainfo" : {
-    "label" : "dbx_demo__ecommerce_instore_customer_join",
+    "label" : "dbx_demo__Reformat_1",
     "autoLayout" : true,
     "staleState" : "none",
     "sourceSuggestions" : {
@@ -70,6 +70,36 @@
         "autoUpdateOnRun" : false
       }
     },
+    "Reformat_1_x1kFq2yx5GW_-wfquSWMz$$gC2NnYScCzz0HOysv7crB" : {
+      "id" : "Reformat_1_x1kFq2yx5GW_-wfquSWMz$$gC2NnYScCzz0HOysv7crB",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "Reformat_1"
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "\nSELECT *\n\nFROM Reformat_1\n\n",
+        "isModel" : true,
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "input_port_0",
+          "slug" : "input_port_0"
+        } ],
+        "outputs" : [ {
+          "id" : "output_port_0",
+          "slug" : "output_port_0"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
     "swb0T8VKDqV-rcJWIzgW6" : {
       "id" : "swb0T8VKDqV-rcJWIzgW6",
       "component" : "Source",
@@ -96,31 +126,31 @@
         "autoUpdateOnRun" : false
       }
     },
-    "ecommerce_instore_customer_join_Ejpt19bM" : {
-      "id" : "ecommerce_instore_customer_join_Ejpt19bM",
-      "component" : "TargetModel",
+    "gVSd4iDvZpZZ2O0sL4MQK$$KK7vtKDvbJ-IsmIP0gxgQ" : {
+      "id" : "gVSd4iDvZpZZ2O0sL4MQK$$KK7vtKDvbJ-IsmIP0gxgQ",
+      "component" : "SQLStatement",
       "metadata" : {
-        "label" : "ecommerce_instore_customer_join"
+        "label" : "Reformat_1",
+        "x" : -80,
+        "y" : -140,
+        "phase" : 0
       },
       "properties" : {
-        "customQueryDisabled" : true,
-        "customQuery" : false,
-        "incrementalEditorDisabled" : true,
-        "query" : "\nSELECT *\n\nFROM ecommerce_instore_customer_join\n\n",
-        "isModel" : true,
-        "incrementalKey" : false,
-        "incremental" : {
-          "expression" : "true"
-        }
+        "fileTabs" : [ {
+          "path" : "out",
+          "id" : "out",
+          "language" : "sql",
+          "content" : "SELECT \n  ORDER_ID AS ORDER_ID,\n  ECOM_CUSTOMER_ID AS ECOM_CUSTOMER_ID,\n  ORDER_DATE AS ORDER_DATE,\n  ORDER_AMOUNT AS ORDER_AMOUNT,\n  EMAIL AS EMAIL,\n  ZIP_CODE AS ZIP_CODE,\n  DATEDIFF(DAY, GREATEST(ORDER_DATE, TRANSACTION_DATE), CURRENT_DATE) AS RECENCY,\n  (ORDER_AMOUNT + TRANSACTION_AMOUNT) AS MONETARY,\n  (\n    SELECT COUNT(DISTINCT ORDER_ID)\n    \n    FROM ecommerce_instore_customer_join AS e\n    \n    WHERE e.ECOM_CUSTOMER_ID = ecommerce_instore_customer_join.ECOM_CUSTOMER_ID\n   )\n  + (\n      SELECT COUNT(DISTINCT TRANSACTION_ID)\n      \n      FROM ecommerce_instore_customer_join AS e\n      \n      WHERE e.ECOM_CUSTOMER_ID = ecommerce_instore_customer_join.ECOM_CUSTOMER_ID\n     ) AS FREQUENCY\n\nFROM ecommerce_instore_customer_join\n"
+        } ]
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "input_port_0",
-          "slug" : "input_port_0"
+          "id" : "GEharPcoy63OuQDCE-H2t$$tgEpoW-K3O9Y1jx3phc9A",
+          "slug" : "ecommerce_instore_customer_join"
         } ],
         "outputs" : [ {
-          "id" : "output_port_0",
-          "slug" : "output_port_0"
+          "id" : "x1kFq2yx5GW_-wfquSWMz$$gC2NnYScCzz0HOysv7crB",
+          "slug" : "out"
         } ],
         "isCustomOutputSchema" : false,
         "autoUpdateOnRun" : false
@@ -229,7 +259,7 @@
           "_row_id" : "868760111"
         } ],
         "activeTab" : "conditions",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "ygfboWzY##customer_id", "KWlgyf7b##customer_id", "Jd3mkNfN##customer_id", "ygfboWzY##order_id", "ygfboWzY##customer_id", "ygfboWzY##order_date", "ygfboWzY##order_amount", "Jd3mkNfN##transaction_id", "Jd3mkNfN##customer_id", "Jd3mkNfN##transaction_date", "Jd3mkNfN##transaction_amount", "KWlgyf7b##signup_date", "KWlgyf7b##email", "KWlgyf7b##zip_code", "KWlgyf7b##region", "KWlgyf7b##preferred_channel" ],
         "headAlias" : "ecom_orders"
       },
       "ports" : {
@@ -253,11 +283,17 @@
     }
   },
   "connections" : [ {
-    "id" : "conn_ecommerce_instor##ETSKFybu_ecommerce_instore_customer_join_Ejpt19bM",
+    "id" : "conn_gVSd4iDvZpZZ2O0sL4MQK$$KK7vtKDvbJ-IsmIP0gxgQ_Reformat_1_x1kFq2yx5GW_-wfquSWMz$$gC2NnYScCzz0HOysv7crB",
+    "source" : "gVSd4iDvZpZZ2O0sL4MQK$$KK7vtKDvbJ-IsmIP0gxgQ",
+    "sourcePort" : "x1kFq2yx5GW_-wfquSWMz$$gC2NnYScCzz0HOysv7crB",
+    "target" : "Reformat_1_x1kFq2yx5GW_-wfquSWMz$$gC2NnYScCzz0HOysv7crB",
+    "targetPort" : "input_port_0"
+  }, {
+    "id" : "a6M7rrfoYXZM_JHJBAlLJ$$GwaavoSmBWYWuDZ6GG7jG",
     "source" : "ecommerce_instor##ETSKFybu",
     "sourcePort" : "Ejpt19bM",
-    "target" : "ecommerce_instore_customer_join_Ejpt19bM",
-    "targetPort" : "input_port_0"
+    "target" : "gVSd4iDvZpZZ2O0sL4MQK$$KK7vtKDvbJ-IsmIP0gxgQ",
+    "targetPort" : "GEharPcoy63OuQDCE-H2t$$tgEpoW-K3O9Y1jx3phc9A"
   }, {
     "id" : "easZBxdh",
     "source" : "swb0T8VKDqV-rcJWIzgW6",

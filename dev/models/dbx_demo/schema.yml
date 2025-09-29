@@ -1,6 +1,6 @@
 ---
 version: 2
 models:
-- name: "dbx_demo__ecommerce_instore_customer_join"
+- name: "dbx_demo__Reformat_1"
   tags:
   - "prophecy_temp"

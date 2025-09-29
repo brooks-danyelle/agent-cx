@@ -1,6 +1,6 @@
 with DAG():
-    dbx_demo__ecommerce_instore_customer_join = Task(
-        task_id = "dbx_demo__ecommerce_instore_customer_join", 
+    dbx_demo__Reformat_1 = Task(
+        task_id = "dbx_demo__Reformat_1", 
         component = "Model", 
-        modelName = "dbx_demo__ecommerce_instore_customer_join"
+        modelName = "dbx_demo__Reformat_1"
     )

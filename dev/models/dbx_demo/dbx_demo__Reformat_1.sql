@@ -53,8 +53,38 @@ ecommerce_instore_customer_join AS (
   LEFT JOIN instore_sales
      ON ecom_orders.customer_id = instore_sales.customer_id
 
+),
+
+Reformat_1 AS (
+
+  SELECT 
+    ORDER_ID AS ORDER_ID,
+    ECOM_CUSTOMER_ID AS ECOM_CUSTOMER_ID,
+    ORDER_DATE AS ORDER_DATE,
+    ORDER_AMOUNT AS ORDER_AMOUNT,
+    EMAIL AS EMAIL,
+    ZIP_CODE AS ZIP_CODE,
+    DATEDIFF(DAY, GREATEST(ORDER_DATE, TRANSACTION_DATE), CURRENT_DATE) AS RECENCY,
+    (ORDER_AMOUNT + TRANSACTION_AMOUNT) AS MONETARY,
+    (
+      SELECT COUNT(DISTINCT ORDER_ID)
+      
+      FROM ecommerce_instore_customer_join AS e
+      
+      WHERE e.ECOM_CUSTOMER_ID = ecommerce_instore_customer_join.ECOM_CUSTOMER_ID
+     )
+    + (
+        SELECT COUNT(DISTINCT TRANSACTION_ID)
+        
+        FROM ecommerce_instore_customer_join AS e
+        
+        WHERE e.ECOM_CUSTOMER_ID = ecommerce_instore_customer_join.ECOM_CUSTOMER_ID
+       ) AS FREQUENCY
+  
+  FROM ecommerce_instore_customer_join
+
 )
 
 SELECT *
 
-FROM ecommerce_instore_customer_join
+FROM Reformat_1
