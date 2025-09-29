@@ -213,6 +213,8 @@ sqlOrchestratorPipelines:
     description: null
     author: brooks.danyelle@prophecy.io
     files:
+    - models/dbx_demo/dbx_demo__ecommerce_instore_customer_join.sql
+    - models/dbx_demo/schema.yml
     - .prophecy/ide/pipelines/dbx_demo.json
     - pipelines/dbx_demo.py
     createdAt: '2025-09-29 20:03:10'
