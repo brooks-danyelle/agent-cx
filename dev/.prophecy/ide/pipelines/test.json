@@ -620,7 +620,7 @@
         "phase" : 0
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "Vt75l6l8##CUSTOMER_ID", "Vt75l6l8##EMAIL", "Vt75l6l8##RECENCY", "Vt75l6l8##FREQUENCY", "Vt75l6l8##MONETARY" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "CUSTOMER_ID"
@@ -664,6 +664,12 @@
           },
           "alias" : "MONETARY_SCORE",
           "_row_id" : "1537385079"
+        }, {
+          "expression" : {
+            "expression" : "{{ segment_flag() }}"
+          },
+          "alias" : "FLAG",
+          "_row_id" : "Izbo5ziGry"
         } ]
       },
       "ports" : {
@@ -745,6 +751,11 @@
               "name" : "MONETARY_SCORE",
               "dataType" : {
                 "type" : "Integer"
+              }
+            }, {
+              "name" : "FLAG",
+              "dataType" : {
+                "type" : "String"
               }
             } ]
           },
