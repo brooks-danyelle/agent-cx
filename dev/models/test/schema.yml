@@ -1,0 +1,6 @@
+---
+version: 2
+models:
+- name: "test__customer_order_join"
+  tags:
+  - "prophecy_temp"
