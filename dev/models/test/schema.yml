@@ -1,6 +1,0 @@
----
-version: 2
-models:
-- name: "test__percentage_of_customers_per_segment"
-  tags:
-  - "prophecy_temp"

@@ -66,13 +66,44 @@ sources:
     description: "Customer segmentation data indicating the proportion of customers\
       \ within specific categories, aiding in market analysis and strategy development."
     columns:
-    - name: "FLAG"
-      description: "Indicator representing a specific customer segment or characteristic."
+    - name: "CUSTOMER_ID"
+      description: "Unique identifier for each customer."
       dataType:
         type: "String"
-    - name: "PERCENTAGE_OF_CUSTOMERS"
-      description: "The proportion of total customers that fall under the specified\
-        \ flag, expressed as a percentage."
+    - name: "EMAIL"
+      description: "Email address of the customer."
       dataType:
-        type: "Decimal"
+        type: "String"
+    - name: "RECENCY"
+      description: "Number of days since the customer's last purchase."
+      dataType:
+        type: "Bigint"
+    - name: "FREQUENCY"
+      description: "Total number of purchases made by the customer."
+      dataType:
+        type: "Bigint"
+    - name: "MONETARY"
+      description: "Total amount spent by the customer."
+      dataType:
+        type: "Double"
+    - name: "RECENCY_SCORE"
+      description: "Score indicating how recently a customer has interacted, with\
+        \ higher scores for more recent interactions."
+      dataType:
+        type: "Integer"
+    - name: "FREQUENCY_SCORE"
+      description: "Score representing how often a customer engages, with higher scores\
+        \ for more frequent interactions."
+      dataType:
+        type: "Integer"
+    - name: "MONETARY_SCORE"
+      description: "Score reflecting the spending level of a customer, with higher\
+        \ scores for greater spending."
+      dataType:
+        type: "Integer"
+    - name: "FLAG"
+      description: "Indicator or label used for categorizing or segmenting customers\
+        \ based on specific criteria."
+      dataType:
+        type: "String"
     type: "table"
