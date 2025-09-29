@@ -17,10 +17,12 @@
       "id" : "Reformat_1##FGUDrGkc",
       "component" : "Aggregate",
       "metadata" : {
-        "label" : "Reformat_1",
+        "label" : "customer_rfm_analysis",
         "x" : -180,
         "y" : -260,
-        "phase" : 0
+        "phase" : 0,
+        "comment" : "Performs RFM analysis to assess customer value based on recency, frequency, and monetary metrics.",
+        "autoUpdateComment" : true
       },
       "properties" : {
         "aggregate" : [ {
@@ -77,7 +79,7 @@
           "expression" : ""
         },
         "activeTab" : "aggregate",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "SNseSiS3##ORDER_ID", "SNseSiS3##CUSTOMER_ID", "SNseSiS3##EMAIL", "SNseSiS3##ZIP_CODE", "SNseSiS3##REGION", "SNseSiS3##ORDER_AMOUNT" ],
         "groupBy" : [ {
           "expression" : {
             "expression" : "ORDER_ID"
@@ -231,13 +233,15 @@
       "id" : "percentage_of_cu##fmcDlzQo",
       "component" : "Reformat",
       "metadata" : {
-        "label" : "percentage_of_customers_by_flag",
+        "label" : "customer_flag_distribution",
         "x" : 600,
         "y" : -260,
-        "phase" : 0
+        "phase" : 0,
+        "comment" : "Determines the percentage distribution of customers by flag type.",
+        "autoUpdateComment" : true
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "TOIMKbln##FLAG", "TOIMKbln##COUNT_DISTINCT_CUSTOMER_ID" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "FLAG"
@@ -300,10 +304,12 @@
         "label" : "rfm_segment_analysis",
         "x" : 200,
         "y" : -260,
-        "phase" : 0
+        "phase" : 0,
+        "comment" : "Generates customer segments based on recency, frequency, and monetary scores for targeted marketing.",
+        "autoUpdateComment" : true
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "BMmBW8JC##ORDER_ID", "BMmBW8JC##CUSTOMER_ID", "BMmBW8JC##EMAIL", "BMmBW8JC##ZIP_CODE", "BMmBW8JC##REGION", "BMmBW8JC##RECENCY", "BMmBW8JC##FREQUENCY", "BMmBW8JC##MONETARY", "BMmBW8JC##RECENCY_SCORE", "BMmBW8JC##FREQUENCY_SCORE", "BMmBW8JC##MONETARY_SCORE" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "ORDER_ID"
@@ -530,13 +536,15 @@
       "id" : "rfm_analysis##sw9p0gno",
       "component" : "Reformat",
       "metadata" : {
-        "label" : "rfm_analysis",
+        "label" : "rfm_score_calculation",
         "x" : 20,
         "y" : -260,
-        "phase" : 0
+        "phase" : 0,
+        "comment" : "Generates RFM scores to assess customer value and engagement based on recent activity, purchase frequency, and spending.",
+        "autoUpdateComment" : true
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "pVvn4QFW##ORDER_ID", "pVvn4QFW##CUSTOMER_ID", "pVvn4QFW##EMAIL", "pVvn4QFW##ZIP_CODE", "pVvn4QFW##REGION", "pVvn4QFW##RECENCY", "pVvn4QFW##FREQUENCY", "pVvn4QFW##MONETARY", "pVvn4QFW##recency", "pVvn4QFW##monetary", "pVvn4QFW##frequency" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "ORDER_ID"
@@ -718,10 +726,12 @@
       "id" : "customer_data_jo##qdYvKYkZ",
       "component" : "Join",
       "metadata" : {
-        "label" : "customer_data_join",
+        "label" : "customer_order_sales_data",
         "x" : -360,
         "y" : -260,
-        "phase" : 0
+        "phase" : 0,
+        "comment" : "Consolidates online orders, in-store sales, and customer profiles for comprehensive sales analysis.",
+        "autoUpdateComment" : true
       },
       "properties" : {
         "conditions" : [ {
@@ -811,7 +821,7 @@
           "_row_id" : "2119446979"
         } ],
         "activeTab" : "conditions",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "R9f1ensU##customer_id", "kxxLCaqc##customer_id", "ssJSQnPN##customer_id", "R9f1ensU##order_id", "R9f1ensU##customer_id", "R9f1ensU##order_date", "R9f1ensU##order_amount", "kxxLCaqc##transaction_id", "kxxLCaqc##transaction_date", "kxxLCaqc##transaction_amount", "ssJSQnPN##signup_date", "ssJSQnPN##email", "ssJSQnPN##zip_code", "ssJSQnPN##region", "ssJSQnPN##preferred_channel" ],
         "headAlias" : "ecom_orders"
       },
       "ports" : {
@@ -982,14 +992,35 @@
         "isCustomOutputSchema" : false
       }
     },
+    "UrD-sK95N0P0SSzDVjxt8$$K5lq93sA9XgxrKcqZLVYQ" : {
+      "id" : "UrD-sK95N0P0SSzDVjxt8$$K5lq93sA9XgxrKcqZLVYQ",
+      "component" : "Comment",
+      "metadata" : {
+        "label" : "Comment_1",
+        "x" : 40,
+        "y" : -480,
+        "height" : 107.9999771118164,
+        "width" : 361,
+        "phase" : 0
+      },
+      "properties" : {
+        "comment" : "# CX Segmentation Data"
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ ]
+      }
+    },
     "instore_sales##WxICLjge" : {
       "id" : "instore_sales##WxICLjge",
       "component" : "Dataset",
       "metadata" : {
-        "label" : "instore_sales",
+        "label" : "financial_transactions",
         "x" : -560,
         "y" : -100,
-        "phase" : 0
+        "phase" : 0,
+        "comment" : "Accesses in-store sales data from the retail analyst source.",
+        "autoUpdateComment" : true
       },
       "properties" : {
         "table" : {
@@ -1037,10 +1068,12 @@
       "id" : "crm_customers##Geza79Tb",
       "component" : "Dataset",
       "metadata" : {
-        "label" : "crm_customers",
+        "label" : "customer_profiles",
         "x" : -560,
         "y" : -420,
-        "phase" : 0
+        "phase" : 0,
+        "comment" : "Accesses CRM customer data for retail analysis.",
+        "autoUpdateComment" : true
       },
       "properties" : {
         "table" : {
@@ -1098,10 +1131,12 @@
       "id" : "customer_count_b##vw0gRGiH",
       "component" : "Aggregate",
       "metadata" : {
-        "label" : "customer_count_by_flag",
+        "label" : "customer_flag_count",
         "x" : 400,
         "y" : -260,
-        "phase" : 0
+        "phase" : 0,
+        "comment" : "Counts unique customers per flag category from RFM analysis.",
+        "autoUpdateComment" : true
       },
       "properties" : {
         "aggregate" : [ {
@@ -1121,7 +1156,7 @@
           "expression" : ""
         },
         "activeTab" : "aggregate",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "CJwAFdZZ##FLAG", "CJwAFdZZ##CUSTOMER_ID" ],
         "groupBy" : [ {
           "expression" : {
             "expression" : "FLAG"
@@ -1230,10 +1265,12 @@
       "id" : "ecom_orders##ZWgVdri1",
       "component" : "Dataset",
       "metadata" : {
-        "label" : "ecom_orders",
+        "label" : "order_transactions",
         "x" : -560,
         "y" : -280,
-        "phase" : 0
+        "phase" : 0,
+        "comment" : "Accesses e-commerce orders data from the retail analyst source.",
+        "autoUpdateComment" : true
       },
       "properties" : {
         "table" : {
@@ -1276,6 +1313,71 @@
         "isCustomOutputSchema" : false
       },
       "index" : 0
+    },
+    "MQXp7zYmN3MEbYnbirUu9$$0I3YqYElNqlmCuZu80zUR" : {
+      "id" : "MQXp7zYmN3MEbYnbirUu9$$0I3YqYElNqlmCuZu80zUR",
+      "component" : "Dataset",
+      "metadata" : {
+        "label" : "cx_demo",
+        "x" : 800,
+        "y" : -260,
+        "phase" : 0,
+        "comment" : "Overwrites the cx_demo dataset with data from the danyelle.demo table.",
+        "autoUpdateComment" : true
+      },
+      "properties" : {
+        "writeOptions" : {
+          "writeMode" : "overwrite"
+        },
+        "table" : {
+          "name" : "cx_demo",
+          "sourceType" : "Table",
+          "sourceName" : "danyelle.demo",
+          "alias" : "",
+          "additionalProperties" : null
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "MHShGdaYH_ylL97XTrnvZ$$ttUOOufT-ysjrPgh1Yqei",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "FLAG",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "PERCENTAGE_OF_CUSTOMERS",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            } ]
+          },
+          "slug" : "in"
+        } ],
+        "outputs" : [ {
+          "id" : "T1TkHSFlDh_atbD7oMjQu$$jlg1wtv0B8pcngm-t2ihf",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "FLAG",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "PERCENTAGE_OF_CUSTOMERS",
+              "dataType" : {
+                "type" : "Decimal"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
     }
   },
   "connections" : [ {
@@ -1326,6 +1428,12 @@
     "sourcePort" : "ogoG9ezd",
     "target" : "percentage_of_cu##fmcDlzQo",
     "targetPort" : "TOIMKbln"
+  }, {
+    "id" : "XiPFFNyEFPER4OcyUyly0$$tvK-XrxHPbgA1uver3UkZ",
+    "source" : "percentage_of_cu##fmcDlzQo",
+    "sourcePort" : "ElNHyHzd",
+    "target" : "MQXp7zYmN3MEbYnbirUu9$$0I3YqYElNqlmCuZu80zUR",
+    "targetPort" : "MHShGdaYH_ylL97XTrnvZ$$ttUOOufT-ysjrPgh1Yqei"
   } ],
   "component" : "Pipeline"
 }

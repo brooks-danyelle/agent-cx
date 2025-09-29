@@ -1,6 +1,0 @@
----
-version: 2
-models:
-- name: "exrfm__rfm_scores_and_segment"
-  tags:
-  - "prophecy_temp"

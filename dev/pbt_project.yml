@@ -71,7 +71,7 @@ sqlSources:
         entityType: ''
         providerType: databricks
         fields:
-        - name: CUSTOMER_FLAG
+        - name: FLAG
           dataType:
             type: String
         - name: PERCENTAGE_OF_CUSTOMERS
@@ -186,39 +186,6 @@ flags:
 pipelineConfigurations: {}
 projectConfigurations: {}
 sqlOrchestratorPipelines:
-  .prophecy/metadata/sqlorchestratorpipeline/rfm_agent:
-    name: rfm_agent
-    schema: null
-    description: null
-    author: brooks.danyelle@prophecy.io
-    files:
-    - models/rfm_agent/schema.yml
-    - models/rfm_agent/rfm_agent__customer_flag_percentage.sql
-    - .prophecy/ide/pipelines/rfm_agent.json
-    - pipelines/rfm_agent.py
-    createdAt: '2025-09-18 13:55:36'
-  .prophecy/metadata/sqlorchestratorpipeline/exrfm:
-    name: exrfm
-    schema: null
-    description: null
-    author: brooks.danyelle@prophecy.io
-    files:
-    - models/exrfm/exrfm__rfm_scores_and_segment.sql
-    - models/exrfm/schema.yml
-    - .prophecy/ide/pipelines/exrfm.json
-    - pipelines/exrfm.py
-    createdAt: '2025-09-24 18:28:55'
-  .prophecy/metadata/sqlorchestratorpipeline/rfm_retail_agent:
-    name: rfm_retail_agent
-    schema: null
-    description: null
-    author: brooks.danyelle@prophecy.io
-    files:
-    - models/rfm_retail_agent/schema.yml
-    - models/rfm_retail_agent/rfm_retail_agent__percentage_of_customers_by_flag.sql
-    - .prophecy/ide/pipelines/rfm_retail_agent.json
-    - pipelines/rfm_retail_agent.py
-    createdAt: '2025-09-25 17:52:26'
   .prophecy/metadata/sqlorchestratorpipeline/rfm1:
     name: rfm1
     schema: null
@@ -230,4 +197,35 @@ sqlOrchestratorPipelines:
     - .prophecy/ide/pipelines/rfm1.json
     - pipelines/rfm1.py
     createdAt: '2025-09-23 22:58:18'
+  .prophecy/metadata/sqlorchestratorpipeline/test:
+    name: test
+    schema: null
+    description: null
+    author: brooks.danyelle@prophecy.io
+    files:
+    - .prophecy/ide/pipelines/test.json
+    - pipelines/test.py
+    createdAt: '2025-09-29 18:35:42'
+  .prophecy/metadata/sqlorchestratorpipeline/rfm_agent:
+    name: rfm_agent
+    schema: null
+    description: null
+    author: brooks.danyelle@prophecy.io
+    files:
+    - models/rfm_agent/schema.yml
+    - models/rfm_agent/rfm_agent__customer_flag_percentage.sql
+    - .prophecy/ide/pipelines/rfm_agent.json
+    - pipelines/rfm_agent.py
+    createdAt: '2025-09-18 13:55:36'
+  .prophecy/metadata/sqlorchestratorpipeline/rfm_retail_agent:
+    name: rfm_retail_agent
+    schema: null
+    description: null
+    author: brooks.danyelle@prophecy.io
+    files:
+    - models/rfm_retail_agent/schema.yml
+    - models/rfm_retail_agent/rfm_retail_agent__customer_flag_distribution.sql
+    - .prophecy/ide/pipelines/rfm_retail_agent.json
+    - pipelines/rfm_retail_agent.py
+    createdAt: '2025-09-25 17:52:26'
 sqlBusinessApps: {}

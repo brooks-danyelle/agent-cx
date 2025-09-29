@@ -66,13 +66,13 @@ sources:
     description: "Customer segmentation data indicating the proportion of customers\
       \ within specific categories, aiding in market analysis and strategy development."
     columns:
-    - name: "CUSTOMER_FLAG"
-      description: "Indicator flag categorizing customers based on specific criteria."
+    - name: "FLAG"
+      description: "Indicator representing a specific customer segment or characteristic."
       dataType:
         type: "String"
     - name: "PERCENTAGE_OF_CUSTOMERS"
-      description: "Decimal value representing the proportion of customers within\
-        \ a specific category."
+      description: "The proportion of total customers that fall under the specified\
+        \ flag, expressed as a percentage."
       dataType:
         type: "Decimal"
     type: "table"
