@@ -83,8 +83,30 @@ Reformat_1 AS (
   
   FROM ecommerce_instore_customer_join
 
+),
+
+customer_count_by_zip AS (
+
+  SELECT 
+    ZIP_CODE,
+    COUNT(DISTINCT ECOM_CUSTOMER_ID) AS CUSTOMER_COUNT
+  
+  FROM Reformat_1
+  
+  GROUP BY ZIP_CODE
+
+),
+
+frequent_customer_zip_codes AS (
+
+  SELECT * 
+  
+  FROM customer_count_by_zip
+  
+  ORDER BY CUSTOMER_COUNT DESC NULLS FIRST
+
 )
 
 SELECT *
 
-FROM Reformat_1
+FROM frequent_customer_zip_codes

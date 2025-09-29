@@ -1,6 +1,6 @@
 ---
 version: 2
 models:
-- name: "dbx_demo__Reformat_1"
+- name: "dbx_demo__frequent_customer_zip_codes"
   tags:
   - "prophecy_temp"
