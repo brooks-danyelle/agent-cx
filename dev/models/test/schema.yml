@@ -1,6 +1,6 @@
 ---
 version: 2
 models:
-- name: "test__Reformat_1"
+- name: "test__rfm_scores_calculation"
   tags:
   - "prophecy_temp"

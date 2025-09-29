@@ -204,7 +204,7 @@ sqlOrchestratorPipelines:
     author: brooks.danyelle@prophecy.io
     files:
     - models/test/schema.yml
-    - models/test/test__Reformat_1.sql
+    - models/test/test__rfm_scores_calculation.sql
     - .prophecy/ide/pipelines/test.json
     - pipelines/test.py
     createdAt: '2025-09-29 18:35:42'
