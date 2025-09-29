@@ -1,6 +1,2 @@
 with DAG():
-    test__customer_rfm_scores = Task(
-        task_id = "test__customer_rfm_scores", 
-        component = "Model", 
-        modelName = "test__customer_rfm_scores"
-    )
+    test__Reformat_1 = Task(task_id = "test__Reformat_1", component = "Model", modelName = "test__Reformat_1")
