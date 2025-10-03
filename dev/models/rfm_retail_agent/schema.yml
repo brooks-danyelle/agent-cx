@@ -1,6 +1,0 @@
----
-version: 2
-models:
-- name: "rfm_retail_agent__customer_flag_distribution"
-  tags:
-  - "prophecy_temp"
