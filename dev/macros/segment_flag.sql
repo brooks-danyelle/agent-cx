@@ -16,7 +16,7 @@ CASE
 
 
    -- New customers: very recent, low frequency and spend
-   WHEN recency_score = 5 AND frequency_score <= 2 AND monetary_score <= 2
+   WHEN recency_score = 5 AND frequency_score <= 2
         THEN 'New Customer'
 
 
@@ -26,12 +26,12 @@ CASE
 
 
    -- Lost customers: inactive, low frequency, low spend
-   WHEN recency_score = 1 AND frequency_score = 1 AND monetary_score = 1
+   WHEN recency_score <= 2 AND frequency_score <= 2 AND monetary_score <= 2
         THEN 'Lost'
 
 
    -- Catch-all bucket
-   ELSE 'Other'
+   ELSE 'Needs Attention'
    END
 {% endmacro %}
 

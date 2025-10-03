@@ -147,7 +147,7 @@ rfm_customer_analysis AS (
     FREQUENCY_SCORE,
     MONETARY_SCORE,
     CONCAT(RECENCY_SCORE, FREQUENCY_SCORE, MONETARY_SCORE) AS RFM_SEGMENT,
-    {{ segment_flag() }} AS CUSTOMER_FLAG
+    {{ segment_flag() }} AS SEGMENT_FLAG
   
   FROM rfm_scores AS rfm_scores_assignment
 
@@ -157,12 +157,12 @@ customer_flag_count AS (
 
   {#Counts customers by their assigned flags for segmentation analysis.#}
   SELECT 
-    CUSTOMER_FLAG,
+    SEGMENT_FLAG,
     COUNT(*) AS COUNT
   
   FROM rfm_customer_analysis AS rfm_segment_with_scores
   
-  GROUP BY CUSTOMER_FLAG
+  GROUP BY SEGMENT_FLAG
 
 ),
 
@@ -170,7 +170,7 @@ customer_flag_percentage AS (
 
   {#Calculates the percentage distribution of customer flags.#}
   SELECT 
-    CUSTOMER_FLAG,
+    SEGMENT_FLAG,
     ROUND((COUNT / SUM(COUNT) OVER ()) * 100, 2) AS PERCENTAGE_OF_CUSTOMERS
   
   FROM customer_flag_count
