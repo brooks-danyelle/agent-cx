@@ -1,0 +1,6 @@
+---
+version: 2
+models:
+- name: "rfm_analysis__ecommerce_instore_crm_join"
+  tags:
+  - "prophecy_temp"
