@@ -6,7 +6,15 @@
   })
 }}
 
-WITH ecom_orders AS (
+WITH crm_customers AS (
+
+  SELECT * 
+  
+  FROM {{ source('itai.retail_analyst', 'crm_customers') }}
+
+),
+
+ecom_orders AS (
 
   SELECT * 
   
@@ -19,14 +27,6 @@ instore_sales AS (
   SELECT * 
   
   FROM {{ source('itai.retail_analyst', 'instore_sales') }}
-
-),
-
-crm_customers AS (
-
-  SELECT * 
-  
-  FROM {{ source('itai.retail_analyst', 'crm_customers') }}
 
 ),
 
@@ -98,8 +98,57 @@ customer_rfm_details AS (
   INNER JOIN rfm_calculation
      ON ecommerce_instore_crm_join.CRM_CUSTOMER_ID = rfm_calculation.CRM_CUSTOMER_ID
 
+),
+
+rfm_scores_with_details AS (
+
+  SELECT 
+    CRM_CUSTOMER_ID,
+    EMAIL,
+    ZIP_CODE,
+    REGION,
+    PREFERRED_CHANNEL,
+    RECENCY,
+    FREQUENCY,
+    MONETARY,
+    CASE
+      WHEN RECENCY <= 30
+        THEN 5
+      WHEN RECENCY <= 60
+        THEN 4
+      WHEN RECENCY <= 90
+        THEN 3
+      WHEN RECENCY <= 120
+        THEN 2
+      ELSE 1
+    END AS RECENCY_SCORE,
+    CASE
+      WHEN FREQUENCY >= 10
+        THEN 5
+      WHEN FREQUENCY >= 7
+        THEN 4
+      WHEN FREQUENCY >= 5
+        THEN 3
+      WHEN FREQUENCY >= 3
+        THEN 2
+      ELSE 1
+    END AS FREQUENCY_SCORE,
+    CASE
+      WHEN MONETARY >= 1000
+        THEN 5
+      WHEN MONETARY >= 750
+        THEN 4
+      WHEN MONETARY >= 500
+        THEN 3
+      WHEN MONETARY >= 250
+        THEN 2
+      ELSE 1
+    END AS MONETARY_SCORE
+  
+  FROM customer_rfm_details
+
 )
 
 SELECT *
 
-FROM customer_rfm_details
+FROM rfm_scores_with_details
