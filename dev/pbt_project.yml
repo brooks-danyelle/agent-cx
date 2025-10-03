@@ -240,17 +240,6 @@ flags:
 pipelineConfigurations: {}
 projectConfigurations: {}
 sqlOrchestratorPipelines:
-  .prophecy/metadata/sqlorchestratorpipeline/rfm_analysis:
-    name: rfm_analysis
-    schema: null
-    description: null
-    author: brooks.danyelle@prophecy.io
-    files:
-    - models/rfm_analysis/schema.yml
-    - models/rfm_analysis/rfm_analysis__customer_rfm_segments.sql
-    - .prophecy/ide/pipelines/rfm_analysis.json
-    - pipelines/rfm_analysis.py
-    createdAt: '2025-10-03 15:28:21'
   .prophecy/metadata/sqlorchestratorpipeline/rfm_agent:
     name: rfm_agent
     schema: null
@@ -262,4 +251,13 @@ sqlOrchestratorPipelines:
     - .prophecy/ide/pipelines/rfm_agent.json
     - pipelines/rfm_agent.py
     createdAt: '2025-09-18 13:55:36'
+  .prophecy/metadata/sqlorchestratorpipeline/rfm_analysis:
+    name: rfm_analysis
+    schema: null
+    description: null
+    author: brooks.danyelle@prophecy.io
+    files:
+    - .prophecy/ide/pipelines/rfm_analysis.json
+    - pipelines/rfm_analysis.py
+    createdAt: '2025-10-03 15:55:38'
 sqlBusinessApps: {}
