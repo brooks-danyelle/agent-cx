@@ -192,8 +192,8 @@ sqlOrchestratorPipelines:
     description: null
     author: brooks.danyelle@prophecy.io
     files:
-    - models/rfm_analysis/rfm_analysis__ecommerce_instore_crm_join.sql
     - models/rfm_analysis/schema.yml
+    - models/rfm_analysis/rfm_analysis__customer_rfm_details.sql
     - .prophecy/ide/pipelines/rfm_analysis.json
     - pipelines/rfm_analysis.py
     createdAt: '2025-10-03 15:28:21'
