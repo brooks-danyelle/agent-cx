@@ -1,7 +1,7 @@
 {
-  "id" : "rfm_analysis__rfm_scores_with_details",
+  "id" : "rfm_analysis__customer_rfm_segments",
   "metainfo" : {
-    "label" : "rfm_analysis__rfm_scores_with_details",
+    "label" : "rfm_analysis__customer_rfm_segments",
     "autoLayout" : true,
     "staleState" : "none",
     "sourceSuggestions" : {
@@ -9,9 +9,10 @@
     },
     "graphConfig" : {
       "entityConfig" : {
-        "materialized" : "ephemeral",
+        "alias" : "\"rfm_analysis\"",
+        "materialized" : "table",
         "database" : "\"danyelle\"",
-        "schema" : "\"demo\"",
+        "schema" : "\"retail\"",
         "type" : "ModelConfig"
       }
     },
@@ -28,7 +29,7 @@
         "phase" : 0
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "iCG5cDzo##CRM_CUSTOMER_ID", "iCG5cDzo##FREQUENCY", "iCG5cDzo##MONETARY" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "CRM_CUSTOMER_ID"
@@ -150,7 +151,7 @@
           "_row_id" : "1171889086"
         } ],
         "activeTab" : "conditions",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "Uq3n5kOe##CRM_CUSTOMER_ID", "sgQYOpui##CRM_CUSTOMER_ID", "Uq3n5kOe##CRM_CUSTOMER_ID", "Uq3n5kOe##EMAIL", "Uq3n5kOe##ZIP_CODE", "Uq3n5kOe##REGION", "Uq3n5kOe##PREFERRED_CHANNEL", "sgQYOpui##RECENCY", "sgQYOpui##FREQUENCY", "sgQYOpui##MONETARY" ],
         "headAlias" : "ecommerce_instore_crm_join"
       },
       "ports" : {
@@ -208,7 +209,7 @@
           "expression" : ""
         },
         "activeTab" : "aggregate",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "kaIsR7aw##CRM_CUSTOMER_ID", "kaIsR7aw##ORDER_DATE", "kaIsR7aw##ORDER_ID", "kaIsR7aw##ORDER_AMOUNT" ],
         "groupBy" : [ {
           "expression" : {
             "expression" : "CRM_CUSTOMER_ID"
@@ -229,6 +230,104 @@
         "autoUpdateOnRun" : false
       }
     },
+    "5k_o3KQSt4Hn4eEZi6LHD$$Z6gEe4xmSxjxmLu45R5sm" : {
+      "id" : "5k_o3KQSt4Hn4eEZi6LHD$$Z6gEe4xmSxjxmLu45R5sm",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "customer_rfm_segments",
+        "x" : 680,
+        "y" : -120,
+        "phase" : 0
+      },
+      "properties" : {
+        "columnsSelector" : [ "CC8ju_47Pg7UL0MBuyxI5$$IxiHFjIWYSBWveVUpna3L##CRM_CUSTOMER_ID", "CC8ju_47Pg7UL0MBuyxI5$$IxiHFjIWYSBWveVUpna3L##EMAIL", "CC8ju_47Pg7UL0MBuyxI5$$IxiHFjIWYSBWveVUpna3L##ZIP_CODE", "CC8ju_47Pg7UL0MBuyxI5$$IxiHFjIWYSBWveVUpna3L##REGION", "CC8ju_47Pg7UL0MBuyxI5$$IxiHFjIWYSBWveVUpna3L##PREFERRED_CHANNEL", "CC8ju_47Pg7UL0MBuyxI5$$IxiHFjIWYSBWveVUpna3L##RECENCY", "CC8ju_47Pg7UL0MBuyxI5$$IxiHFjIWYSBWveVUpna3L##FREQUENCY", "CC8ju_47Pg7UL0MBuyxI5$$IxiHFjIWYSBWveVUpna3L##MONETARY", "CC8ju_47Pg7UL0MBuyxI5$$IxiHFjIWYSBWveVUpna3L##RECENCY_SCORE", "CC8ju_47Pg7UL0MBuyxI5$$IxiHFjIWYSBWveVUpna3L##FREQUENCY_SCORE", "CC8ju_47Pg7UL0MBuyxI5$$IxiHFjIWYSBWveVUpna3L##MONETARY_SCORE" ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "CRM_CUSTOMER_ID"
+          },
+          "alias" : "CRM_CUSTOMER_ID",
+          "_row_id" : "188332587"
+        }, {
+          "expression" : {
+            "expression" : "EMAIL"
+          },
+          "alias" : "EMAIL",
+          "_row_id" : "95822161"
+        }, {
+          "expression" : {
+            "expression" : "ZIP_CODE"
+          },
+          "alias" : "ZIP_CODE",
+          "_row_id" : "851885579"
+        }, {
+          "expression" : {
+            "expression" : "REGION"
+          },
+          "alias" : "REGION",
+          "_row_id" : "1725176686"
+        }, {
+          "expression" : {
+            "expression" : "PREFERRED_CHANNEL"
+          },
+          "alias" : "PREFERRED_CHANNEL",
+          "_row_id" : "1548483047"
+        }, {
+          "expression" : {
+            "expression" : "RECENCY"
+          },
+          "alias" : "RECENCY",
+          "_row_id" : "828392373"
+        }, {
+          "expression" : {
+            "expression" : "FREQUENCY"
+          },
+          "alias" : "FREQUENCY",
+          "_row_id" : "1394989281"
+        }, {
+          "expression" : {
+            "expression" : "MONETARY"
+          },
+          "alias" : "MONETARY",
+          "_row_id" : "1451640413"
+        }, {
+          "expression" : {
+            "expression" : "RECENCY_SCORE"
+          },
+          "alias" : "RECENCY_SCORE",
+          "_row_id" : "825360004"
+        }, {
+          "expression" : {
+            "expression" : "FREQUENCY_SCORE"
+          },
+          "alias" : "FREQUENCY_SCORE",
+          "_row_id" : "1367889707"
+        }, {
+          "expression" : {
+            "expression" : "MONETARY_SCORE"
+          },
+          "alias" : "MONETARY_SCORE",
+          "_row_id" : "1800584252"
+        }, {
+          "expression" : {
+            "expression" : "CONCAT(CAST(RECENCY_SCORE AS STRING), CAST(FREQUENCY_SCORE AS STRING), CAST(MONETARY_SCORE AS STRING))"
+          },
+          "alias" : "RFM_SEGMENT",
+          "_row_id" : "3OODkRL1y1"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "CC8ju_47Pg7UL0MBuyxI5$$IxiHFjIWYSBWveVUpna3L",
+          "slug" : "rfm_scores_with_details"
+        } ],
+        "outputs" : [ {
+          "id" : "YLti5U2VcvJuFs0PP6v1l$$ox8urpA9AS-Iull7PR1kq",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
     "rfm_scores_with_##kVX3WFzK" : {
       "id" : "rfm_scores_with_##kVX3WFzK",
       "component" : "Reformat",
@@ -239,7 +338,7 @@
         "phase" : 0
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "wnwD6Z4F##CRM_CUSTOMER_ID", "wnwD6Z4F##EMAIL", "wnwD6Z4F##ZIP_CODE", "wnwD6Z4F##REGION", "wnwD6Z4F##PREFERRED_CHANNEL", "wnwD6Z4F##RECENCY", "wnwD6Z4F##FREQUENCY", "wnwD6Z4F##MONETARY" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "CRM_CUSTOMER_ID"
@@ -333,6 +432,37 @@
         "inputs" : [ ],
         "outputs" : [ {
           "id" : "ymaWFPax",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "EoBpkR4j7O_2smm6vZ_kH$$F903e4F5O3ul3R2kbbBTB" : {
+      "id" : "EoBpkR4j7O_2smm6vZ_kH$$F903e4F5O3ul3R2kbbBTB",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "crm_customer_rfm_analysis",
+        "phase" : 0
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "\nSELECT *\n\nFROM customer_rfm_segments\n\n",
+        "isModel" : true,
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "E_fCl6ot_D3Oz5L2w1Qg4$$uoULBgI-cyDTqEVH-yoTJ",
+          "slug" : "in"
+        } ],
+        "outputs" : [ {
+          "id" : "xso7BBNWRvC4i5PMXvxcg$$xRCyFhDzceYVIf8ifUW_q",
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false,
@@ -474,7 +604,7 @@
           "_row_id" : "460441636"
         } ],
         "activeTab" : "conditions",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "Bsk4iuXA##customer_id", "D56DJuIt##customer_id", "LgPPfCtC##customer_id", "Bsk4iuXA##order_id", "Bsk4iuXA##customer_id", "Bsk4iuXA##order_date", "Bsk4iuXA##order_amount", "D56DJuIt##transaction_id", "D56DJuIt##customer_id", "D56DJuIt##transaction_date", "D56DJuIt##transaction_amount", "LgPPfCtC##customer_id", "LgPPfCtC##signup_date", "LgPPfCtC##email", "LgPPfCtC##zip_code", "LgPPfCtC##region", "LgPPfCtC##preferred_channel" ],
         "headAlias" : "ecom_orders"
       },
       "ports" : {
@@ -495,44 +625,20 @@
         "isCustomOutputSchema" : false,
         "autoUpdateOnRun" : false
       }
-    },
-    "rfm_scores_with_details_L7yPJIA8" : {
-      "id" : "rfm_scores_with_details_L7yPJIA8",
-      "component" : "TargetModel",
-      "metadata" : {
-        "label" : "rfm_scores_with_details"
-      },
-      "properties" : {
-        "customQueryDisabled" : true,
-        "customQuery" : false,
-        "incrementalEditorDisabled" : true,
-        "query" : "\nSELECT *\n\nFROM rfm_scores_with_details\n\n",
-        "isModel" : true,
-        "incrementalKey" : false,
-        "incremental" : {
-          "expression" : "true"
-        }
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "input_port_0",
-          "slug" : "input_port_0"
-        } ],
-        "outputs" : [ {
-          "id" : "output_port_0",
-          "slug" : "output_port_0"
-        } ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      }
     }
   },
   "connections" : [ {
-    "id" : "conn_rfm_scores_with_##kVX3WFzK_rfm_scores_with_details_L7yPJIA8",
+    "id" : "5awtIu36FfGbJqkoy2xuH$$xtB97oJb2DMfB7SkeyLd3",
+    "source" : "5k_o3KQSt4Hn4eEZi6LHD$$Z6gEe4xmSxjxmLu45R5sm",
+    "sourcePort" : "YLti5U2VcvJuFs0PP6v1l$$ox8urpA9AS-Iull7PR1kq",
+    "target" : "EoBpkR4j7O_2smm6vZ_kH$$F903e4F5O3ul3R2kbbBTB",
+    "targetPort" : "E_fCl6ot_D3Oz5L2w1Qg4$$uoULBgI-cyDTqEVH-yoTJ"
+  }, {
+    "id" : "7sirF-OKopG1xf9GBEJBb$$YboxchTEemgl7Tl30fkCm",
     "source" : "rfm_scores_with_##kVX3WFzK",
     "sourcePort" : "L7yPJIA8",
-    "target" : "rfm_scores_with_details_L7yPJIA8",
-    "targetPort" : "input_port_0"
+    "target" : "5k_o3KQSt4Hn4eEZi6LHD$$Z6gEe4xmSxjxmLu45R5sm",
+    "targetPort" : "CC8ju_47Pg7UL0MBuyxI5$$IxiHFjIWYSBWveVUpna3L"
   }, {
     "id" : "Pi869zbq",
     "source" : "customer_rfm_det##S4T0NNAX",

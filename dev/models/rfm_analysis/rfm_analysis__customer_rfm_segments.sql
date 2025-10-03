@@ -1,8 +1,9 @@
 {{
   config({    
-    "materialized": "ephemeral",
+    "materialized": "table",
+    "alias": "rfm_analysis",
     "database": "danyelle",
-    "schema": "demo"
+    "schema": "retail"
   })
 }}
 
@@ -32,6 +33,7 @@ instore_sales AS (
 
 ecommerce_instore_crm_join AS (
 
+  {#Integrates e-commerce, in-store sales, and CRM data for comprehensive customer insights.#}
   SELECT 
     ecom_orders.order_id AS ORDER_ID,
     ecom_orders.customer_id AS ECOM_CUSTOMER_ID,
@@ -58,6 +60,7 @@ ecommerce_instore_crm_join AS (
 
 customer_rfm_aggregation AS (
 
+  {#Summarizes customer purchase behavior by last order date, frequency, and total spending.#}
   SELECT 
     CRM_CUSTOMER_ID,
     MAX(ORDER_DATE) AS LAST_ORDER_DATE,
@@ -72,6 +75,7 @@ customer_rfm_aggregation AS (
 
 rfm_calculation AS (
 
+  {#Evaluates customer value by assessing recent activity, purchase frequency, and spending.#}
   SELECT 
     CRM_CUSTOMER_ID,
     DATEDIFF(DAY, LAST_ORDER_DATE, CURRENT_DATE) AS RECENCY,
@@ -84,6 +88,7 @@ rfm_calculation AS (
 
 customer_rfm_details AS (
 
+  {#Integrates customer contact and location data with RFM metrics for targeted marketing.#}
   SELECT 
     ecommerce_instore_crm_join.CRM_CUSTOMER_ID,
     ecommerce_instore_crm_join.EMAIL,
@@ -102,6 +107,7 @@ customer_rfm_details AS (
 
 rfm_scores_with_details AS (
 
+  {#Assigns RFM scores to customers to identify high-value clients based on recency, frequency, and monetary spending.#}
   SELECT 
     CRM_CUSTOMER_ID,
     EMAIL,
@@ -147,8 +153,29 @@ rfm_scores_with_details AS (
   
   FROM customer_rfm_details
 
+),
+
+customer_rfm_segments AS (
+
+  {#Segments customers based on recency, frequency, and monetary scores for targeted marketing.#}
+  SELECT 
+    CRM_CUSTOMER_ID AS CRM_CUSTOMER_ID,
+    EMAIL AS EMAIL,
+    ZIP_CODE AS ZIP_CODE,
+    REGION AS REGION,
+    PREFERRED_CHANNEL AS PREFERRED_CHANNEL,
+    RECENCY AS RECENCY,
+    FREQUENCY AS FREQUENCY,
+    MONETARY AS MONETARY,
+    RECENCY_SCORE AS RECENCY_SCORE,
+    FREQUENCY_SCORE AS FREQUENCY_SCORE,
+    MONETARY_SCORE AS MONETARY_SCORE,
+    CONCAT(CAST(RECENCY_SCORE AS STRING), CAST(FREQUENCY_SCORE AS STRING), CAST(MONETARY_SCORE AS STRING)) AS RFM_SEGMENT
+  
+  FROM rfm_scores_with_details
+
 )
 
 SELECT *
 
-FROM rfm_scores_with_details
+FROM customer_rfm_segments

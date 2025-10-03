@@ -75,3 +75,67 @@ sources:
       dataType:
         type: "Bigint"
     type: "table"
+- name: "danyelle.retail"
+  database: "danyelle"
+  schema: "retail"
+  tables:
+  - name: "rfm_analysis"
+    description: "Customer segmentation data based on purchasing behavior, aiding\
+      \ in targeted marketing strategies."
+    columns:
+    - name: "CRM_CUSTOMER_ID"
+      description: "Unique identifier for each customer in the CRM system."
+      dataType:
+        type: "String"
+    - name: "EMAIL"
+      description: "Email address of the customer for communication and notifications."
+      dataType:
+        type: "String"
+    - name: "ZIP_CODE"
+      description: "Postal code of the customer's location for regional analysis."
+      dataType:
+        type: "Bigint"
+    - name: "REGION"
+      description: "Geographical area where the customer is located."
+      dataType:
+        type: "String"
+    - name: "PREFERRED_CHANNEL"
+      description: "Customer's preferred method of communication or interaction."
+      dataType:
+        type: "String"
+    - name: "RECENCY"
+      description: "Number of days since the customer's last purchase, indicating\
+        \ how recently they have engaged."
+      dataType:
+        type: "Bigint"
+    - name: "FREQUENCY"
+      description: "Total number of purchases made by the customer, reflecting how\
+        \ often they buy."
+      dataType:
+        type: "Bigint"
+    - name: "MONETARY"
+      description: "Total amount spent by the customer, showing their overall spending\
+        \ value."
+      dataType:
+        type: "Double"
+    - name: "RECENCY_SCORE"
+      description: "Score assigned based on how recently the customer made a purchase,\
+        \ used for segmentation."
+      dataType:
+        type: "Integer"
+    - name: "FREQUENCY_SCORE"
+      description: "Score assigned based on the number of purchases, used to evaluate\
+        \ customer loyalty."
+      dataType:
+        type: "Integer"
+    - name: "MONETARY_SCORE"
+      description: "Score representing the customer's spending level, indicating how\
+        \ much they have spent."
+      dataType:
+        type: "Integer"
+    - name: "RFM_SEGMENT"
+      description: "Categorization of customers based on their Recency, Frequency,\
+        \ and Monetary scores, used for targeted marketing strategies."
+      dataType:
+        type: "String"
+    type: "table"

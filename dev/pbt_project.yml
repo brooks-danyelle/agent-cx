@@ -82,6 +82,60 @@ sqlSources:
       author: brooks.danyelle@prophecy.io
       createdAt: '2025-09-23 16:50:24'
       tableType: table
+  .prophecy/metadata/sqlsources/danyelle_retail:
+    name: danyelle.retail
+    description: null
+    author: brooks.danyelle@prophecy.io
+    files:
+    - prophecy-sources/sources.yml
+    createdAt: '2025-10-03 15:42:41'
+    tables:
+    - name: rfm_analysis
+      schema:
+        entityType: ''
+        providerType: databricks
+        fields:
+        - name: CRM_CUSTOMER_ID
+          dataType:
+            type: String
+        - name: EMAIL
+          dataType:
+            type: String
+        - name: ZIP_CODE
+          dataType:
+            type: Bigint
+        - name: REGION
+          dataType:
+            type: String
+        - name: PREFERRED_CHANNEL
+          dataType:
+            type: String
+        - name: RECENCY
+          dataType:
+            type: Bigint
+        - name: FREQUENCY
+          dataType:
+            type: Bigint
+        - name: MONETARY
+          dataType:
+            type: Double
+        - name: RECENCY_SCORE
+          dataType:
+            type: Integer
+        - name: FREQUENCY_SCORE
+          dataType:
+            type: Integer
+        - name: MONETARY_SCORE
+          dataType:
+            type: Integer
+        - name: RFM_SEGMENT
+          dataType:
+            type: String
+      description: Customer segmentation data based on purchasing behavior, aiding
+        in targeted marketing strategies.
+      author: brooks.danyelle@prophecy.io
+      createdAt: '2025-10-03 15:42:41'
+      tableType: table
   .prophecy/metadata/sqlsources/itai_retail_analyst:
     name: itai.retail_analyst
     description: null
@@ -193,7 +247,7 @@ sqlOrchestratorPipelines:
     author: brooks.danyelle@prophecy.io
     files:
     - models/rfm_analysis/schema.yml
-    - models/rfm_analysis/rfm_analysis__rfm_scores_with_details.sql
+    - models/rfm_analysis/rfm_analysis__customer_rfm_segments.sql
     - .prophecy/ide/pipelines/rfm_analysis.json
     - pipelines/rfm_analysis.py
     createdAt: '2025-10-03 15:28:21'
