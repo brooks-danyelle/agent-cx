@@ -18,8 +18,8 @@
       "component" : "Reformat",
       "metadata" : {
         "label" : "customer_rfm_scores",
-        "x" : 120,
-        "y" : -140,
+        "x" : 620,
+        "y" : 220,
         "phase" : 0
       },
       "properties" : {
@@ -314,8 +314,8 @@
       "component" : "Aggregate",
       "metadata" : {
         "label" : "customer_rfm_values",
-        "x" : -80,
-        "y" : -140,
+        "x" : 420,
+        "y" : 220,
         "phase" : 0
       },
       "properties" : {
@@ -604,8 +604,8 @@
       "component" : "Dataset",
       "metadata" : {
         "label" : "instore_sales",
-        "x" : -480,
-        "y" : 0,
+        "x" : 20,
+        "y" : 420,
         "phase" : 0
       },
       "properties" : {
@@ -655,8 +655,8 @@
       "component" : "Dataset",
       "metadata" : {
         "label" : "crm_customers",
-        "x" : -500,
-        "y" : -280,
+        "x" : 20,
+        "y" : 20,
         "phase" : 0
       },
       "properties" : {
@@ -716,8 +716,8 @@
       "component" : "Dataset",
       "metadata" : {
         "label" : "ecomm_orders",
-        "x" : -500,
-        "y" : -140,
+        "x" : 20,
+        "y" : 220,
         "phase" : 0
       },
       "properties" : {
@@ -767,8 +767,8 @@
       "component" : "Join",
       "metadata" : {
         "label" : "customer_sales_orders_join",
-        "x" : -290,
-        "y" : -140,
+        "x" : 220,
+        "y" : 220,
         "phase" : 0
       },
       "properties" : {

@@ -74,3 +74,88 @@ sources:
       dataType:
         type: "Date"
     type: "table"
+  - name: "rfm_segmentation"
+    description: "Customer purchase behavior data used for segmentation, aiding in\
+      \ targeted marketing strategies and customer relationship management."
+    columns:
+    - name: "CUSTOMER_ID"
+      description: "Unique identifier assigned to each customer."
+      dataType:
+        type: "String"
+    - name: "SIGNUP_DATE"
+      description: "Date when the customer registered; Date is in YYYY-MM-DD format."
+      dataType:
+        type: "Date"
+    - name: "EMAIL"
+      description: "Email address of the customer for communication."
+      dataType:
+        type: "String"
+    - name: "ZIP_CODE"
+      description: "Postal code of the customer's address."
+      dataType:
+        type: "Bigint"
+    - name: "REGION"
+      description: "Geographical area where the customer is located."
+      dataType:
+        type: "String"
+    - name: "PREFERRED_CHANNEL"
+      description: "The customer's most favored communication or purchase channel."
+      dataType:
+        type: "String"
+    - name: "ORDER_ID"
+      description: "Unique identifier for each customer order."
+      dataType:
+        type: "String"
+    - name: "ORDER_DATE"
+      description: "The date on which the customer placed the order."
+      dataType:
+        type: "Date"
+    - name: "ORDER_AMOUNT"
+      description: "The total monetary value of the customer's order."
+      dataType:
+        type: "Double"
+    - name: "TRANSACTION_ID"
+      description: "Unique identifier for each financial transaction."
+      dataType:
+        type: "String"
+    - name: "TRANSACTION_DATE"
+      description: "Date when the transaction occurred; Date is in YYYY-MM-DD format."
+      dataType:
+        type: "Date"
+    - name: "TRANSACTION_AMOUNT"
+      description: "Total amount of money involved in the transaction."
+      dataType:
+        type: "Double"
+    - name: "RECENCY"
+      description: "Number of days since the customer's last transaction."
+      dataType:
+        type: "Bigint"
+    - name: "FREQUENCY"
+      description: "Total number of transactions made by the customer."
+      dataType:
+        type: "Bigint"
+    - name: "MONETARY"
+      description: "Total amount spent by the customer across all transactions."
+      dataType:
+        type: "Double"
+    - name: "RECENCY_SCORE"
+      description: "Score indicating how recently a customer made a purchase, with\
+        \ higher scores for more recent activity."
+      dataType:
+        type: "Integer"
+    - name: "FREQUENCY_SCORE"
+      description: "Score representing how often a customer makes purchases, with\
+        \ higher scores for more frequent activity."
+      dataType:
+        type: "Integer"
+    - name: "MONETARY_SCORE"
+      description: "Score reflecting the amount a customer spends, with higher scores\
+        \ for greater spending."
+      dataType:
+        type: "Integer"
+    - name: "SEGMENTATION_FLAG"
+      description: "Categorical label used to classify customers based on their RFM\
+        \ scores for targeted marketing strategies."
+      dataType:
+        type: "String"
+    type: "table"
