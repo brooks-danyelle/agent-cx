@@ -1,0 +1,7 @@
+---
+version: 2
+macros:
+- name: "segmentation_flag"
+  description: "Flag to be used for RFM segmentation "
+  arguments: []
+  macroType: "expression"

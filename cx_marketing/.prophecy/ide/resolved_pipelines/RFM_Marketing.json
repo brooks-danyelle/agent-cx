@@ -1,0 +1,32 @@
+{
+  "id" : "RFM_Marketing",
+  "metainfo" : {
+    "label" : "RFM_Marketing",
+    "autoLayout" : false,
+    "version" : 1,
+    "configuration" : {
+      "schema" : {
+        "type" : "record",
+        "fields" : [ ]
+      }
+    },
+    "schedule" : {
+      "cron" : "* 0 2 * * * *",
+      "timeZone" : "GMT",
+      "emailOnSuccess" : false,
+      "emailOnFailure" : false,
+      "emailOnStart" : false,
+      "emails" : [ "email@gmail.com" ],
+      "enabled" : false
+    },
+    "sensorSchedule" : {
+      "enabled" : false,
+      "isDefaultView" : false,
+      "triggers" : { }
+    },
+    "isTranspiledPipeline" : false
+  },
+  "processes" : { },
+  "connections" : [ ],
+  "component" : "Pipeline"
+}

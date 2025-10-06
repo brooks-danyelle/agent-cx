@@ -1,0 +1,73 @@
+---
+version: 2
+sources:
+- name: "danyelle.retail"
+  database: "danyelle"
+  schema: "retail"
+  tables:
+  - name: "crm_customers"
+    columns:
+    - name: "customer_id"
+      dataType:
+        type: "String"
+    - name: "signup_date"
+      dataType:
+        type: "Date"
+    - name: "email"
+      dataType:
+        type: "String"
+    - name: "zip_code"
+      dataType:
+        type: "Bigint"
+    - name: "region"
+      dataType:
+        type: "String"
+    - name: "preferred_channel"
+      dataType:
+        type: "String"
+    type: "table"
+  - name: "ecomm_orders"
+    columns:
+    - name: "order_id"
+      dataType:
+        type: "String"
+    - name: "customer_id"
+      dataType:
+        type: "String"
+    - name: "order_date"
+      dataType:
+        type: "Date"
+    - name: "order_amount"
+      dataType:
+        type: "Double"
+    type: "table"
+  - name: "instore_sales"
+    columns:
+    - name: "transaction_id"
+      dataType:
+        type: "String"
+    - name: "customer_id"
+      dataType:
+        type: "String"
+    - name: "transaction_date"
+      dataType:
+        type: "Date"
+    - name: "transaction_amount"
+      dataType:
+        type: "Double"
+    type: "table"
+  - name: "email_events"
+    columns:
+    - name: "email_id"
+      dataType:
+        type: "String"
+    - name: "customer_id"
+      dataType:
+        type: "String"
+    - name: "event_type"
+      dataType:
+        type: "String"
+    - name: "event_date"
+      dataType:
+        type: "Date"
+    type: "table"

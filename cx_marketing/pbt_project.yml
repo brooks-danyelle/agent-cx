@@ -1,0 +1,196 @@
+name: customer_marketing
+description: ''
+version: 0.0.1
+author: brooks.danyelle@prophecy.io
+language: sql
+buildSystem: ''
+buildSystemDetails: null
+pipelines: {}
+datasets: {}
+templates: {}
+jobs: {}
+gemContainer:
+  languageVersion: ''
+  gemLibsVersion: ''
+  gems: {}
+  dependencies: null
+functions:
+  author: null
+  createdAt: '2025-10-06 20:03:59'
+  udfs: {}
+  udafs: {}
+  expressions: {}
+  airflowFunctions: {}
+  businessRules: {}
+subgraphs: {}
+sqlModels: {}
+sqlSnapshots: {}
+sqlTests: {}
+sqlMacros:
+  .prophecy/metadata/sqlmacros/generate_schema_name:
+    name: generate_schema_name
+    macroType: expression
+    description: null
+    author: brooks.danyelle@prophecy.io
+    files:
+    - macros/generate_schema_name.sql
+    - .prophecy/ide/macros/generate_schema_name.json
+    createdAt: '2025-10-06 20:04:02'
+  .prophecy/metadata/sqlmacros/prophecy_tmp_source:
+    name: prophecy_tmp_source
+    macroType: expression
+    description: null
+    author: brooks.danyelle@prophecy.io
+    files:
+    - macros/prophecy_tmp_source.sql
+    - .prophecy/ide/macros/prophecy_tmp_source.json
+    createdAt: '2025-10-06 20:06:18'
+  .prophecy/metadata/sqlmacros/segmentation_flag:
+    name: segmentation_flag
+    macroType: expression
+    description: 'Flag to be used for RFM segmentation '
+    author: brooks.danyelle@prophecy.io
+    files:
+    - macros/segmentation_flag.sql
+    - .prophecy/ide/macros/segmentation_flag.json
+    - macros/macros.yml
+    createdAt: '2025-10-06 20:04:54'
+sqlSeeds: {}
+sqlSources:
+  .prophecy/metadata/sqlsources/danyelle_retail:
+    name: danyelle.retail
+    description: null
+    author: brooks.danyelle@prophecy.io
+    files:
+    - prophecy-sources/sources.yml
+    createdAt: '2025-10-06 20:08:33'
+    tables:
+    - name: crm_customers
+      schema:
+        entityType: ''
+        providerType: databricks
+        fields:
+        - name: customer_id
+          dataType:
+            type: String
+        - name: signup_date
+          dataType:
+            type: Date
+        - name: email
+          dataType:
+            type: String
+        - name: zip_code
+          dataType:
+            type: Bigint
+        - name: region
+          dataType:
+            type: String
+        - name: preferred_channel
+          dataType:
+            type: String
+      description: null
+      author: brooks.danyelle@prophecy.io
+      createdAt: '2025-10-06 20:08:33'
+      tableType: table
+    - name: ecomm_orders
+      schema:
+        entityType: ''
+        providerType: databricks
+        fields:
+        - name: order_id
+          dataType:
+            type: String
+        - name: customer_id
+          dataType:
+            type: String
+        - name: order_date
+          dataType:
+            type: Date
+        - name: order_amount
+          dataType:
+            type: Double
+      description: null
+      author: brooks.danyelle@prophecy.io
+      createdAt: '2025-10-06 20:08:44'
+      tableType: table
+    - name: instore_sales
+      schema:
+        entityType: ''
+        providerType: databricks
+        fields:
+        - name: transaction_id
+          dataType:
+            type: String
+        - name: customer_id
+          dataType:
+            type: String
+        - name: transaction_date
+          dataType:
+            type: Date
+        - name: transaction_amount
+          dataType:
+            type: Double
+      description: null
+      author: brooks.danyelle@prophecy.io
+      createdAt: '2025-10-06 20:08:58'
+      tableType: table
+    - name: email_events
+      schema:
+        entityType: ''
+        providerType: databricks
+        fields:
+        - name: email_id
+          dataType:
+            type: String
+        - name: customer_id
+          dataType:
+            type: String
+        - name: event_type
+          dataType:
+            type: String
+        - name: event_date
+          dataType:
+            type: Date
+      description: null
+      author: brooks.danyelle@prophecy.io
+      createdAt: '2025-10-06 20:09:09'
+      tableType: table
+sqlUnreferencedSources: {}
+sqlPipeline:
+  name: sqlPipeline
+  description: null
+  author: brooks.danyelle@prophecy.io
+  createdAt: '2025-10-06 20:03:59'
+dependencies: []
+projectDependencies:
+  '47593':
+    projectUID: 47593
+    projectName: ProphecyDatabricksSqlSpatial
+    repositoryPath: gitUri=https://github.com/prophecy-io/databricks-sql-spatial&subPath=
+    version: 0.0.4
+    isDefault: false
+    author: null
+    createdAt: '2025-10-06 20:03:25'
+  '45117':
+    projectUID: 45117
+    projectName: ProphecyDatabricksSqlBasics
+    repositoryPath: gitUri=https://github.com/prophecy-io/databricks-sql-basics&subPath=
+    version: 0.0.12
+    isDefault: true
+    author: null
+    createdAt: '2025-10-06 20:03:25'
+flags:
+  shouldAddDefaultDependenciesIfAbsent: false
+pipelineConfigurations: {}
+projectConfigurations: {}
+sqlOrchestratorPipelines:
+  .prophecy/metadata/sqlorchestratorpipeline/RFM_Marketing:
+    name: RFM_Marketing
+    schema: null
+    description: null
+    author: brooks.danyelle@prophecy.io
+    files:
+    - .prophecy/ide/pipelines/RFM_Marketing.json
+    - pipelines/RFM_Marketing.py
+    createdAt: '2025-10-06 20:06:18'
+sqlBusinessApps: {}

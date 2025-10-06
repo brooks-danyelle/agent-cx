@@ -1,0 +1,26 @@
+{
+  "name" : "customer_marketing",
+  "fileSystem" : {
+    "type" : "Folder",
+    "name" : "",
+    "children" : { },
+    "path" : "",
+    "editable" : true
+  },
+  "providerType" : "databricks",
+  "prophecyIDEFolder" : {
+    "name" : "",
+    "children" : { },
+    "path" : "",
+    "editable" : true
+  },
+  "dependenciesContainer" : {
+    "dependencies" : { },
+    "prophecyProjectDependencies" : {
+      "https://github.com/prophecy-io/databricks-sql-basics" : "45117",
+      "https://github.com/prophecy-io/databricks-sql-spatial" : "47593"
+    }
+  },
+  "entitiesToSync" : [ ],
+  "frontEndLanguage" : "sql"
+}
