@@ -255,7 +255,7 @@ sqlOrchestratorPipelines:
     author: brooks.danyelle@prophecy.io
     files:
     - models/RFM_Marketing/schema.yml
-    - models/RFM_Marketing/RFM_Marketing__rfm_calculation.sql
+    - models/RFM_Marketing/RFM_Marketing__rfm_scores_with_columns.sql
     - .prophecy/ide/pipelines/RFM_Marketing.json
     - pipelines/RFM_Marketing.py
     createdAt: '2025-10-06 20:06:18'
