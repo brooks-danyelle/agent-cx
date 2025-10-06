@@ -91,7 +91,6 @@ sqlSources:
       description: null
       author: brooks.danyelle@prophecy.io
       createdAt: '2025-10-06 20:08:33'
-      tableType: table
     - name: ecomm_orders
       schema:
         entityType: ''
@@ -112,7 +111,6 @@ sqlSources:
       description: null
       author: brooks.danyelle@prophecy.io
       createdAt: '2025-10-06 20:08:44'
-      tableType: table
     - name: instore_sales
       schema:
         entityType: ''
@@ -133,7 +131,6 @@ sqlSources:
       description: null
       author: brooks.danyelle@prophecy.io
       createdAt: '2025-10-06 20:08:58'
-      tableType: table
     - name: email_events
       schema:
         entityType: ''
