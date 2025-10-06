@@ -211,7 +211,10 @@ sqlSources:
         - name: MONETARY_SCORE
           dataType:
             type: Integer
-        - name: SEGMENTATION_FLAG
+        - name: RFM_SEGMENT
+          dataType:
+            type: String
+        - name: SEGMENT_FLAG
           dataType:
             type: String
       description: Customer purchase behavior data used for segmentation, aiding in
@@ -255,7 +258,7 @@ sqlOrchestratorPipelines:
     author: brooks.danyelle@prophecy.io
     files:
     - models/RFM_Marketing/schema.yml
-    - models/RFM_Marketing/RFM_Marketing__rfm_scores_with_columns.sql
+    - models/RFM_Marketing/RFM_Marketing__customer_rfm_segmentation.sql
     - .prophecy/ide/pipelines/RFM_Marketing.json
     - pipelines/RFM_Marketing.py
     createdAt: '2025-10-06 20:06:18'

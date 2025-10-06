@@ -1,6 +1,6 @@
 ---
 version: 2
 models:
-- name: "RFM_Marketing__rfm_scores_with_columns"
+- name: "RFM_Marketing__customer_rfm_segmentation"
   tags:
   - "prophecy_temp"

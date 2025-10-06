@@ -1,8 +1,9 @@
 {{
   config({    
-    "materialized": "ephemeral",
+    "materialized": "table",
+    "alias": "rfm_segmentation",
     "database": "danyelle",
-    "schema": "demo"
+    "schema": "retail"
   })
 }}
 
@@ -32,6 +33,7 @@ crm_customers AS (
 
 customer_order_sales_join AS (
 
+  {#Integrates customer data with online orders and in-store sales for a comprehensive view of customer transactions.#}
   SELECT 
     crm_customers.customer_id AS CUSTOMER_ID,
     crm_customers.signup_date AS SIGNUP_DATE,
@@ -56,6 +58,7 @@ customer_order_sales_join AS (
 
 rfm_calculation AS (
 
+  {#Calculates customer value metrics for targeted marketing using recency, frequency, and monetary analysis.#}
   SELECT 
     CUSTOMER_ID,
     SIGNUP_DATE,
@@ -82,6 +85,7 @@ rfm_calculation AS (
 
 rfm_scores_with_columns AS (
 
+  {#Assigns RFM scores to customers based on recent activity, purchase frequency, and spending, aiding in customer segmentation.#}
   SELECT 
     CUSTOMER_ID,
     SIGNUP_DATE,
@@ -134,8 +138,37 @@ rfm_scores_with_columns AS (
   
   FROM rfm_calculation
 
+),
+
+customer_rfm_segmentation AS (
+
+  {#Generates customer segments using RFM analysis for targeted marketing.#}
+  SELECT 
+    CUSTOMER_ID AS CUSTOMER_ID,
+    SIGNUP_DATE AS SIGNUP_DATE,
+    EMAIL AS EMAIL,
+    ZIP_CODE AS ZIP_CODE,
+    REGION AS REGION,
+    PREFERRED_CHANNEL AS PREFERRED_CHANNEL,
+    ORDER_ID AS ORDER_ID,
+    ORDER_DATE AS ORDER_DATE,
+    ORDER_AMOUNT AS ORDER_AMOUNT,
+    TRANSACTION_ID AS TRANSACTION_ID,
+    TRANSACTION_DATE AS TRANSACTION_DATE,
+    TRANSACTION_AMOUNT AS TRANSACTION_AMOUNT,
+    RECENCY AS RECENCY,
+    FREQUENCY AS FREQUENCY,
+    MONETARY AS MONETARY,
+    RECENCY_SCORE AS RECENCY_SCORE,
+    FREQUENCY_SCORE AS FREQUENCY_SCORE,
+    MONETARY_SCORE AS MONETARY_SCORE,
+    CONCAT(CAST(RECENCY_SCORE AS STRING), CAST(FREQUENCY_SCORE AS STRING), CAST(MONETARY_SCORE AS STRING)) AS RFM_SEGMENT,
+    {{ segmentation_flag() }} AS SEGMENT_FLAG
+  
+  FROM rfm_scores_with_columns
+
 )
 
 SELECT *
 
-FROM rfm_scores_with_columns
+FROM customer_rfm_segmentation

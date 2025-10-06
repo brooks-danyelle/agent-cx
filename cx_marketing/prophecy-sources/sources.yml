@@ -145,17 +145,22 @@ sources:
         type: "Integer"
     - name: "FREQUENCY_SCORE"
       description: "Score representing how often a customer makes purchases, with\
-        \ higher scores for more frequent activity."
+        \ higher scores for more frequent transactions."
       dataType:
         type: "Integer"
     - name: "MONETARY_SCORE"
-      description: "Score reflecting the amount a customer spends, with higher scores\
-        \ for greater spending."
+      description: "Score reflecting the total spending of a customer, with higher\
+        \ scores for greater monetary value."
       dataType:
         type: "Integer"
-    - name: "SEGMENTATION_FLAG"
-      description: "Categorical label used to classify customers based on their RFM\
-        \ scores for targeted marketing strategies."
+    - name: "RFM_SEGMENT"
+      description: "Categorization of customers based on their Recency, Frequency,\
+        \ and Monetary scores."
+      dataType:
+        type: "String"
+    - name: "SEGMENT_FLAG"
+      description: "Indicator for specific customer segment classification within\
+        \ the RFM model."
       dataType:
         type: "String"
     type: "table"
