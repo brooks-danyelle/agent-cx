@@ -13,35 +13,183 @@
     "isTranspiledPipeline" : false
   },
   "processes" : {
-    "wRutRbDHb8-OHG8ouBdG7$$_Dcy_bDaL2v0S0L0Fzqdg" : {
-      "id" : "wRutRbDHb8-OHG8ouBdG7$$_Dcy_bDaL2v0S0L0Fzqdg",
-      "component" : "Model",
+    "91gnWEBm_-2shcEsxU4FS" : {
+      "id" : "91gnWEBm_-2shcEsxU4FS",
+      "component" : "Dataset",
       "metadata" : {
-        "label" : "RFM_Marketing__customer_rfm_segmentation",
+        "label" : "crm_customers",
+        "x" : -500,
+        "y" : -320,
         "phase" : 0
       },
       "properties" : {
-        "modelName" : "RFM_Marketing__customer_rfm_segmentation"
-      },
-      "visualMetaInfo" : {
-        "visualProcessIds" : [ "wRutRbDHb8-OHG8ouBdG7$$_Dcy_bDaL2v0S0L0Fzqdg", "9Lms4Y1-ZpYCBXVauwrex$$JtLCaHQXggfqFFMjGng1l", "rfm_scores_with_##tgDtsYq2", "rfm_calculation##fh0YL1qR", "customer_order_s##oLravYMm", "crm_customers##pwNkrTpu", "ecomm_orders##RPRm8Us9", "instore_sales##kJzwsgD6" ],
-        "type" : "table",
-        "isTemporaryTable" : false
+        "writeOptions" : {
+          "writeMode" : "overwrite"
+        },
+        "table" : {
+          "name" : "crm_customers",
+          "sourceType" : "Table",
+          "sourceName" : "danyelle.retail",
+          "alias" : ""
+        }
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "RFM_Marketing__customer_rfm_segmentation_in_0",
-          "slug" : "in_0"
-        }, {
-          "id" : "RFM_Marketing__customer_rfm_segmentation_in_1",
-          "slug" : "in_1"
-        }, {
-          "id" : "RFM_Marketing__customer_rfm_segmentation_in_2",
-          "slug" : "in_2"
+          "id" : "mMZ4gjvK7BqpK974wfBxN",
+          "slug" : "in"
         } ],
         "outputs" : [ {
-          "id" : "RFM_Marketing__customer_rfm_segmentation_out_0",
-          "slug" : "out_0"
+          "id" : "EngT2U174-srHmiKw2M8I",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "signup_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "email",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "zip_code",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "region",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "preferred_channel",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "yDkI1VcnLLl2cvpFzF9f7" : {
+      "id" : "yDkI1VcnLLl2cvpFzF9f7",
+      "component" : "Dataset",
+      "metadata" : {
+        "label" : "ecomm_orders",
+        "x" : -500,
+        "y" : -140,
+        "phase" : 0
+      },
+      "properties" : {
+        "writeOptions" : {
+          "writeMode" : "overwrite"
+        },
+        "table" : {
+          "name" : "ecomm_orders",
+          "sourceType" : "Table",
+          "sourceName" : "danyelle.retail",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "50MFefIC9t619TisPqj8g",
+          "slug" : "in"
+        } ],
+        "outputs" : [ {
+          "id" : "wcEDCv7aTywwFGqEWXjXe",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "order_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "order_amount",
+              "dataType" : {
+                "type" : "Double"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "PkDbqOAOvbJ3MswdhHvOf" : {
+      "id" : "PkDbqOAOvbJ3MswdhHvOf",
+      "component" : "Dataset",
+      "metadata" : {
+        "label" : "instore_sales",
+        "x" : -500,
+        "y" : 20,
+        "phase" : 0
+      },
+      "properties" : {
+        "writeOptions" : {
+          "writeMode" : "overwrite"
+        },
+        "table" : {
+          "name" : "instore_sales",
+          "sourceType" : "Table",
+          "sourceName" : "danyelle.retail",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "fLrKJiRXN9dAmzVh2I0Bd",
+          "slug" : "in"
+        } ],
+        "outputs" : [ {
+          "id" : "Zd5nECXYWx2yZq4n7bjeO",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "transaction_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "transaction_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "transaction_amount",
+              "dataType" : {
+                "type" : "Double"
+              }
+            } ]
+          },
+          "slug" : "out"
         } ],
         "isCustomOutputSchema" : false
       }
