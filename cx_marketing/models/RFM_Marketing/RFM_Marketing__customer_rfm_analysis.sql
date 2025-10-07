@@ -6,15 +6,7 @@
   })
 }}
 
-WITH ecomm_orders AS (
-
-  SELECT * 
-  
-  FROM {{ source('danyelle.retail', 'ecomm_orders') }}
-
-),
-
-crm_customers AS (
+WITH crm_customers AS (
 
   SELECT * 
   
@@ -27,6 +19,14 @@ instore_sales AS (
   SELECT * 
   
   FROM {{ source('danyelle.retail', 'instore_sales') }}
+
+),
+
+ecomm_orders AS (
+
+  SELECT * 
+  
+  FROM {{ source('danyelle.retail', 'ecomm_orders') }}
 
 ),
 
@@ -52,8 +52,34 @@ customer_orders_joined AS (
   LEFT JOIN instore_sales
      ON crm_customers.customer_id = instore_sales.customer_id
 
+),
+
+customer_rfm_analysis AS (
+
+  SELECT 
+    CUSTOMER_ID,
+    SIGNUP_DATE,
+    EMAIL,
+    ZIP_CODE,
+    REGION,
+    PREFERRED_CHANNEL,
+    ANY_VALUE(ORDER_ID) AS ORDER_ID,
+    ANY_VALUE(ORDER_DATE) AS ORDER_DATE,
+    SUM(ORDER_AMOUNT) AS ORDER_AMOUNT,
+    ANY_VALUE(TRANSACTION_ID) AS TRANSACTION_ID,
+    ANY_VALUE(TRANSACTION_DATE) AS TRANSACTION_DATE,
+    SUM(TRANSACTION_AMOUNT) AS TRANSACTION_AMOUNT,
+    DATEDIFF(DAY, MAX(ORDER_DATE), CURRENT_DATE) AS recency,
+    COUNT(DISTINCT ORDER_ID) AS frequency,
+    SUM(ORDER_AMOUNT) AS monetary
+  
+  FROM customer_orders_joined
+  
+  GROUP BY 
+    CUSTOMER_ID, SIGNUP_DATE, EMAIL, ZIP_CODE, REGION, PREFERRED_CHANNEL
+
 )
 
 SELECT *
 
-FROM customer_orders_joined
+FROM customer_rfm_analysis

@@ -257,8 +257,8 @@ sqlOrchestratorPipelines:
     description: null
     author: brooks.danyelle@prophecy.io
     files:
-    - models/RFM_Marketing/RFM_Marketing__customer_orders_joined.sql
     - models/RFM_Marketing/schema.yml
+    - models/RFM_Marketing/RFM_Marketing__customer_rfm_analysis.sql
     - .prophecy/ide/pipelines/RFM_Marketing.json
     - pipelines/RFM_Marketing.py
     createdAt: '2025-10-06 20:06:18'
