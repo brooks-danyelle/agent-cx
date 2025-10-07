@@ -1,6 +1,6 @@
 ---
 version: 2
 models:
-- name: "RFM_Marketing__customer_rfm_analysis"
+- name: "RFM_Marketing__rfm_analysis_with_scores"
   tags:
   - "prophecy_temp"
