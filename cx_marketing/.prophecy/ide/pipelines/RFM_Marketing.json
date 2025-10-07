@@ -13,6 +13,260 @@
     "isTranspiledPipeline" : false
   },
   "processes" : {
+    "3P8whM_2zebCqik1y4-nX$$K6jLgeOb5UWsrZMsmm2RO" : {
+      "id" : "3P8whM_2zebCqik1y4-nX$$K6jLgeOb5UWsrZMsmm2RO",
+      "component" : "Dataset",
+      "metadata" : {
+        "label" : "rfm_segmentation",
+        "x" : 280,
+        "y" : -140,
+        "phase" : 0,
+        "comment" : "Overwrites the RFM segmentation dataset in the retail database.",
+        "autoUpdateComment" : true
+      },
+      "properties" : {
+        "writeOptions" : {
+          "writeMode" : "overwrite"
+        },
+        "table" : {
+          "name" : "rfm_segmentation",
+          "sourceType" : "Table",
+          "sourceName" : "danyelle.retail",
+          "alias" : "",
+          "additionalProperties" : null
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "HNcB-HQBvshOAwLE_nOHU$$RhQDpZVt_O62IljBBIZEN",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "CUSTOMER_ID",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "SIGNUP_DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "EMAIL",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ZIP_CODE",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "REGION",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "PREFERRED_CHANNEL",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ORDER_ID",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ORDER_DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "ORDER_AMOUNT",
+              "dataType" : {
+                "type" : "Double"
+              }
+            }, {
+              "name" : "TRANSACTION_ID",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "TRANSACTION_DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "TRANSACTION_AMOUNT",
+              "dataType" : {
+                "type" : "Double"
+              }
+            }, {
+              "name" : "RECENCY",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "FREQUENCY",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "MONETARY",
+              "dataType" : {
+                "type" : "Double"
+              }
+            }, {
+              "name" : "RECENCY_SCORE",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "FREQUENCY_SCORE",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "MONETARY_SCORE",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "RFM_SEGMENT",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "in"
+        } ],
+        "outputs" : [ {
+          "id" : "6sd4wzVzbQs-FVoyxfQDB$$FoztzsD0LqeEuR3e5m6_f",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "CUSTOMER_ID",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "SIGNUP_DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "EMAIL",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ZIP_CODE",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "REGION",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "PREFERRED_CHANNEL",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ORDER_ID",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ORDER_DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "ORDER_AMOUNT",
+              "dataType" : {
+                "type" : "Double"
+              }
+            }, {
+              "name" : "TRANSACTION_ID",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "TRANSACTION_DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "TRANSACTION_AMOUNT",
+              "dataType" : {
+                "type" : "Double"
+              }
+            }, {
+              "name" : "RECENCY",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "FREQUENCY",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "MONETARY",
+              "dataType" : {
+                "type" : "Double"
+              }
+            }, {
+              "name" : "RECENCY_SCORE",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "FREQUENCY_SCORE",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "MONETARY_SCORE",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "RFM_SEGMENT",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "pkFRnsXb_Evqbnvm9QEJe$$ONeTCX3PYxgP7oT4ioFoM" : {
+      "id" : "pkFRnsXb_Evqbnvm9QEJe$$ONeTCX3PYxgP7oT4ioFoM",
+      "component" : "Comment",
+      "metadata" : {
+        "label" : "Comment_1",
+        "x" : -360,
+        "y" : -320,
+        "height" : 79.99998474121094,
+        "width" : 220.0000457763672,
+        "phase" : 0
+      },
+      "properties" : {
+        "comment" : "RFM analysis and segmentation dataset is ready for review"
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ ]
+      }
+    },
     "rfm_analysis_wit##PSaaOfjr" : {
       "id" : "rfm_analysis_wit##PSaaOfjr",
       "component" : "Reformat",
@@ -20,10 +274,12 @@
         "label" : "rfm_analysis_with_scores",
         "x" : 100,
         "y" : -140,
-        "phase" : 0
+        "phase" : 0,
+        "comment" : "Evaluates customer value through RFM scores and segments them based on recent purchases, frequency, and spending.",
+        "autoUpdateComment" : true
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "VmXWPL39##CUSTOMER_ID", "VmXWPL39##SIGNUP_DATE", "VmXWPL39##EMAIL", "VmXWPL39##ZIP_CODE", "VmXWPL39##REGION", "VmXWPL39##PREFERRED_CHANNEL", "VmXWPL39##ORDER_ID", "VmXWPL39##ORDER_DATE", "VmXWPL39##ORDER_AMOUNT", "VmXWPL39##TRANSACTION_ID", "VmXWPL39##TRANSACTION_DATE", "VmXWPL39##TRANSACTION_AMOUNT", "VmXWPL39##recency", "VmXWPL39##frequency", "VmXWPL39##monetary" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "CUSTOMER_ID"
@@ -327,7 +583,9 @@
         "label" : "customer_rfm_analysis",
         "x" : -100,
         "y" : -140,
-        "phase" : 0
+        "phase" : 0,
+        "comment" : "Performs RFM analysis on customers to assess their engagement and value based on recency, frequency, and monetary metrics.",
+        "autoUpdateComment" : true
       },
       "properties" : {
         "aggregate" : [ {
@@ -420,7 +678,7 @@
           "expression" : ""
         },
         "activeTab" : "aggregate",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "VaKv1a2f##CUSTOMER_ID", "VaKv1a2f##SIGNUP_DATE", "VaKv1a2f##EMAIL", "VaKv1a2f##ZIP_CODE", "VaKv1a2f##REGION", "VaKv1a2f##PREFERRED_CHANNEL", "VaKv1a2f##ORDER_ID", "VaKv1a2f##ORDER_DATE", "VaKv1a2f##ORDER_AMOUNT", "VaKv1a2f##TRANSACTION_ID", "VaKv1a2f##TRANSACTION_DATE", "VaKv1a2f##TRANSACTION_AMOUNT" ],
         "groupBy" : [ {
           "expression" : {
             "expression" : "CUSTOMER_ID"
@@ -617,7 +875,9 @@
         "label" : "customer_orders_joined",
         "x" : -300,
         "y" : -150,
-        "phase" : 0
+        "phase" : 0,
+        "comment" : "Consolidates customer data with both online and in-store purchase details.",
+        "autoUpdateComment" : true
       },
       "properties" : {
         "conditions" : [ {
@@ -707,7 +967,7 @@
           "_row_id" : "1494555717"
         } ],
         "activeTab" : "conditions",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "M7iZVM0e##customer_id", "WbxgPNaa##customer_id", "CmlmHBfh##customer_id", "M7iZVM0e##customer_id", "M7iZVM0e##signup_date", "M7iZVM0e##email", "M7iZVM0e##zip_code", "M7iZVM0e##region", "M7iZVM0e##preferred_channel", "WbxgPNaa##order_id", "WbxgPNaa##order_date", "WbxgPNaa##order_amount", "CmlmHBfh##transaction_id", "CmlmHBfh##transaction_date", "CmlmHBfh##transaction_amount" ],
         "headAlias" : "crm_customers"
       },
       "ports" : {
@@ -885,7 +1145,9 @@
         "label" : "instore_sales",
         "x" : -500,
         "y" : 20,
-        "phase" : 0
+        "phase" : 0,
+        "comment" : "Accesses in-store sales data from Danyelle Retail for analysis.",
+        "autoUpdateComment" : true
       },
       "properties" : {
         "table" : {
@@ -936,7 +1198,9 @@
         "label" : "ecomm_orders",
         "x" : -500,
         "y" : -140,
-        "phase" : 0
+        "phase" : 0,
+        "comment" : "Accesses e-commerce order data from the retail source.",
+        "autoUpdateComment" : true
       },
       "properties" : {
         "table" : {
@@ -987,7 +1251,9 @@
         "label" : "crm_customers",
         "x" : -500,
         "y" : -320,
-        "phase" : 0
+        "phase" : 0,
+        "comment" : "Accesses CRM customer data from the retail source for further processing.",
+        "autoUpdateComment" : true
       },
       "properties" : {
         "table" : {
@@ -1072,6 +1338,12 @@
     "sourcePort" : "LdE1yq4w",
     "target" : "rfm_analysis_wit##PSaaOfjr",
     "targetPort" : "VmXWPL39"
+  }, {
+    "id" : "kb_8JONRALO5QIq-RLpIT$$wKo-oo4tzghBu-VudS3dV",
+    "source" : "rfm_analysis_wit##PSaaOfjr",
+    "sourcePort" : "lBbcs4VA",
+    "target" : "3P8whM_2zebCqik1y4-nX$$K6jLgeOb5UWsrZMsmm2RO",
+    "targetPort" : "HNcB-HQBvshOAwLE_nOHU$$RhQDpZVt_O62IljBBIZEN"
   } ],
   "component" : "Pipeline"
 }

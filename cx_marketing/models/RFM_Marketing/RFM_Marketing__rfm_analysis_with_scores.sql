@@ -1,8 +1,9 @@
 {{
   config({    
-    "materialized": "ephemeral",
+    "materialized": "table",
+    "alias": "rfm_segmentation",
     "database": "danyelle",
-    "schema": "demo"
+    "schema": "retail"
   })
 }}
 
@@ -32,6 +33,7 @@ crm_customers AS (
 
 customer_orders_joined AS (
 
+  {#Consolidates customer data with both online and in-store purchase details.#}
   SELECT 
     crm_customers.customer_id AS CUSTOMER_ID,
     crm_customers.signup_date AS SIGNUP_DATE,
@@ -56,6 +58,7 @@ customer_orders_joined AS (
 
 customer_rfm_analysis AS (
 
+  {#Performs RFM analysis on customers to assess their engagement and value based on recency, frequency, and monetary metrics.#}
   SELECT 
     CUSTOMER_ID,
     SIGNUP_DATE,
@@ -82,6 +85,7 @@ customer_rfm_analysis AS (
 
 rfm_analysis_with_scores AS (
 
+  {#Evaluates customer value through RFM scores and segments them based on recent purchases, frequency, and spending.#}
   SELECT 
     CUSTOMER_ID,
     SIGNUP_DATE,

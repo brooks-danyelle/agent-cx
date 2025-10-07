@@ -9,15 +9,47 @@
     },
     "graphConfig" : {
       "entityConfig" : {
-        "materialized" : "ephemeral",
+        "alias" : "\"rfm_segmentation\"",
+        "materialized" : "table",
         "database" : "\"danyelle\"",
-        "schema" : "\"demo\"",
+        "schema" : "\"retail\"",
         "type" : "ModelConfig"
       }
     },
     "version" : 3
   },
   "processes" : {
+    "3P8whM_2zebCqik1y4-nX$$K6jLgeOb5UWsrZMsmm2RO" : {
+      "id" : "3P8whM_2zebCqik1y4-nX$$K6jLgeOb5UWsrZMsmm2RO",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "rfm_segmentation",
+        "phase" : 0
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "\nSELECT *\n\nFROM rfm_analysis_with_scores\n\n",
+        "isModel" : true,
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "HNcB-HQBvshOAwLE_nOHU$$RhQDpZVt_O62IljBBIZEN",
+          "slug" : "in"
+        } ],
+        "outputs" : [ {
+          "id" : "6sd4wzVzbQs-FVoyxfQDB$$FoztzsD0LqeEuR3e5m6_f",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
     "rfm_analysis_wit##PSaaOfjr" : {
       "id" : "rfm_analysis_wit##PSaaOfjr",
       "component" : "Reformat",
@@ -28,7 +60,7 @@
         "phase" : 0
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "VmXWPL39##CUSTOMER_ID", "VmXWPL39##SIGNUP_DATE", "VmXWPL39##EMAIL", "VmXWPL39##ZIP_CODE", "VmXWPL39##REGION", "VmXWPL39##PREFERRED_CHANNEL", "VmXWPL39##ORDER_ID", "VmXWPL39##ORDER_DATE", "VmXWPL39##ORDER_AMOUNT", "VmXWPL39##TRANSACTION_ID", "VmXWPL39##TRANSACTION_DATE", "VmXWPL39##TRANSACTION_AMOUNT", "VmXWPL39##recency", "VmXWPL39##frequency", "VmXWPL39##monetary" ],
         "expressions" : [ {
           "expression" : {
             "expression" : "CUSTOMER_ID"
@@ -246,7 +278,7 @@
           "expression" : ""
         },
         "activeTab" : "aggregate",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "VaKv1a2f##CUSTOMER_ID", "VaKv1a2f##SIGNUP_DATE", "VaKv1a2f##EMAIL", "VaKv1a2f##ZIP_CODE", "VaKv1a2f##REGION", "VaKv1a2f##PREFERRED_CHANNEL", "VaKv1a2f##ORDER_ID", "VaKv1a2f##ORDER_DATE", "VaKv1a2f##ORDER_AMOUNT", "VaKv1a2f##TRANSACTION_ID", "VaKv1a2f##TRANSACTION_DATE", "VaKv1a2f##TRANSACTION_AMOUNT" ],
         "groupBy" : [ {
           "expression" : {
             "expression" : "CUSTOMER_ID"
@@ -389,7 +421,7 @@
           "_row_id" : "1494555717"
         } ],
         "activeTab" : "conditions",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "M7iZVM0e##customer_id", "WbxgPNaa##customer_id", "CmlmHBfh##customer_id", "M7iZVM0e##customer_id", "M7iZVM0e##signup_date", "M7iZVM0e##email", "M7iZVM0e##zip_code", "M7iZVM0e##region", "M7iZVM0e##preferred_channel", "WbxgPNaa##order_id", "WbxgPNaa##order_date", "WbxgPNaa##order_amount", "CmlmHBfh##transaction_id", "CmlmHBfh##transaction_date", "CmlmHBfh##transaction_amount" ],
         "headAlias" : "crm_customers"
       },
       "ports" : {
@@ -463,36 +495,6 @@
         "autoUpdateOnRun" : false
       }
     },
-    "rfm_analysis_with_scores_lBbcs4VA" : {
-      "id" : "rfm_analysis_with_scores_lBbcs4VA",
-      "component" : "TargetModel",
-      "metadata" : {
-        "label" : "rfm_analysis_with_scores"
-      },
-      "properties" : {
-        "customQueryDisabled" : true,
-        "customQuery" : false,
-        "incrementalEditorDisabled" : true,
-        "query" : "\nSELECT *\n\nFROM rfm_analysis_with_scores\n\n",
-        "isModel" : true,
-        "incrementalKey" : false,
-        "incremental" : {
-          "expression" : "true"
-        }
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "input_port_0",
-          "slug" : "input_port_0"
-        } ],
-        "outputs" : [ {
-          "id" : "output_port_0",
-          "slug" : "output_port_0"
-        } ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      }
-    },
     "crm_customers##NnMssdcv" : {
       "id" : "crm_customers##NnMssdcv",
       "component" : "Source",
@@ -521,11 +523,11 @@
     }
   },
   "connections" : [ {
-    "id" : "conn_rfm_analysis_wit##PSaaOfjr_rfm_analysis_with_scores_lBbcs4VA",
+    "id" : "kb_8JONRALO5QIq-RLpIT$$wKo-oo4tzghBu-VudS3dV",
     "source" : "rfm_analysis_wit##PSaaOfjr",
     "sourcePort" : "lBbcs4VA",
-    "target" : "rfm_analysis_with_scores_lBbcs4VA",
-    "targetPort" : "input_port_0"
+    "target" : "3P8whM_2zebCqik1y4-nX$$K6jLgeOb5UWsrZMsmm2RO",
+    "targetPort" : "HNcB-HQBvshOAwLE_nOHU$$RhQDpZVt_O62IljBBIZEN"
   }, {
     "id" : "SbEycqOl",
     "source" : "customer_rfm_ana##jvxXL26T",

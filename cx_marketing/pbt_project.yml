@@ -214,9 +214,6 @@ sqlSources:
         - name: RFM_SEGMENT
           dataType:
             type: String
-        - name: SEGMENT_FLAG
-          dataType:
-            type: String
       description: Customer purchase behavior data used for segmentation, aiding in
         targeted marketing strategies and customer relationship management.
       author: brooks.danyelle@prophecy.io

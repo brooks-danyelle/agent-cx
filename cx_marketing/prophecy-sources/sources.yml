@@ -149,18 +149,13 @@ sources:
       dataType:
         type: "Integer"
     - name: "MONETARY_SCORE"
-      description: "Score reflecting the total spending of a customer, with higher\
-        \ scores for greater monetary value."
+      description: "Score reflecting the amount a customer spends, with higher scores\
+        \ for greater spending."
       dataType:
         type: "Integer"
     - name: "RFM_SEGMENT"
-      description: "Categorization of customers based on their Recency, Frequency,\
-        \ and Monetary scores."
-      dataType:
-        type: "String"
-    - name: "SEGMENT_FLAG"
-      description: "Indicator for specific customer segment classification within\
-        \ the RFM model."
+      description: "Categorization of customers based on their recency, frequency,\
+        \ and monetary scores for targeted marketing."
       dataType:
         type: "String"
     type: "table"
