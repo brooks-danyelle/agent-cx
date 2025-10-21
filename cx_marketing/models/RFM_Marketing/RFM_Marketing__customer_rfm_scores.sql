@@ -6,7 +6,15 @@
   })
 }}
 
-WITH ecomm_orders AS (
+WITH crm_customers AS (
+
+  SELECT * 
+  
+  FROM {{ source('danyelle.retail', 'crm_customers') }}
+
+),
+
+ecomm_orders AS (
 
   SELECT * 
   
@@ -19,14 +27,6 @@ instore_sales AS (
   SELECT * 
   
   FROM {{ source('danyelle.retail', 'instore_sales') }}
-
-),
-
-crm_customers AS (
-
-  SELECT * 
-  
-  FROM {{ source('danyelle.retail', 'crm_customers') }}
 
 ),
 
@@ -88,8 +88,58 @@ customer_rfm_analysis AS (
   
   FROM customer_aggregate_data
 
+),
+
+customer_rfm_scores AS (
+
+  SELECT 
+    CUSTOMER_ID,
+    EMAIL,
+    ZIP_CODE,
+    REGION,
+    PREFERRED_CHANNEL,
+    MOST_RECENT_ORDER_DATE,
+    FREQUENCY,
+    MONETARY,
+    RECENCY,
+    CASE
+      WHEN MONETARY >= 1000
+        THEN 5
+      WHEN MONETARY >= 500
+        THEN 4
+      WHEN MONETARY >= 250
+        THEN 3
+      WHEN MONETARY >= 100
+        THEN 2
+      ELSE 1
+    END AS MONETARY_SCORE,
+    CASE
+      WHEN FREQUENCY >= 50
+        THEN 5
+      WHEN FREQUENCY >= 20
+        THEN 4
+      WHEN FREQUENCY >= 10
+        THEN 3
+      WHEN FREQUENCY >= 5
+        THEN 2
+      ELSE 1
+    END AS FREQUENCY_SCORE,
+    CASE
+      WHEN RECENCY <= 7
+        THEN 5
+      WHEN RECENCY <= 14
+        THEN 4
+      WHEN RECENCY <= 30
+        THEN 3
+      WHEN RECENCY <= 60
+        THEN 2
+      ELSE 1
+    END AS RECENCY_SCORE
+  
+  FROM customer_rfm_analysis
+
 )
 
 SELECT *
 
-FROM customer_rfm_analysis
+FROM customer_rfm_scores
