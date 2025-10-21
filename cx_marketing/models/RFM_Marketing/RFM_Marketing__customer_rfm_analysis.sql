@@ -6,15 +6,7 @@
   })
 }}
 
-WITH crm_customers AS (
-
-  SELECT * 
-  
-  FROM {{ source('danyelle.retail', 'crm_customers') }}
-
-),
-
-ecomm_orders AS (
+WITH ecomm_orders AS (
 
   SELECT * 
   
@@ -27,6 +19,14 @@ instore_sales AS (
   SELECT * 
   
   FROM {{ source('danyelle.retail', 'instore_sales') }}
+
+),
+
+crm_customers AS (
+
+  SELECT * 
+  
+  FROM {{ source('danyelle.retail', 'crm_customers') }}
 
 ),
 
@@ -52,8 +52,44 @@ customer_data_join AS (
   LEFT JOIN crm_customers
      ON ecomm_orders.customer_id = crm_customers.customer_id
 
+),
+
+customer_aggregate_data AS (
+
+  SELECT 
+    CUSTOMER_ID,
+    EMAIL,
+    ZIP_CODE,
+    REGION,
+    PREFERRED_CHANNEL,
+    MAX(ORDER_DATE) AS MOST_RECENT_ORDER_DATE,
+    COUNT(ORDER_ID) AS FREQUENCY,
+    SUM(ORDER_AMOUNT) AS MONETARY
+  
+  FROM customer_data_join
+  
+  GROUP BY 
+    CUSTOMER_ID, EMAIL, ZIP_CODE, REGION, PREFERRED_CHANNEL
+
+),
+
+customer_rfm_analysis AS (
+
+  SELECT 
+    CUSTOMER_ID,
+    EMAIL,
+    ZIP_CODE,
+    REGION,
+    PREFERRED_CHANNEL,
+    MOST_RECENT_ORDER_DATE,
+    FREQUENCY,
+    MONETARY,
+    DATEDIFF(DAY, MOST_RECENT_ORDER_DATE, CURRENT_DATE) AS RECENCY
+  
+  FROM customer_aggregate_data
+
 )
 
 SELECT *
 
-FROM customer_data_join
+FROM customer_rfm_analysis
