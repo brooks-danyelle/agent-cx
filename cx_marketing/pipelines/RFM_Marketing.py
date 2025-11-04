@@ -1,6 +1,6 @@
 with DAG():
-    RFM_Marketing__customer_order_sales_data = Task(
-        task_id = "RFM_Marketing__customer_order_sales_data", 
+    RFM_Marketing__customer_rfm_details = Task(
+        task_id = "RFM_Marketing__customer_rfm_details", 
         component = "Model", 
-        modelName = "RFM_Marketing__customer_order_sales_data"
+        modelName = "RFM_Marketing__customer_rfm_details"
     )
