@@ -3,6 +3,6 @@ packages:
 - revision: "1.0.1"
   git: "https://github.com/prophecy-io/prophecy-basics"
   subdirectory: ""
-- revision: "0.0.4"
+- revision: "0.0.5"
   git: "https://github.com/prophecy-io/databricks-sql-spatial"
   subdirectory: ""

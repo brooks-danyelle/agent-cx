@@ -36,16 +36,6 @@ sqlMacros:
     - macros/generate_schema_name.sql
     - .prophecy/ide/macros/generate_schema_name.json
     createdAt: '2025-10-06 20:04:02'
-  .prophecy/metadata/sqlmacros/masking:
-    name: masking
-    macroType: expression
-    description: null
-    author: brooks.danyelle@prophecy.io
-    files:
-    - macros/masking.sql
-    - .prophecy/ide/macros/masking.json
-    - macros/macros.yml
-    createdAt: '2025-11-04 16:20:45'
   .prophecy/metadata/sqlmacros/prophecy_tmp_source:
     name: prophecy_tmp_source
     macroType: expression
@@ -264,8 +254,6 @@ sqlOrchestratorPipelines:
     description: null
     author: brooks.danyelle@prophecy.io
     files:
-    - models/RFM_Marketing/schema.yml
-    - models/RFM_Marketing/RFM_Marketing__rfm_score_assignment.sql
     - .prophecy/ide/pipelines/RFM_Marketing.json
     - pipelines/RFM_Marketing.py
     createdAt: '2025-10-06 20:06:18'
