@@ -1,0 +1,555 @@
+{
+  "id" : "RFM_Marketing__rfm_score_assignment",
+  "metainfo" : {
+    "label" : "RFM_Marketing__rfm_score_assignment",
+    "autoLayout" : true,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "graphConfig" : {
+      "entityConfig" : {
+        "materialized" : "ephemeral",
+        "database" : "\"danyelle\"",
+        "schema" : "\"demo\"",
+        "type" : "ModelConfig"
+      }
+    },
+    "version" : 3
+  },
+  "processes" : {
+    "customer_order_s##bJOpVzL3" : {
+      "id" : "customer_order_s##bJOpVzL3",
+      "component" : "Join",
+      "metadata" : {
+        "label" : "customer_order_sales_join",
+        "x" : -270,
+        "y" : -110,
+        "phase" : 0
+      },
+      "properties" : {
+        "conditions" : [ {
+          "alias" : "ecomm_orders",
+          "expression" : {
+            "expression" : "crm_customers.customer_id = ecomm_orders.customer_id"
+          },
+          "joinType" : "LEFT"
+        }, {
+          "alias" : "instore_sales",
+          "expression" : {
+            "expression" : "crm_customers.customer_id = instore_sales.customer_id"
+          },
+          "joinType" : "LEFT"
+        } ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "crm_customers.customer_id"
+          },
+          "alias" : "CUSTOMER_ID",
+          "_row_id" : "1647472336"
+        }, {
+          "expression" : {
+            "expression" : "crm_customers.signup_date"
+          },
+          "alias" : "SIGNUP_DATE",
+          "_row_id" : "1570505144"
+        }, {
+          "expression" : {
+            "expression" : "crm_customers.email"
+          },
+          "alias" : "EMAIL",
+          "_row_id" : "591191817"
+        }, {
+          "expression" : {
+            "expression" : "crm_customers.zip_code"
+          },
+          "alias" : "ZIP_CODE",
+          "_row_id" : "1413214130"
+        }, {
+          "expression" : {
+            "expression" : "crm_customers.region"
+          },
+          "alias" : "REGION",
+          "_row_id" : "969245384"
+        }, {
+          "expression" : {
+            "expression" : "crm_customers.preferred_channel"
+          },
+          "alias" : "PREFERRED_CHANNEL",
+          "_row_id" : "1812809162"
+        }, {
+          "expression" : {
+            "expression" : "ecomm_orders.order_id"
+          },
+          "alias" : "ORDER_ID",
+          "_row_id" : "371847759"
+        }, {
+          "expression" : {
+            "expression" : "ecomm_orders.order_date"
+          },
+          "alias" : "ORDER_DATE",
+          "_row_id" : "150972029"
+        }, {
+          "expression" : {
+            "expression" : "ecomm_orders.order_amount"
+          },
+          "alias" : "ORDER_AMOUNT",
+          "_row_id" : "1444270955"
+        }, {
+          "expression" : {
+            "expression" : "instore_sales.transaction_id"
+          },
+          "alias" : "TRANSACTION_ID",
+          "_row_id" : "21126084"
+        }, {
+          "expression" : {
+            "expression" : "instore_sales.transaction_date"
+          },
+          "alias" : "TRANSACTION_DATE",
+          "_row_id" : "1605801395"
+        }, {
+          "expression" : {
+            "expression" : "instore_sales.transaction_amount"
+          },
+          "alias" : "TRANSACTION_AMOUNT",
+          "_row_id" : "2074966079"
+        } ],
+        "activeTab" : "conditions",
+        "columnsSelector" : [ ],
+        "headAlias" : "crm_customers"
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "uNAlXsS2",
+          "slug" : "crm_customers"
+        }, {
+          "id" : "RKNze2Np",
+          "slug" : "ecomm_orders"
+        }, {
+          "id" : "GKD7H8li",
+          "slug" : "instore_sales"
+        } ],
+        "outputs" : [ {
+          "id" : "ysWgTbot",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "instore_sales##GU8Y6aaW" : {
+      "id" : "instore_sales##GU8Y6aaW",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "instore_sales",
+        "x" : -480,
+        "y" : -120,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "instore_sales",
+          "sourceType" : "Source",
+          "sourceName" : "danyelle.retail"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "BxuVWiJU",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "ecomm_orders##WvOBEg0N" : {
+      "id" : "ecomm_orders##WvOBEg0N",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "ecomm_orders",
+        "x" : -480,
+        "y" : -280,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "ecomm_orders",
+          "sourceType" : "Source",
+          "sourceName" : "danyelle.retail"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "rHSYVetC",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "crm_customers##OKgDRBg6" : {
+      "id" : "crm_customers##OKgDRBg6",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "crm_customers",
+        "x" : -460,
+        "y" : 60,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "crm_customers",
+          "sourceType" : "Source",
+          "sourceName" : "danyelle.retail"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "xLYEQOnf",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "rfm_score_assignment_oJtlqeId" : {
+      "id" : "rfm_score_assignment_oJtlqeId",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "rfm_score_assignment"
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "\nSELECT *\n\nFROM rfm_score_assignment\n\n",
+        "isModel" : true,
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "input_port_0",
+          "slug" : "input_port_0"
+        } ],
+        "outputs" : [ {
+          "id" : "output_port_0",
+          "slug" : "output_port_0"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "rfm_score_assign##F4WyQobm" : {
+      "id" : "rfm_score_assign##F4WyQobm",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "rfm_score_assignment",
+        "x" : 140,
+        "y" : -100,
+        "phase" : 0
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "CUSTOMER_ID"
+          },
+          "_row_id" : "125232910"
+        }, {
+          "expression" : {
+            "expression" : "SIGNUP_DATE"
+          },
+          "_row_id" : "716643734"
+        }, {
+          "expression" : {
+            "expression" : "EMAIL"
+          },
+          "_row_id" : "1083998397"
+        }, {
+          "expression" : {
+            "expression" : "ZIP_CODE"
+          },
+          "_row_id" : "1970634492"
+        }, {
+          "expression" : {
+            "expression" : "REGION"
+          },
+          "_row_id" : "2011112518"
+        }, {
+          "expression" : {
+            "expression" : "PREFERRED_CHANNEL"
+          },
+          "_row_id" : "1655479151"
+        }, {
+          "expression" : {
+            "expression" : "ORDER_ID"
+          },
+          "_row_id" : "1413988574"
+        }, {
+          "expression" : {
+            "expression" : "ORDER_DATE"
+          },
+          "_row_id" : "310771462"
+        }, {
+          "expression" : {
+            "expression" : "ORDER_AMOUNT"
+          },
+          "_row_id" : "2108340550"
+        }, {
+          "expression" : {
+            "expression" : "TRANSACTION_ID"
+          },
+          "_row_id" : "1562866987"
+        }, {
+          "expression" : {
+            "expression" : "TRANSACTION_DATE"
+          },
+          "_row_id" : "2054951785"
+        }, {
+          "expression" : {
+            "expression" : "TRANSACTION_AMOUNT"
+          },
+          "_row_id" : "36900993"
+        }, {
+          "expression" : {
+            "expression" : "recency"
+          },
+          "alias" : "RECENCY",
+          "_row_id" : "1883516714"
+        }, {
+          "expression" : {
+            "expression" : "frequency"
+          },
+          "alias" : "FREQUENCY",
+          "_row_id" : "920972290"
+        }, {
+          "expression" : {
+            "expression" : "monetary"
+          },
+          "alias" : "MONETARY",
+          "_row_id" : "1148183031"
+        }, {
+          "expression" : {
+            "expression" : "CASE\n  WHEN recency <= 30\n    THEN 5\n  WHEN recency <= 60\n    THEN 4\n  WHEN recency <= 90\n    THEN 3\n  WHEN recency <= 120\n    THEN 2\n  ELSE 1\nEND"
+          },
+          "alias" : "RECENCY_SCORE",
+          "_row_id" : "1774225170"
+        }, {
+          "expression" : {
+            "expression" : "CASE\n  WHEN frequency >= 10\n    THEN 5\n  WHEN frequency >= 7\n    THEN 4\n  WHEN frequency >= 5\n    THEN 3\n  WHEN frequency >= 3\n    THEN 2\n  ELSE 1\nEND"
+          },
+          "alias" : "FREQUENCY_SCORE",
+          "_row_id" : "1749090358"
+        }, {
+          "expression" : {
+            "expression" : "CASE\n  WHEN monetary >= 1000\n    THEN 5\n  WHEN monetary >= 750\n    THEN 4\n  WHEN monetary >= 500\n    THEN 3\n  WHEN monetary >= 250\n    THEN 2\n  ELSE 1\nEND"
+          },
+          "alias" : "MONETARY_SCORE",
+          "_row_id" : "569316217"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Ovz4IKpc",
+          "slug" : "rfm_metrics_calculation"
+        } ],
+        "outputs" : [ {
+          "id" : "oJtlqeId",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "rfm_metrics_calc##oxrpoxqr" : {
+      "id" : "rfm_metrics_calc##oxrpoxqr",
+      "component" : "Aggregate",
+      "metadata" : {
+        "label" : "rfm_metrics_calculation",
+        "x" : -60,
+        "y" : -100,
+        "phase" : 0
+      },
+      "properties" : {
+        "aggregate" : [ {
+          "expression" : {
+            "expression" : "CUSTOMER_ID"
+          },
+          "_row_id" : "1801917760"
+        }, {
+          "expression" : {
+            "expression" : "SIGNUP_DATE"
+          },
+          "_row_id" : "150139739"
+        }, {
+          "expression" : {
+            "expression" : "EMAIL"
+          },
+          "_row_id" : "1208955403"
+        }, {
+          "expression" : {
+            "expression" : "ZIP_CODE"
+          },
+          "_row_id" : "1178366009"
+        }, {
+          "expression" : {
+            "expression" : "REGION"
+          },
+          "_row_id" : "1040412393"
+        }, {
+          "expression" : {
+            "expression" : "PREFERRED_CHANNEL"
+          },
+          "_row_id" : "827347527"
+        }, {
+          "expression" : {
+            "expression" : "ANY_VALUE(ORDER_ID)"
+          },
+          "alias" : "ORDER_ID",
+          "_row_id" : "2017694437"
+        }, {
+          "expression" : {
+            "expression" : "ANY_VALUE(ORDER_DATE)"
+          },
+          "alias" : "ORDER_DATE",
+          "_row_id" : "478329185"
+        }, {
+          "expression" : {
+            "expression" : "SUM(ORDER_AMOUNT)"
+          },
+          "alias" : "ORDER_AMOUNT",
+          "_row_id" : "2075591940"
+        }, {
+          "expression" : {
+            "expression" : "ANY_VALUE(TRANSACTION_ID)"
+          },
+          "alias" : "TRANSACTION_ID",
+          "_row_id" : "67151642"
+        }, {
+          "expression" : {
+            "expression" : "ANY_VALUE(TRANSACTION_DATE)"
+          },
+          "alias" : "TRANSACTION_DATE",
+          "_row_id" : "1139702230"
+        }, {
+          "expression" : {
+            "expression" : "SUM(TRANSACTION_AMOUNT)"
+          },
+          "alias" : "TRANSACTION_AMOUNT",
+          "_row_id" : "505410177"
+        }, {
+          "expression" : {
+            "expression" : "DATEDIFF(DAY, MAX(ORDER_DATE), CURRENT_DATE)"
+          },
+          "alias" : "recency",
+          "_row_id" : "439003160"
+        }, {
+          "expression" : {
+            "expression" : "COUNT(DISTINCT ORDER_ID)"
+          },
+          "alias" : "frequency",
+          "_row_id" : "1306882980"
+        }, {
+          "expression" : {
+            "expression" : "SUM(ORDER_AMOUNT)"
+          },
+          "alias" : "monetary",
+          "_row_id" : "2049571317"
+        } ],
+        "allowSelection" : true,
+        "condition" : {
+          "expression" : ""
+        },
+        "activeTab" : "aggregate",
+        "columnsSelector" : [ ],
+        "groupBy" : [ {
+          "expression" : {
+            "expression" : "CUSTOMER_ID"
+          },
+          "_row_id" : "196145965"
+        }, {
+          "expression" : {
+            "expression" : "SIGNUP_DATE"
+          },
+          "_row_id" : "1003815148"
+        }, {
+          "expression" : {
+            "expression" : "EMAIL"
+          },
+          "_row_id" : "1979271149"
+        }, {
+          "expression" : {
+            "expression" : "ZIP_CODE"
+          },
+          "_row_id" : "1413747506"
+        }, {
+          "expression" : {
+            "expression" : "REGION"
+          },
+          "_row_id" : "949885809"
+        }, {
+          "expression" : {
+            "expression" : "PREFERRED_CHANNEL"
+          },
+          "_row_id" : "1061005843"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "IAQNdZ4P",
+          "slug" : "customer_order_sales_join"
+        } ],
+        "outputs" : [ {
+          "id" : "XUOMVqBT",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "conn_rfm_score_assign##F4WyQobm_rfm_score_assignment_oJtlqeId",
+    "source" : "rfm_score_assign##F4WyQobm",
+    "sourcePort" : "oJtlqeId",
+    "target" : "rfm_score_assignment_oJtlqeId",
+    "targetPort" : "input_port_0"
+  }, {
+    "id" : "UwNmpOEX",
+    "source" : "rfm_metrics_calc##oxrpoxqr",
+    "sourcePort" : "XUOMVqBT",
+    "target" : "rfm_score_assign##F4WyQobm",
+    "targetPort" : "Ovz4IKpc"
+  }, {
+    "id" : "W37Q7qw3",
+    "source" : "customer_order_s##bJOpVzL3",
+    "sourcePort" : "ysWgTbot",
+    "target" : "rfm_metrics_calc##oxrpoxqr",
+    "targetPort" : "IAQNdZ4P"
+  }, {
+    "id" : "LppbddZr",
+    "source" : "crm_customers##OKgDRBg6",
+    "sourcePort" : "xLYEQOnf",
+    "target" : "customer_order_s##bJOpVzL3",
+    "targetPort" : "uNAlXsS2"
+  }, {
+    "id" : "QVu6J5mo",
+    "source" : "ecomm_orders##WvOBEg0N",
+    "sourcePort" : "rHSYVetC",
+    "target" : "customer_order_s##bJOpVzL3",
+    "targetPort" : "RKNze2Np"
+  }, {
+    "id" : "bRxjMojC",
+    "source" : "instore_sales##GU8Y6aaW",
+    "sourcePort" : "BxuVWiJU",
+    "target" : "customer_order_s##bJOpVzL3",
+    "targetPort" : "GKD7H8li"
+  } ],
+  "component" : "Model"
+}

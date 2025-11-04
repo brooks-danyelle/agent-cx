@@ -78,8 +78,64 @@ rfm_metrics_calculation AS (
   GROUP BY 
     CUSTOMER_ID, SIGNUP_DATE, EMAIL, ZIP_CODE, REGION, PREFERRED_CHANNEL
 
+),
+
+rfm_score_assignment AS (
+
+  SELECT 
+    CUSTOMER_ID,
+    SIGNUP_DATE,
+    EMAIL,
+    ZIP_CODE,
+    REGION,
+    PREFERRED_CHANNEL,
+    ORDER_ID,
+    ORDER_DATE,
+    ORDER_AMOUNT,
+    TRANSACTION_ID,
+    TRANSACTION_DATE,
+    TRANSACTION_AMOUNT,
+    recency AS RECENCY,
+    frequency AS FREQUENCY,
+    monetary AS MONETARY,
+    CASE
+      WHEN recency <= 30
+        THEN 5
+      WHEN recency <= 60
+        THEN 4
+      WHEN recency <= 90
+        THEN 3
+      WHEN recency <= 120
+        THEN 2
+      ELSE 1
+    END AS RECENCY_SCORE,
+    CASE
+      WHEN frequency >= 10
+        THEN 5
+      WHEN frequency >= 7
+        THEN 4
+      WHEN frequency >= 5
+        THEN 3
+      WHEN frequency >= 3
+        THEN 2
+      ELSE 1
+    END AS FREQUENCY_SCORE,
+    CASE
+      WHEN monetary >= 1000
+        THEN 5
+      WHEN monetary >= 750
+        THEN 4
+      WHEN monetary >= 500
+        THEN 3
+      WHEN monetary >= 250
+        THEN 2
+      ELSE 1
+    END AS MONETARY_SCORE
+  
+  FROM rfm_metrics_calculation
+
 )
 
 SELECT *
 
-FROM rfm_metrics_calculation
+FROM rfm_score_assignment
