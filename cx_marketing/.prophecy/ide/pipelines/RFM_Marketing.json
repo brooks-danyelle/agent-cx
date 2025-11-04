@@ -13,6 +13,274 @@
     "isTranspiledPipeline" : false
   },
   "processes" : {
+    "customer_order_s##Yl9iDQ08" : {
+      "id" : "customer_order_s##Yl9iDQ08",
+      "component" : "Join",
+      "metadata" : {
+        "label" : "customer_order_sales_data",
+        "x" : -280,
+        "y" : -120,
+        "phase" : 0
+      },
+      "properties" : {
+        "conditions" : [ {
+          "alias" : "ecomm_orders",
+          "expression" : {
+            "expression" : "crm_customers.customer_id = ecomm_orders.customer_id"
+          },
+          "joinType" : "LEFT"
+        }, {
+          "alias" : "instore_sales",
+          "expression" : {
+            "expression" : "crm_customers.customer_id = instore_sales.customer_id"
+          },
+          "joinType" : "LEFT"
+        } ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "crm_customers.customer_id"
+          },
+          "alias" : "CUSTOMER_ID",
+          "_row_id" : "1817595961"
+        }, {
+          "expression" : {
+            "expression" : "crm_customers.signup_date"
+          },
+          "alias" : "SIGNUP_DATE",
+          "_row_id" : "291559126"
+        }, {
+          "expression" : {
+            "expression" : "crm_customers.email"
+          },
+          "alias" : "EMAIL",
+          "_row_id" : "1677030097"
+        }, {
+          "expression" : {
+            "expression" : "crm_customers.zip_code"
+          },
+          "alias" : "ZIP_CODE",
+          "_row_id" : "346649518"
+        }, {
+          "expression" : {
+            "expression" : "crm_customers.region"
+          },
+          "alias" : "REGION",
+          "_row_id" : "119435626"
+        }, {
+          "expression" : {
+            "expression" : "crm_customers.preferred_channel"
+          },
+          "alias" : "PREFERRED_CHANNEL",
+          "_row_id" : "1724973203"
+        }, {
+          "expression" : {
+            "expression" : "ecomm_orders.order_id"
+          },
+          "alias" : "ORDER_ID",
+          "_row_id" : "652113843"
+        }, {
+          "expression" : {
+            "expression" : "ecomm_orders.order_date"
+          },
+          "alias" : "ORDER_DATE",
+          "_row_id" : "1415724346"
+        }, {
+          "expression" : {
+            "expression" : "ecomm_orders.order_amount"
+          },
+          "alias" : "ORDER_AMOUNT",
+          "_row_id" : "1024643623"
+        }, {
+          "expression" : {
+            "expression" : "instore_sales.transaction_id"
+          },
+          "alias" : "TRANSACTION_ID",
+          "_row_id" : "1821602120"
+        }, {
+          "expression" : {
+            "expression" : "instore_sales.transaction_date"
+          },
+          "alias" : "TRANSACTION_DATE",
+          "_row_id" : "2046191902"
+        }, {
+          "expression" : {
+            "expression" : "instore_sales.transaction_amount"
+          },
+          "alias" : "TRANSACTION_AMOUNT",
+          "_row_id" : "311558919"
+        } ],
+        "activeTab" : "conditions",
+        "columnsSelector" : [ ],
+        "headAlias" : "crm_customers"
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "UeqEIFzY",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "signup_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "email",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "zip_code",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "region",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "preferred_channel",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "crm_customers"
+        }, {
+          "id" : "DWqvWIqr",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "order_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "order_amount",
+              "dataType" : {
+                "type" : "Double"
+              }
+            } ]
+          },
+          "slug" : "ecomm_orders"
+        }, {
+          "id" : "B772h5jD",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "transaction_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "transaction_date",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "transaction_amount",
+              "dataType" : {
+                "type" : "Double"
+              }
+            } ]
+          },
+          "slug" : "instore_sales"
+        } ],
+        "outputs" : [ {
+          "id" : "H2M596rw",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "CUSTOMER_ID",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "SIGNUP_DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "EMAIL",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ZIP_CODE",
+              "dataType" : {
+                "type" : "Bigint"
+              }
+            }, {
+              "name" : "REGION",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "PREFERRED_CHANNEL",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ORDER_ID",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "ORDER_DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "ORDER_AMOUNT",
+              "dataType" : {
+                "type" : "Double"
+              }
+            }, {
+              "name" : "TRANSACTION_ID",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "TRANSACTION_DATE",
+              "dataType" : {
+                "type" : "Date"
+              }
+            }, {
+              "name" : "TRANSACTION_AMOUNT",
+              "dataType" : {
+                "type" : "Double"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
     "instore_sales##GU8Y6aaW" : {
       "id" : "instore_sales##GU8Y6aaW",
       "component" : "Dataset",
@@ -32,7 +300,7 @@
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "BxuVWiJU",
+          "id" : "p06T8whU",
           "schema" : {
             "entityType" : "",
             "providerType" : "databricks",
@@ -61,11 +329,10 @@
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false
-      },
-      "index" : 0
+      }
     },
-    "kFqsrQuK0akHLA3f6o6JF" : {
-      "id" : "kFqsrQuK0akHLA3f6o6JF",
+    "crm_customers##nKmkMBzD" : {
+      "id" : "crm_customers##nKmkMBzD",
       "component" : "Dataset",
       "metadata" : {
         "label" : "crm_customers",
@@ -85,12 +352,9 @@
         }
       },
       "ports" : {
-        "inputs" : [ {
-          "id" : "TIpEM6rAiwiih2z7rCiDC",
-          "slug" : "in"
-        } ],
+        "inputs" : [ ],
         "outputs" : [ {
-          "id" : "ZR1UcQmDUqZ4gJXYz27sJ",
+          "id" : "azcr34GC",
           "schema" : {
             "entityType" : "",
             "providerType" : "databricks",
@@ -129,10 +393,11 @@
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false
-      }
+      },
+      "index" : 1
     },
-    "ecomm_orders##WvOBEg0N" : {
-      "id" : "ecomm_orders##WvOBEg0N",
+    "ecomm_orders##aEnzwsXe" : {
+      "id" : "ecomm_orders##aEnzwsXe",
       "component" : "Dataset",
       "metadata" : {
         "label" : "ecomm_orders",
@@ -150,7 +415,7 @@
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "rHSYVetC",
+          "id" : "eOb3nf3K",
           "schema" : {
             "entityType" : "",
             "providerType" : "databricks",
@@ -180,7 +445,7 @@
         } ],
         "isCustomOutputSchema" : false
       },
-      "index" : 1
+      "index" : 2
     },
     "ro_M5cUVNl1ezkdvmmlZh$$sviwaPPVi5O_yufKzs8TL" : {
       "id" : "ro_M5cUVNl1ezkdvmmlZh$$sviwaPPVi5O_yufKzs8TL",
@@ -203,6 +468,24 @@
       }
     }
   },
-  "connections" : [ ],
+  "connections" : [ {
+    "id" : "EFGfkmBt",
+    "source" : "crm_customers##nKmkMBzD",
+    "sourcePort" : "azcr34GC",
+    "target" : "customer_order_s##Yl9iDQ08",
+    "targetPort" : "UeqEIFzY"
+  }, {
+    "id" : "gNUqFLy4",
+    "source" : "ecomm_orders##aEnzwsXe",
+    "sourcePort" : "eOb3nf3K",
+    "target" : "customer_order_s##Yl9iDQ08",
+    "targetPort" : "DWqvWIqr"
+  }, {
+    "id" : "zwoMnpH4",
+    "source" : "instore_sales##GU8Y6aaW",
+    "sourcePort" : "p06T8whU",
+    "target" : "customer_order_s##Yl9iDQ08",
+    "targetPort" : "B772h5jD"
+  } ],
   "component" : "Pipeline"
 }
