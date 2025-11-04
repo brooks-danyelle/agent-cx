@@ -52,8 +52,16 @@ customer_activity_overview AS (
   LEFT JOIN instore_sales
      ON crm_customers.customer_id = instore_sales.customer_id
 
+),
+
+Reformat_1 AS (
+
+  SELECT * 
+  
+  FROM customer_activity_overview
+
 )
 
 SELECT *
 
-FROM customer_activity_overview
+FROM Reformat_1

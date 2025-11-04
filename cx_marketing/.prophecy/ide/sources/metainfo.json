@@ -17,8 +17,13 @@
   "dependenciesContainer" : {
     "dependencies" : { },
     "prophecyProjectDependencies" : {
-      "https://github.com/prophecy-io/databricks-sql-basics" : "45117",
+      "https://github.com/prophecy-io/prophecy-basics" : "78064",
       "https://github.com/prophecy-io/databricks-sql-spatial" : "47593"
+    },
+    "dependenciesMetadata" : {
+      "https://github.com/prophecy-io/prophecy-basics" : {
+        "autoUpgrade" : true
+      }
     }
   },
   "entitiesToSync" : [ ],

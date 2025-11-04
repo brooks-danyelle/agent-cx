@@ -1,7 +1,7 @@
 {
-  "id" : "RFM_Marketing__customer_activity_overview",
+  "id" : "RFM_Marketing__Reformat_1",
   "metainfo" : {
-    "label" : "RFM_Marketing__customer_activity_overview",
+    "label" : "RFM_Marketing__Reformat_1",
     "autoLayout" : true,
     "staleState" : "none",
     "sourceSuggestions" : {
@@ -18,31 +18,27 @@
     "version" : 3
   },
   "processes" : {
-    "customer_activity_overview_aO8DmhRN" : {
-      "id" : "customer_activity_overview_aO8DmhRN",
-      "component" : "TargetModel",
+    "hRiEgrUzAyOLPjDPvHgqr$$2jaVngurvSmldCKAkKLEh" : {
+      "id" : "hRiEgrUzAyOLPjDPvHgqr$$2jaVngurvSmldCKAkKLEh",
+      "component" : "Reformat",
       "metadata" : {
-        "label" : "customer_activity_overview"
+        "label" : "Reformat_1",
+        "x" : -80,
+        "y" : -100,
+        "phase" : 0
       },
       "properties" : {
-        "customQueryDisabled" : true,
-        "customQuery" : false,
-        "incrementalEditorDisabled" : true,
-        "query" : "\nSELECT *\n\nFROM customer_activity_overview\n\n",
-        "isModel" : true,
-        "incrementalKey" : false,
-        "incremental" : {
-          "expression" : "true"
-        }
+        "columnsSelector" : [ ],
+        "expressions" : [ ]
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "input_port_0",
-          "slug" : "input_port_0"
+          "id" : "hDPJdTvdkBH8C1-g3XJD2$$BrGPYHJaMtBsX2mWgenta",
+          "slug" : "customer_activity_overview"
         } ],
         "outputs" : [ {
-          "id" : "output_port_0",
-          "slug" : "output_port_0"
+          "id" : "XW9yW7y-zL9ngYdNpY7jF$$H7-FUtTN7gPIgB9ZZ4nVY",
+          "slug" : "out"
         } ],
         "isCustomOutputSchema" : false,
         "autoUpdateOnRun" : false
@@ -171,7 +167,7 @@
           "_row_id" : "1489051129"
         } ],
         "activeTab" : "conditions",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "t2CQqw6Y##customer_id", "o5GoDph2##customer_id", "j3r5jHM1##customer_id", "t2CQqw6Y##customer_id", "t2CQqw6Y##signup_date", "t2CQqw6Y##email", "t2CQqw6Y##zip_code", "t2CQqw6Y##region", "t2CQqw6Y##preferred_channel", "o5GoDph2##order_id", "o5GoDph2##order_date", "o5GoDph2##order_amount", "j3r5jHM1##transaction_id", "j3r5jHM1##transaction_date", "j3r5jHM1##transaction_amount" ],
         "headAlias" : "crm_customers"
       },
       "ports" : {
@@ -188,6 +184,36 @@
         "outputs" : [ {
           "id" : "aO8DmhRN",
           "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "Reformat_1_XW9yW7y-zL9ngYdNpY7jF$$H7-FUtTN7gPIgB9ZZ4nVY" : {
+      "id" : "Reformat_1_XW9yW7y-zL9ngYdNpY7jF$$H7-FUtTN7gPIgB9ZZ4nVY",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "Reformat_1"
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "\nSELECT *\n\nFROM Reformat_1\n\n",
+        "isModel" : true,
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "input_port_0",
+          "slug" : "input_port_0"
+        } ],
+        "outputs" : [ {
+          "id" : "output_port_0",
+          "slug" : "output_port_0"
         } ],
         "isCustomOutputSchema" : false,
         "autoUpdateOnRun" : false
@@ -247,11 +273,17 @@
     }
   },
   "connections" : [ {
-    "id" : "conn_customer_activit##LJH9MSLT_customer_activity_overview_aO8DmhRN",
+    "id" : "conn_hRiEgrUzAyOLPjDPvHgqr$$2jaVngurvSmldCKAkKLEh_Reformat_1_XW9yW7y-zL9ngYdNpY7jF$$H7-FUtTN7gPIgB9ZZ4nVY",
+    "source" : "hRiEgrUzAyOLPjDPvHgqr$$2jaVngurvSmldCKAkKLEh",
+    "sourcePort" : "XW9yW7y-zL9ngYdNpY7jF$$H7-FUtTN7gPIgB9ZZ4nVY",
+    "target" : "Reformat_1_XW9yW7y-zL9ngYdNpY7jF$$H7-FUtTN7gPIgB9ZZ4nVY",
+    "targetPort" : "input_port_0"
+  }, {
+    "id" : "1puHXcIVXvaXplkbliwc8$$nSM5tFn9cbjD5HwQ08jAH",
     "source" : "customer_activit##LJH9MSLT",
     "sourcePort" : "aO8DmhRN",
-    "target" : "customer_activity_overview_aO8DmhRN",
-    "targetPort" : "input_port_0"
+    "target" : "hRiEgrUzAyOLPjDPvHgqr$$2jaVngurvSmldCKAkKLEh",
+    "targetPort" : "hDPJdTvdkBH8C1-g3XJD2$$BrGPYHJaMtBsX2mWgenta"
   }, {
     "id" : "DHhwPtSa",
     "source" : "crm_customers##v7P7rbml",

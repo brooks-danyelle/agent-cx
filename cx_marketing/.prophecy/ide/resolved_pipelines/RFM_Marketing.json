@@ -13,34 +13,34 @@
     "isTranspiledPipeline" : false
   },
   "processes" : {
-    "customer_activit##LJH9MSLT" : {
-      "id" : "customer_activit##LJH9MSLT",
+    "hRiEgrUzAyOLPjDPvHgqr$$2jaVngurvSmldCKAkKLEh" : {
+      "id" : "hRiEgrUzAyOLPjDPvHgqr$$2jaVngurvSmldCKAkKLEh",
       "component" : "Model",
       "metadata" : {
-        "label" : "RFM_Marketing__customer_activity_overview",
+        "label" : "RFM_Marketing__Reformat_1",
         "phase" : 0
       },
       "properties" : {
-        "modelName" : "RFM_Marketing__customer_activity_overview"
+        "modelName" : "RFM_Marketing__Reformat_1"
       },
       "visualMetaInfo" : {
-        "visualProcessIds" : [ "customer_activity_overview_aO8DmhRN", "customer_activit##LJH9MSLT", "crm_customers##v7P7rbml", "gq6nQRkkh-ooZlck3pqO1", "instore_sales##s5d9cFh3" ],
+        "visualProcessIds" : [ "Reformat_1_XW9yW7y-zL9ngYdNpY7jF$$H7-FUtTN7gPIgB9ZZ4nVY", "hRiEgrUzAyOLPjDPvHgqr$$2jaVngurvSmldCKAkKLEh", "customer_activit##LJH9MSLT", "crm_customers##v7P7rbml", "gq6nQRkkh-ooZlck3pqO1", "instore_sales##s5d9cFh3" ],
         "type" : "ephemeral",
         "isTemporaryTable" : true
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "RFM_Marketing__customer_activity_overview_in_0",
+          "id" : "RFM_Marketing__Reformat_1_in_0",
           "slug" : "in_0"
         }, {
-          "id" : "RFM_Marketing__customer_activity_overview_in_1",
+          "id" : "RFM_Marketing__Reformat_1_in_1",
           "slug" : "in_1"
         }, {
-          "id" : "RFM_Marketing__customer_activity_overview_in_2",
+          "id" : "RFM_Marketing__Reformat_1_in_2",
           "slug" : "in_2"
         } ],
         "outputs" : [ {
-          "id" : "RFM_Marketing__customer_activity_overview_out_0",
+          "id" : "RFM_Marketing__Reformat_1_out_0",
           "slug" : "out_0"
         } ],
         "isCustomOutputSchema" : false
