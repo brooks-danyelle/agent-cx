@@ -6,15 +6,7 @@
   })
 }}
 
-WITH ecomm_orders AS (
-
-  SELECT * 
-  
-  FROM {{ source('danyelle.retail', 'ecomm_orders') }}
-
-),
-
-crm_customers AS (
+WITH crm_customers AS (
 
   SELECT * 
   
@@ -27,6 +19,14 @@ instore_sales AS (
   SELECT * 
   
   FROM {{ source('danyelle.retail', 'instore_sales') }}
+
+),
+
+ecomm_orders AS (
+
+  SELECT * 
+  
+  FROM {{ source('danyelle.retail', 'ecomm_orders') }}
 
 ),
 
@@ -87,8 +87,64 @@ customer_rfm_analysis AS (
   
   FROM customer_data_joined
 
+),
+
+customer_rfm_scores AS (
+
+  SELECT 
+    CUSTOMER_ID,
+    SIGNUP_DATE,
+    EMAIL,
+    ZIP_CODE,
+    REGION,
+    PREFERRED_CHANNEL,
+    INSTORE_TRANSACTION_ID,
+    INSTORE_TRANSACTION_DATE,
+    INSTORE_TRANSACTION_AMOUNT,
+    ECOMM_ORDER_ID,
+    ECOMM_ORDER_DATE,
+    ECOMM_ORDER_AMOUNT,
+    RECENCY,
+    FREQUENCY,
+    MONETARY,
+    CASE
+      WHEN RECENCY <= 30
+        THEN 5
+      WHEN RECENCY <= 60
+        THEN 4
+      WHEN RECENCY <= 90
+        THEN 3
+      WHEN RECENCY <= 120
+        THEN 2
+      ELSE 1
+    END AS RECENCY_SCORE,
+    CASE
+      WHEN FREQUENCY >= 10
+        THEN 5
+      WHEN FREQUENCY >= 7
+        THEN 4
+      WHEN FREQUENCY >= 4
+        THEN 3
+      WHEN FREQUENCY >= 2
+        THEN 2
+      ELSE 1
+    END AS FREQUENCY_SCORE,
+    CASE
+      WHEN MONETARY >= 1000
+        THEN 5
+      WHEN MONETARY >= 750
+        THEN 4
+      WHEN MONETARY >= 500
+        THEN 3
+      WHEN MONETARY >= 250
+        THEN 2
+      ELSE 1
+    END AS MONETARY_SCORE
+  
+  FROM customer_rfm_analysis
+
 )
 
 SELECT *
 
-FROM customer_rfm_analysis
+FROM customer_rfm_scores
