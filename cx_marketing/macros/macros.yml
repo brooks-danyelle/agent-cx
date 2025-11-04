@@ -5,3 +5,6 @@ macros:
   description: "Flag to be used for RFM segmentation "
   arguments: []
   macroType: "expression"
+- name: "masking"
+  arguments: []
+  macroType: "expression"
