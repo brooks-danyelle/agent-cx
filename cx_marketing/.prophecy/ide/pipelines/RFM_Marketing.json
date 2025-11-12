@@ -604,12 +604,12 @@
         "label" : "Comment_1",
         "x" : -540,
         "y" : -620,
-        "height" : 247.9999542236328,
+        "height" : 211.9999542236328,
         "width" : 1116,
         "phase" : 0
       },
       "properties" : {
-        "comment" : "1. **Calculate RFM Metrics**:- **Recency**: Calculate the number of days since the customer's last purchase.\n- **Frequency**: Count the total number of purchases made by each customer.\n- **Monetary Value**: Sum the total amount spent by each customer.\n2. **Score Assignment**: Assign scores to each RFM metric. Typically, you divide customers into quintiles or deciles, with higher scores indicating better performance.\n3. **Customer Segmentation**: Combine the RFM scores to segment customers into different categories, such as \"Champions,\" \"Loyal Customers,\" \"At Risk,\" etc.\n4. **Analysis and Action**: Analyze the segments to understand customer behavior and develop targeted marketing strategies.",
+        "comment" : "1. **Calculate RFM Metrics**: **Recency**: Calculate the number of days since the customer's last purchase.\n\n- **Frequency**: Count the total number of purchases made by each customer.\n- **Monetary Value**: Sum the total amount spent by each customer.\n\n1. **Score Assignment**: Assign scores to each RFM metric. Typically, you divide customers into quintiles or deciles, with higher scores indicating better performance.\n2. **Customer Segmentation**: Combine the RFM scores to segment customers into different categories, such as \"Champions,\" \"Loyal Customers,\" \"At Risk,\" etc.\n3. **Analysis and Action**: Analyze the segments to understand customer behavior and develop targeted marketing strategies.",
         "connectedNodes" : [ ]
       },
       "ports" : {

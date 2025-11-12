@@ -1,0 +1,171 @@
+{
+  "id" : "cx_orders",
+  "metainfo" : {
+    "label" : "cx_orders",
+    "autoLayout" : false,
+    "version" : 1,
+    "configuration" : {
+      "schema" : {
+        "type" : "record",
+        "fields" : [ ]
+      }
+    },
+    "schedule" : {
+      "cron" : "* 0 2 * * * *",
+      "timeZone" : "GMT",
+      "emailOnSuccess" : false,
+      "emailOnFailure" : false,
+      "emailOnStart" : false,
+      "emails" : [ "email@gmail.com" ],
+      "enabled" : false
+    },
+    "sensorSchedule" : {
+      "enabled" : false,
+      "isDefaultView" : false,
+      "triggers" : { }
+    },
+    "isTranspiledPipeline" : false
+  },
+  "processes" : {
+    "ONOfW2sfgE9qpkg_oP2c8$$rNSEKtDwkyHgADiV4LOjs" : {
+      "id" : "ONOfW2sfgE9qpkg_oP2c8$$rNSEKtDwkyHgADiV4LOjs",
+      "component" : "Dataset",
+      "metadata" : {
+        "label" : "hw_customers",
+        "x" : -420,
+        "y" : -280,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "hw_customers",
+          "sourceType" : "Table",
+          "sourceName" : "danyelle.helloworld",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "YC1GlgNsKgTa0omR2ztqn$$7sTp3i4JIku1nesLjDvqL",
+          "slug" : "in"
+        } ],
+        "outputs" : [ {
+          "id" : "1yF2Ia4cYNxKgzKUCU6-L$$ki1IEKjE45FsU22lb6XQ0",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "first_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "last_name",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "phone",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "email",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "country_code",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "account_open_date",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "account_flags",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "a52w2p3-uJNBfhw_AwlRb$$3Pj8EomA7NCqh3HE4DPn9" : {
+      "id" : "a52w2p3-uJNBfhw_AwlRb$$3Pj8EomA7NCqh3HE4DPn9",
+      "component" : "Dataset",
+      "metadata" : {
+        "label" : "hw_orders",
+        "x" : -420,
+        "y" : -140,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "hw_orders",
+          "sourceType" : "Table",
+          "sourceName" : "danyelle.helloworld",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "XWUPU6ZJHFj4FGefx4gFe$$jqCFEs1rGI1TiMCyn74jP",
+          "slug" : "in"
+        } ],
+        "outputs" : [ {
+          "id" : "iTdHCxhqmrDEwyYMOuA_G$$6bj8nGmiTxKHPNWUxjywl",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "order_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "customer_id",
+              "dataType" : {
+                "type" : "Integer"
+              }
+            }, {
+              "name" : "order_status",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "order_category",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "order_date",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "amount",
+              "dataType" : {
+                "type" : "Double"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    }
+  },
+  "connections" : [ ],
+  "component" : "Pipeline"
+}

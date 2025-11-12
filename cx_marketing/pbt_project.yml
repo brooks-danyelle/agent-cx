@@ -57,6 +57,74 @@ sqlMacros:
     createdAt: '2025-10-06 20:04:54'
 sqlSeeds: {}
 sqlSources:
+  .prophecy/metadata/sqlsources/danyelle_helloworld:
+    name: danyelle.helloworld
+    description: null
+    author: brooks.danyelle@prophecy.io
+    files:
+    - prophecy-sources/sources.yml
+    createdAt: '2025-11-12 15:42:24'
+    tables:
+    - name: hw_customers
+      schema:
+        entityType: ''
+        providerType: databricks
+        fields:
+        - name: customer_id
+          dataType:
+            type: Integer
+        - name: first_name
+          dataType:
+            type: String
+        - name: last_name
+          dataType:
+            type: String
+        - name: phone
+          dataType:
+            type: String
+        - name: email
+          dataType:
+            type: String
+        - name: country_code
+          dataType:
+            type: String
+        - name: account_open_date
+          dataType:
+            type: String
+        - name: account_flags
+          dataType:
+            type: String
+      description: null
+      author: brooks.danyelle@prophecy.io
+      createdAt: '2025-11-12 15:42:24'
+      tableType: table
+    - name: hw_orders
+      schema:
+        entityType: ''
+        providerType: databricks
+        fields:
+        - name: order_id
+          dataType:
+            type: Integer
+        - name: customer_id
+          dataType:
+            type: Integer
+        - name: order_status
+          dataType:
+            type: String
+        - name: order_category
+          dataType:
+            type: String
+        - name: order_date
+          dataType:
+            type: String
+        - name: amount
+          dataType:
+            type: Double
+      description: null
+      author: brooks.danyelle@prophecy.io
+      createdAt: '2025-11-12 15:42:36'
+      tableType: table
   .prophecy/metadata/sqlsources/danyelle_retail:
     name: danyelle.retail
     description: null
@@ -259,4 +327,22 @@ sqlOrchestratorPipelines:
     - .prophecy/ide/pipelines/RFM_Marketing.json
     - pipelines/RFM_Marketing.py
     createdAt: '2025-10-06 20:06:18'
+  .prophecy/metadata/sqlorchestratorpipeline/cx_orders:
+    name: cx_orders
+    schema: null
+    description: null
+    author: brooks.danyelle@prophecy.io
+    files:
+    - .prophecy/ide/pipelines/cx_orders.json
+    - pipelines/cx_orders.py
+    createdAt: '2025-11-12 15:41:51'
+  .prophecy/metadata/sqlorchestratorpipeline/RFM_analysis:
+    name: RFM_analysis
+    schema: null
+    description: null
+    author: brooks.danyelle@prophecy.io
+    files:
+    - .prophecy/ide/pipelines/RFM_analysis.json
+    - pipelines/RFM_analysis.py
+    createdAt: '2025-11-12 15:55:03'
 sqlBusinessApps: {}

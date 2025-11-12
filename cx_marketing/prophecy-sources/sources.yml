@@ -159,3 +159,55 @@ sources:
       dataType:
         type: "String"
     type: "table"
+- name: "danyelle.helloworld"
+  database: "danyelle"
+  schema: "helloworld"
+  tables:
+  - name: "hw_customers"
+    columns:
+    - name: "customer_id"
+      dataType:
+        type: "Integer"
+    - name: "first_name"
+      dataType:
+        type: "String"
+    - name: "last_name"
+      dataType:
+        type: "String"
+    - name: "phone"
+      dataType:
+        type: "String"
+    - name: "email"
+      dataType:
+        type: "String"
+    - name: "country_code"
+      dataType:
+        type: "String"
+    - name: "account_open_date"
+      dataType:
+        type: "String"
+    - name: "account_flags"
+      dataType:
+        type: "String"
+    type: "table"
+  - name: "hw_orders"
+    columns:
+    - name: "order_id"
+      dataType:
+        type: "Integer"
+    - name: "customer_id"
+      dataType:
+        type: "Integer"
+    - name: "order_status"
+      dataType:
+        type: "String"
+    - name: "order_category"
+      dataType:
+        type: "String"
+    - name: "order_date"
+      dataType:
+        type: "String"
+    - name: "amount"
+      dataType:
+        type: "Double"
+    type: "table"
