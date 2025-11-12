@@ -99,7 +99,8 @@ sources:
       dataType:
         type: "String"
     - name: "PREFERRED_CHANNEL"
-      description: "The customer's most favored communication or purchase channel."
+      description: "The customer's favored method of communication or shopping, such\
+        \ as online or in-store."
       dataType:
         type: "String"
     - name: "ORDER_ID"
@@ -107,11 +108,12 @@ sources:
       dataType:
         type: "String"
     - name: "ORDER_DATE"
-      description: "The date on which the customer placed the order."
+      description: "The date on which the customer placed the order; Date is in YYYY-MM-DD\
+        \ format."
       dataType:
         type: "Date"
     - name: "ORDER_AMOUNT"
-      description: "The total monetary value of the customer's order."
+      description: "Total monetary value of the customer's order."
       dataType:
         type: "Double"
     - name: "TRANSACTION_ID"
@@ -119,43 +121,46 @@ sources:
       dataType:
         type: "String"
     - name: "TRANSACTION_DATE"
-      description: "Date when the transaction occurred; Date is in YYYY-MM-DD format."
+      description: "Date when the transaction was made; Date is in YYYY-MM-DD format."
       dataType:
         type: "Date"
     - name: "TRANSACTION_AMOUNT"
       description: "Total amount of money involved in the transaction."
       dataType:
         type: "Double"
-    - name: "RECENCY"
-      description: "Number of days since the customer's last transaction."
+    - name: "recency"
+      description: "Number of days since the last transaction, indicating how recently\
+        \ a customer has transacted."
       dataType:
         type: "Bigint"
-    - name: "FREQUENCY"
-      description: "Total number of transactions made by the customer."
+    - name: "frequency"
+      description: "Total number of transactions made by the customer, indicating\
+        \ how often they transact."
       dataType:
         type: "Bigint"
-    - name: "MONETARY"
-      description: "Total amount spent by the customer across all transactions."
+    - name: "monetary"
+      description: "Total spending by the customer, indicating the overall value of\
+        \ their transactions."
       dataType:
         type: "Double"
-    - name: "RECENCY_SCORE"
+    - name: "recency_score"
       description: "Score indicating how recently a customer made a purchase, with\
         \ higher scores for more recent activity."
       dataType:
         type: "Integer"
-    - name: "FREQUENCY_SCORE"
-      description: "Score representing how often a customer makes purchases, with\
-        \ higher scores for more frequent transactions."
+    - name: "monetary_score"
+      description: "Score representing the total spending of a customer, with higher\
+        \ scores for greater spending."
       dataType:
         type: "Integer"
-    - name: "MONETARY_SCORE"
-      description: "Score reflecting the amount a customer spends, with higher scores\
-        \ for greater spending."
+    - name: "frequency_score"
+      description: "Score reflecting how often a customer makes purchases, with higher\
+        \ scores for more frequent transactions."
       dataType:
         type: "Integer"
-    - name: "RFM_SEGMENT"
-      description: "Categorization of customers based on their recency, frequency,\
-        \ and monetary scores for targeted marketing."
+    - name: "RFM_flag"
+      description: "Categorical label derived from RFM analysis, indicating the customer's\
+        \ segment based on recency, frequency, and monetary scores."
       dataType:
         type: "String"
     type: "table"

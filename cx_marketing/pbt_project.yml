@@ -261,25 +261,25 @@ sqlSources:
         - name: TRANSACTION_AMOUNT
           dataType:
             type: Double
-        - name: RECENCY
+        - name: recency
           dataType:
             type: Bigint
-        - name: FREQUENCY
+        - name: frequency
           dataType:
             type: Bigint
-        - name: MONETARY
+        - name: monetary
           dataType:
             type: Double
-        - name: RECENCY_SCORE
+        - name: recency_score
           dataType:
             type: Integer
-        - name: FREQUENCY_SCORE
+        - name: monetary_score
           dataType:
             type: Integer
-        - name: MONETARY_SCORE
+        - name: frequency_score
           dataType:
             type: Integer
-        - name: RFM_SEGMENT
+        - name: RFM_flag
           dataType:
             type: String
       description: Customer purchase behavior data used for segmentation, aiding in
@@ -316,17 +316,6 @@ flags:
 pipelineConfigurations: {}
 projectConfigurations: {}
 sqlOrchestratorPipelines:
-  .prophecy/metadata/sqlorchestratorpipeline/RFM_Marketing:
-    name: RFM_Marketing
-    schema: null
-    description: null
-    author: brooks.danyelle@prophecy.io
-    files:
-    - models/RFM_Marketing/schema.yml
-    - models/RFM_Marketing/RFM_Marketing__rfm_score_assignment.sql
-    - .prophecy/ide/pipelines/RFM_Marketing.json
-    - pipelines/RFM_Marketing.py
-    createdAt: '2025-10-06 20:06:18'
   .prophecy/metadata/sqlorchestratorpipeline/cx_orders:
     name: cx_orders
     schema: null
@@ -342,9 +331,18 @@ sqlOrchestratorPipelines:
     description: null
     author: brooks.danyelle@prophecy.io
     files:
-    - models/RFM_analysis/schema.yml
-    - models/RFM_analysis/RFM_analysis__customer_order_rfm_analysis.sql
     - .prophecy/ide/pipelines/RFM_analysis.json
     - pipelines/RFM_analysis.py
     createdAt: '2025-11-12 15:55:03'
+  .prophecy/metadata/sqlorchestratorpipeline/RFM_Marketing:
+    name: RFM_Marketing
+    schema: null
+    description: null
+    author: brooks.danyelle@prophecy.io
+    files:
+    - models/RFM_Marketing/schema.yml
+    - models/RFM_Marketing/RFM_Marketing__rfm_score_assignment.sql
+    - .prophecy/ide/pipelines/RFM_Marketing.json
+    - pipelines/RFM_Marketing.py
+    createdAt: '2025-10-06 20:06:18'
 sqlBusinessApps: {}
