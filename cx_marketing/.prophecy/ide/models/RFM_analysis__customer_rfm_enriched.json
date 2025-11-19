@@ -1,17 +1,21 @@
 {
-  "id" : "RFM_analysis",
+  "id" : "RFM_analysis__customer_rfm_enriched",
   "metainfo" : {
-    "label" : "RFM_analysis",
-    "autoLayout" : false,
-    "version" : 1,
-    "configuration" : {
-      "schema" : {
-        "type" : "record",
-        "fields" : [ ]
+    "label" : "RFM_analysis__customer_rfm_enriched",
+    "autoLayout" : true,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "graphConfig" : {
+      "entityConfig" : {
+        "materialized" : "ephemeral",
+        "database" : "\"danyelle\"",
+        "schema" : "\"demo\"",
+        "type" : "ModelConfig"
       }
     },
-    "isTranspiledPipeline" : false,
-    "publishDiagnosticMetrics" : false
+    "version" : 3
   },
   "processes" : {
     "customer_rfm_enr##e6w7tfJk" : {
@@ -129,12 +133,13 @@
           "id" : "rHEnnzni",
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     },
     "ecomm_orders##AHowUpvQ" : {
       "id" : "ecomm_orders##AHowUpvQ",
-      "component" : "Dataset",
+      "component" : "Source",
       "metadata" : {
         "label" : "ecomm_orders",
         "x" : 440,
@@ -158,13 +163,13 @@
           "id" : "ioKhMhEH",
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
-      },
-      "index" : 2
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
     },
     "crm_customers##JEYZFic2" : {
       "id" : "crm_customers##JEYZFic2",
-      "component" : "Dataset",
+      "component" : "Source",
       "metadata" : {
         "label" : "crm_customers",
         "x" : 420,
@@ -188,9 +193,9 @@
           "id" : "p1DWAZMm",
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
-      },
-      "index" : 1
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
     },
     "customer_order_s##SAHwgYqD" : {
       "id" : "customer_order_s##SAHwgYqD",
@@ -307,7 +312,8 @@
           "id" : "nfRSizOL",
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     },
     "rfm_scoring##tBdUGfqF" : {
@@ -371,32 +377,43 @@
           "id" : "iYiPhYrr",
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     },
-    "X5bq7VJgyLoUaz5IqopfM$$v1w3xfb_33PDvMIMaKo39" : {
-      "id" : "X5bq7VJgyLoUaz5IqopfM$$v1w3xfb_33PDvMIMaKo39",
-      "component" : "Comment",
+    "customer_rfm_enriched_rHEnnzni" : {
+      "id" : "customer_rfm_enriched_rHEnnzni",
+      "component" : "TargetModel",
       "metadata" : {
-        "label" : "Comment_0",
-        "x" : 580,
-        "y" : -200,
-        "height" : 292,
-        "width" : 883.9921875,
-        "phase" : 0
+        "label" : "customer_rfm_enriched"
       },
       "properties" : {
-        "comment" : "Analyze customer history to develop targeting marketing strategies with RFM analysis (recency, frequency, and monetary metrics)\n\n- **Recency**: Calculate the number of days since the customer's last purchase.\n- **Frequency**: Count the total number of purchases made by each customer.\n- **Monetary Value**: Sum the total amount spent by each customer.\n\n1. **Score Assignment**: Assign scores to each RFM metric. Typically, you divide customers into quintiles or deciles, with higher scores indicating better performance.\n2. **Customer Segmentation**: Combine the RFM scores to segment customers into different categories, such as \"Champions,\" \"Loyal Customers,\" \"At Risk,\" etc.\n3. **Analysis and Action**: Analyze the segments to understand customer behavior and develop targeted marketing strategies.",
-        "connectedNodes" : [ ]
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "\nSELECT *\n\nFROM customer_rfm_enriched\n\n",
+        "isModel" : true,
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
       },
       "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ ]
+        "inputs" : [ {
+          "id" : "input_port_0",
+          "slug" : "input_port_0"
+        } ],
+        "outputs" : [ {
+          "id" : "output_port_0",
+          "slug" : "output_port_0"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     },
     "instore_sales##DreQqwQW" : {
       "id" : "instore_sales##DreQqwQW",
-      "component" : "Dataset",
+      "component" : "Source",
       "metadata" : {
         "label" : "instore_sales",
         "x" : 440,
@@ -420,9 +437,9 @@
           "id" : "uzsizCmq",
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
-      },
-      "index" : 0
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
     },
     "customer_rfm_agg##rRJpKAwe" : {
       "id" : "customer_rfm_agg##rRJpKAwe",
@@ -480,11 +497,30 @@
           "id" : "yuN0VBgS",
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     }
   },
   "connections" : [ {
+    "id" : "conn_customer_rfm_enr##e6w7tfJk_rHEnnzni_customer_rfm_enriched_rHEnnzni",
+    "source" : "customer_rfm_enr##e6w7tfJk",
+    "sourcePort" : "rHEnnzni",
+    "target" : "customer_rfm_enriched_rHEnnzni",
+    "targetPort" : "input_port_0"
+  }, {
+    "id" : "zWpTSEvp",
+    "source" : "customer_order_s##SAHwgYqD",
+    "sourcePort" : "nfRSizOL",
+    "target" : "customer_rfm_enr##e6w7tfJk",
+    "targetPort" : "UMIwOIBh"
+  }, {
+    "id" : "bmgiK8C8",
+    "source" : "rfm_scoring##tBdUGfqF",
+    "sourcePort" : "iYiPhYrr",
+    "target" : "customer_rfm_enr##e6w7tfJk",
+    "targetPort" : "AFDG8NbA"
+  }, {
     "id" : "zLe1MqTN",
     "source" : "crm_customers##JEYZFic2",
     "sourcePort" : "p1DWAZMm",
@@ -503,29 +539,17 @@
     "target" : "customer_order_s##SAHwgYqD",
     "targetPort" : "cKAreIJC"
   }, {
-    "id" : "PaZGIrpn",
-    "source" : "customer_order_s##SAHwgYqD",
-    "sourcePort" : "nfRSizOL",
-    "target" : "customer_rfm_agg##rRJpKAwe",
-    "targetPort" : "yPJ6PigD"
-  }, {
     "id" : "vBfMqUXs",
     "source" : "customer_rfm_agg##rRJpKAwe",
     "sourcePort" : "yuN0VBgS",
     "target" : "rfm_scoring##tBdUGfqF",
     "targetPort" : "y7iq9Ljn"
   }, {
-    "id" : "zWpTSEvp",
+    "id" : "PaZGIrpn",
     "source" : "customer_order_s##SAHwgYqD",
     "sourcePort" : "nfRSizOL",
-    "target" : "customer_rfm_enr##e6w7tfJk",
-    "targetPort" : "UMIwOIBh"
-  }, {
-    "id" : "bmgiK8C8",
-    "source" : "rfm_scoring##tBdUGfqF",
-    "sourcePort" : "iYiPhYrr",
-    "target" : "customer_rfm_enr##e6w7tfJk",
-    "targetPort" : "AFDG8NbA"
+    "target" : "customer_rfm_agg##rRJpKAwe",
+    "targetPort" : "yPJ6PigD"
   } ],
-  "component" : "Pipeline"
+  "component" : "Model"
 }

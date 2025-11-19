@@ -332,7 +332,7 @@ sqlOrchestratorPipelines:
     author: brooks.danyelle@prophecy.io
     files:
     - models/RFM_analysis/schema.yml
-    - models/RFM_analysis/RFM_analysis__customer_order_sales_join.sql
+    - models/RFM_analysis/RFM_analysis__customer_rfm_enriched.sql
     - .prophecy/ide/pipelines/RFM_analysis.json
     - pipelines/RFM_analysis.py
     createdAt: '2025-11-12 15:55:03'

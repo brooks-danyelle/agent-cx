@@ -10,37 +10,38 @@
         "fields" : [ ]
       }
     },
-    "isTranspiledPipeline" : false
+    "isTranspiledPipeline" : false,
+    "publishDiagnosticMetrics" : false
   },
   "processes" : {
-    "customer_order_s##SAHwgYqD" : {
-      "id" : "customer_order_s##SAHwgYqD",
+    "customer_rfm_enr##e6w7tfJk" : {
+      "id" : "customer_rfm_enr##e6w7tfJk",
       "component" : "Model",
       "metadata" : {
-        "label" : "RFM_analysis__customer_order_sales_join",
+        "label" : "RFM_analysis__customer_rfm_enriched",
         "phase" : 0
       },
       "properties" : {
-        "modelName" : "RFM_analysis__customer_order_sales_join"
+        "modelName" : "RFM_analysis__customer_rfm_enriched"
       },
       "visualMetaInfo" : {
-        "visualProcessIds" : [ "customer_order_sales_join_gX1g4Gcx", "customer_order_s##SAHwgYqD", "crm_customers##YkZu7zjb", "ecomm_orders##zsf8YGxN", "instore_sales##pBXryRM5" ],
+        "visualProcessIds" : [ "customer_rfm_enriched_rHEnnzni", "customer_rfm_enr##e6w7tfJk", "customer_order_s##SAHwgYqD", "crm_customers##JEYZFic2", "ecomm_orders##AHowUpvQ", "instore_sales##DreQqwQW", "rfm_scoring##tBdUGfqF", "customer_rfm_agg##rRJpKAwe" ],
         "type" : "ephemeral",
         "isTemporaryTable" : true
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "RFM_analysis__customer_order_sales_join_in_0",
+          "id" : "RFM_analysis__customer_rfm_enriched_in_0",
           "slug" : "in_0"
         }, {
-          "id" : "RFM_analysis__customer_order_sales_join_in_1",
+          "id" : "RFM_analysis__customer_rfm_enriched_in_1",
           "slug" : "in_1"
         }, {
-          "id" : "RFM_analysis__customer_order_sales_join_in_2",
+          "id" : "RFM_analysis__customer_rfm_enriched_in_2",
           "slug" : "in_2"
         } ],
         "outputs" : [ {
-          "id" : "RFM_analysis__customer_order_sales_join_out_0",
+          "id" : "RFM_analysis__customer_rfm_enriched_out_0",
           "slug" : "out_0"
         } ],
         "isCustomOutputSchema" : false
