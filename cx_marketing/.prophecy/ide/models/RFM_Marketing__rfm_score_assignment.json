@@ -544,7 +544,7 @@
     }
   },
   "connections" : [ {
-    "id" : "conn_rfm_score_assign##qklwO5Cc_rfm_score_assignment_v72w5YNF",
+    "id" : "conn_rfm_score_assign##qklwO5Cc_v72w5YNF_rfm_score_assignment_v72w5YNF",
     "source" : "rfm_score_assign##qklwO5Cc",
     "sourcePort" : "v72w5YNF",
     "target" : "rfm_score_assignment_v72w5YNF",

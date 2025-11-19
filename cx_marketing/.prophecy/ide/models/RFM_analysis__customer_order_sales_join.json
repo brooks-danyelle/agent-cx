@@ -1,21 +1,56 @@
 {
-  "id" : "RFM_analysis",
+  "id" : "RFM_analysis__customer_order_sales_join",
   "metainfo" : {
-    "label" : "RFM_analysis",
-    "autoLayout" : false,
-    "version" : 1,
-    "configuration" : {
-      "schema" : {
-        "type" : "record",
-        "fields" : [ ]
+    "label" : "RFM_analysis__customer_order_sales_join",
+    "autoLayout" : true,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "graphConfig" : {
+      "entityConfig" : {
+        "materialized" : "ephemeral",
+        "database" : "\"danyelle\"",
+        "schema" : "\"demo\"",
+        "type" : "ModelConfig"
       }
     },
-    "isTranspiledPipeline" : false
+    "version" : 3
   },
   "processes" : {
+    "customer_order_sales_join_gX1g4Gcx" : {
+      "id" : "customer_order_sales_join_gX1g4Gcx",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "customer_order_sales_join"
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "\nSELECT *\n\nFROM customer_order_sales_join\n\n",
+        "isModel" : true,
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "input_port_0",
+          "slug" : "input_port_0"
+        } ],
+        "outputs" : [ {
+          "id" : "output_port_0",
+          "slug" : "output_port_0"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
     "instore_sales##pBXryRM5" : {
       "id" : "instore_sales##pBXryRM5",
-      "component" : "Dataset",
+      "component" : "Source",
       "metadata" : {
         "label" : "instore_sales",
         "x" : 420,
@@ -39,12 +74,13 @@
           "id" : "uuDRSHLR",
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     },
     "crm_customers##YkZu7zjb" : {
       "id" : "crm_customers##YkZu7zjb",
-      "component" : "Dataset",
+      "component" : "Source",
       "metadata" : {
         "label" : "crm_customers",
         "x" : 420,
@@ -68,9 +104,9 @@
           "id" : "I2qKnETr",
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
-      },
-      "index" : 2
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
     },
     "customer_order_s##SAHwgYqD" : {
       "id" : "customer_order_s##SAHwgYqD",
@@ -187,32 +223,13 @@
           "id" : "gX1g4Gcx",
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
-      }
-    },
-    "X5bq7VJgyLoUaz5IqopfM$$v1w3xfb_33PDvMIMaKo39" : {
-      "id" : "X5bq7VJgyLoUaz5IqopfM$$v1w3xfb_33PDvMIMaKo39",
-      "component" : "Comment",
-      "metadata" : {
-        "label" : "Comment_0",
-        "x" : 20,
-        "y" : 220,
-        "height" : 292,
-        "width" : 883.9921875,
-        "phase" : 0
-      },
-      "properties" : {
-        "comment" : "Analyze customer history to develop targeting marketing strategies with RFM analysis (recency, frequency, and monetary metrics)\n\n- **Recency**: Calculate the number of days since the customer's last purchase.\n- **Frequency**: Count the total number of purchases made by each customer.\n- **Monetary Value**: Sum the total amount spent by each customer.\n\n1. **Score Assignment**: Assign scores to each RFM metric. Typically, you divide customers into quintiles or deciles, with higher scores indicating better performance.\n2. **Customer Segmentation**: Combine the RFM scores to segment customers into different categories, such as \"Champions,\" \"Loyal Customers,\" \"At Risk,\" etc.\n3. **Analysis and Action**: Analyze the segments to understand customer behavior and develop targeted marketing strategies.",
-        "connectedNodes" : [ ]
-      },
-      "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ ]
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       }
     },
     "ecomm_orders##zsf8YGxN" : {
       "id" : "ecomm_orders##zsf8YGxN",
-      "component" : "Dataset",
+      "component" : "Source",
       "metadata" : {
         "label" : "ecomm_orders",
         "x" : 420,
@@ -236,12 +253,18 @@
           "id" : "wY1lMuJd",
           "slug" : "out"
         } ],
-        "isCustomOutputSchema" : false
-      },
-      "index" : 1
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
     }
   },
   "connections" : [ {
+    "id" : "conn_customer_order_s##SAHwgYqD_gX1g4Gcx_customer_order_sales_join_gX1g4Gcx",
+    "source" : "customer_order_s##SAHwgYqD",
+    "sourcePort" : "gX1g4Gcx",
+    "target" : "customer_order_sales_join_gX1g4Gcx",
+    "targetPort" : "input_port_0"
+  }, {
     "id" : "qXcbo25y",
     "source" : "crm_customers##YkZu7zjb",
     "sourcePort" : "I2qKnETr",
@@ -260,5 +283,5 @@
     "target" : "customer_order_s##SAHwgYqD",
     "targetPort" : "vkz0O7lD"
   } ],
-  "component" : "Pipeline"
+  "component" : "Model"
 }

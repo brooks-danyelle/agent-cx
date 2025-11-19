@@ -51,51 +51,6 @@
         } ],
         "outputs" : [ {
           "id" : "1yF2Ia4cYNxKgzKUCU6-L$$ki1IEKjE45FsU22lb6XQ0",
-          "schema" : {
-            "entityType" : "",
-            "providerType" : "databricks",
-            "fields" : [ {
-              "name" : "customer_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "first_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "last_name",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "phone",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "email",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "country_code",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "account_open_date",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "account_flags",
-              "dataType" : {
-                "type" : "String"
-              }
-            } ]
-          },
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false
@@ -125,41 +80,6 @@
         } ],
         "outputs" : [ {
           "id" : "iTdHCxhqmrDEwyYMOuA_G$$6bj8nGmiTxKHPNWUxjywl",
-          "schema" : {
-            "entityType" : "",
-            "providerType" : "databricks",
-            "fields" : [ {
-              "name" : "order_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "customer_id",
-              "dataType" : {
-                "type" : "Integer"
-              }
-            }, {
-              "name" : "order_status",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "order_category",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "order_date",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "amount",
-              "dataType" : {
-                "type" : "Double"
-              }
-            } ]
-          },
           "slug" : "out"
         } ],
         "isCustomOutputSchema" : false
