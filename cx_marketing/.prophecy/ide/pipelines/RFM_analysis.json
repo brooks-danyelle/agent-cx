@@ -18,8 +18,8 @@
       "component" : "Dataset",
       "metadata" : {
         "label" : "instore_sales",
-        "x" : -420,
-        "y" : 0,
+        "x" : 480,
+        "y" : 420,
         "phase" : 0
       },
       "properties" : {
@@ -48,8 +48,8 @@
       "component" : "Aggregate",
       "metadata" : {
         "label" : "customer_order_rfm_analysis",
-        "x" : -20,
-        "y" : -140,
+        "x" : 1340,
+        "y" : 220,
         "phase" : 0
       },
       "properties" : {
@@ -193,8 +193,8 @@
       "component" : "Dataset",
       "metadata" : {
         "label" : "crm_customers",
-        "x" : -420,
-        "y" : -280,
+        "x" : 480,
+        "y" : 20,
         "phase" : 0
       },
       "properties" : {
@@ -223,8 +223,8 @@
       "component" : "Join",
       "metadata" : {
         "label" : "customer_order_sales_join",
-        "x" : -220,
-        "y" : -140,
+        "x" : 1140,
+        "y" : 220,
         "phase" : 0
       },
       "properties" : {
@@ -341,10 +341,10 @@
       "component" : "Comment",
       "metadata" : {
         "label" : "Comment_0",
-        "x" : 580,
-        "y" : -200,
-        "height" : 292,
-        "width" : 883.9921875,
+        "x" : 20,
+        "y" : 620,
+        "height" : 240,
+        "width" : 1007.9998779296875,
         "phase" : 0
       },
       "properties" : {
@@ -361,8 +361,8 @@
       "component" : "Dataset",
       "metadata" : {
         "label" : "ecomm_orders",
-        "x" : -420,
-        "y" : -140,
+        "x" : 480,
+        "y" : 220,
         "phase" : 0
       },
       "properties" : {
